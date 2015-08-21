@@ -10,9 +10,11 @@
      */
     function clean_then_call($string, callable $callback) {
         // Use the string cleaning procedure we came up with in exercise 1 on $string
+        $string = ucwords(strtolower(trim($string)));
         
+        return $callback($string); 
         // return the result of the $callback function with $string passed in as a parameter
-        
+    
     }
 ?>
 <!DOCTYPE html>
@@ -22,12 +24,21 @@
     <p>
         <?php
             // MD5 is a hashing algorithm that is commonly used to store passwords
-            echo clean_then_call(' jAsOn hUnTeR', 'md5');
+            // echo clean_then_call(' jAsOn hUnTeR', 'md5') . '<br />';
         ?>
     </p>
     <p>
         <?php
-            // Write your own using clean_then_call and a closure to manipulate the string further
+            // Write your own using clean_then_call and closures to manipulate the string further
+           
+            
+            echo clean_then_call('Chuck Pavlick', function($name) {
+                $name = strtoupper($name);
+                $name = strrev($name);
+                
+                return $name;
+                
+            } );
         ?>
     </p>
   </body>

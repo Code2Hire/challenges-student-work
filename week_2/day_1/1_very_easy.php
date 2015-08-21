@@ -13,7 +13,28 @@
 
         <?php
 
-            // code goes here...
+             // code goes here...
+         //function my_range($start, $end, $step = 1) {
+         //    $numbers = array();
+         //    for($i = $start; $i <= $end; $i += $step) {
+         //        array_push($num, $i);
+         //    }
+         //    return $num;
+         //}
+            
+            
+            //or
+            
+            
+            //$t = 0
+            //for($i = 1; $i <= 20; $i++) {
+            //    $t+=$i;
+            //    }
+            //echo $t;
+            
+            //or
+            
+            echo array_sum(range(1, 20));
 
 
         ?>

@@ -22,15 +22,23 @@
             );
             $deck = array();
 
-
+            foreach($suits as $suit) {
+                
+                $suitcards = array();
+                
+                foreach($faces as $key => $face) {
+                    $suitcards[$key . ' of ' . $suit] = $face;
+                }
+                
+                $deck[$suit] = $suitcards;
+                
+            }
             // print here
+            var_dump($deck);
 
-
-            /*
+            
 
         ?>
-
-    </p>
 
     </body>
 </html>

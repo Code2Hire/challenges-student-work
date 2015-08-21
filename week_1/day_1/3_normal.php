@@ -16,7 +16,7 @@
           	$name = 'Eric'; // this came from the previous page as a post variable
 
           	// this came from the db
-			$nameToColorArray = [
+			$nameToColorArray = array(
 	          'Alex' => 'blue',
 	          'Joseph' => 'green',
 	          'James' => 'red',
@@ -26,9 +26,10 @@
 	          'Michael' => 'blue',
 	          'Derek' => 'purple',
 	          'Tru' => 'red',
-	         ];
+	         );
+	         
+	         echo $nameToColorArray['Eric'];
 
-	         // code goes here
           ?>
         </p>
 	</body>

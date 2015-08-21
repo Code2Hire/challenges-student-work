@@ -26,7 +26,23 @@
             <?php
 
 
-                // code goes here ...
+                $div3 = array();
+                $div3and6 = array();
+                for( $i = 1; $i <= 100; $i++) {
+					if ($i % 3 === 0) {
+						array_push($div3, $i);
+						if ($i % 6 === 0) {
+							array_push($div3and6, $i);
+						}
+					}
+                }
+                echo implode(', ', $div3);
+                echo '<br />';
+                echo implode(', ', $div3and6);
+                echo '<br /><br />';
+                echo 'Divisible by 3 = ' . count($div3);
+                echo '<br />';
+                echo 'Divisible by 3 and 6 = ' . count($div3and6);
 
             ?>
         </p>

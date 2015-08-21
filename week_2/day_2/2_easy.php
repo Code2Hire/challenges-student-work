@@ -10,13 +10,19 @@
   <head></head>
   <body>
     <p>
-        <?php
-            echo add(array(1,2,3,4,5));
+        $array = array(1,2,3,4,5);
+            function add($array) {
+                $num = 0;
+                foreach ($array as $integer) {
+                    $num += $integer;
+                }
+                return $num;
+            }
         ?>
     </p>
     <p>
         <?php
-            echo add([6,7,8,9,10]);
+            echo add($array);  
         ?>
     </p>
   </body>

@@ -16,6 +16,17 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+  function build_sorter($key) {
+    return function ($a, $b) use ($key) {
+        return strnatcmp($a[$key], $b[$key]);
+    };
+}
+
+usort($packagesArray, build_sorter('price'));
+
+foreach ($packagesArray as $item) {
+    echo $item['name'] . ', ' . $item['price'] . "<br />";
+}
 ?>
 <!DOCTYPE html>
 <html>

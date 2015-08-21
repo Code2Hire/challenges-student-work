@@ -23,6 +23,38 @@
     // Put your code here!
     ///////////////////////////
 
+    class ShoppingCart {
+        public $items = array();
+        var $beforeTax;
+        var $tax;
+        var $afterTax;
+        
+        public function addItem(Item $item) {
+            $this->items[] = $item;
+        }
+        
+        public function getCostBeforeTax() {
+            foreach ($this->items as $item) {
+                $beforeTax = $item->price + $beforeTax;
+                
+            }
+            return $tax;
+        }
+        public function getCostAfterTax() {
+            $afterTax = ($this->getTaxAmount() + $this->getCostBeforeTax());
+            return $afterTax;
+        }
+    }
+    
+    class Item {
+        public $name;
+        public $price;
+        
+        public function __construct($name, $price) {
+            $this->name = $name;
+            $this->price = $price;
+        }
+    }
 
     $cart = new ShoppingCart();
     $cart->addItem(new Item('Cheap Book', 2.99));
