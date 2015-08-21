@@ -16,9 +16,16 @@
 	<body>
         <p>
           <?php
-            $number = 3 // this came from the previous page as a post variable
+            $number = range(1,10); // this came from the previous page as a post variable
 
-          	// code goes here ...
+          	strval($number);
+          	echo $number;
+          	
+          	if($number > 10){
+          	  echo "Nothing is greater than 10";
+          	}
+          	
+          	
           ?>
         </p>
 	</body>

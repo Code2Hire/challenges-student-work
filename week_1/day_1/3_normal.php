@@ -29,7 +29,11 @@
 	         ];
 
 	         // code goes here
-          ?>
+	         foreach($nameToColorArray as $names => $color){
+	         
+	         	echo $color;
+	         }
+	           ?>
         </p>
 	</body>
 </html>

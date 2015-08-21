@@ -25,6 +25,93 @@
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
+    
+     class Book{
+        public $name;
+        public $price;
+        private $tax = 0;
+        function __construct($name, $price){
+            $this->name = $name;
+            $this->price = $price;
+        }
+        
+        function getTax(){
+            return $this->tax;
+        }
+         
+     }
+     
+     class DVD{
+        public $name;
+        public $price;
+        private $tax = .05;
+        function __construct($name, $price){
+            $this->name = $name;
+            $this->price = $price;
+        }
+        
+        function getTax(){
+            return $this->tax;
+        }
+         
+     }
+     
+     class VideoGame{
+        public $name;
+        public $price;
+        private $tax = .10;
+        function __construct($name, $price){
+            $this->name = $name;
+            $this->price = $price;
+        }
+        
+        function getTax(){
+            return $this->tax;
+        }
+         
+     }
+     
+      class ShoppingCart  {
+        public $items;
+        
+        
+        public function addItem($item){
+           $this->items[] = $item;
+        }
+        
+        public function getCostAfterTax(){
+            $this->total_after_tax = ($this->total_before_tax)+($this->tax);
+            return $this->total_after_tax;
+            
+        }
+        
+        
+        public function getTaxAmount(){
+             $this->tax = ($this->total_before_tax)*(.10);
+            return $this->tax;
+        }
+        
+        public function getCostBeforeTax(){
+            foreach($this->items as $item){
+                $this->total_before_tax += $item->price;
+            }
+            return $this->total_before_tax;
+            
+        }
+        
+        public function removeItem($item){
+            unset($item[]);
+        }
+    }
+    
+    class Item extends ShoppingCart {
+        public $name;
+        public $price;
+        public function __construct($name,$price){
+           return $this->name;
+           return $this->price;
+    }
+}
 
 
     $cart = new ShoppingCart();

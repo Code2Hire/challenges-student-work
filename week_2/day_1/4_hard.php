@@ -26,7 +26,25 @@
             <?php
 
 
+                
                 // code goes here ...
+              
+                $numbers_range = range(1,100);
+                foreach($numbers_range as $numbers){
+                    if($numbers % 3 == 0){
+                        $numbers++;
+                         echo $numbers . ", ";
+                    }
+                }
+                echo "<br />";
+                
+                  for($i = 1; $i <= 100; $i++){
+                    if($i%6 == 0){
+                        $six++;
+                        echo "{$i}, ";
+                    }
+                }
+             print_r($numbers);
 
             ?>
         </p>

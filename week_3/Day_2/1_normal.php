@@ -24,12 +24,17 @@
 
 
             // print here
+            foreach($faces as $face => $value){
+                foreach($suits as $suit){
+                    print_r($face . "  " . "of" ."  " .  $suit . "=>  " . $value . "<br />"); 
+                    
+                }
+            }
 
-
-            /*
+            
 
         ?>
-
+            
     </p>
 
     </body>

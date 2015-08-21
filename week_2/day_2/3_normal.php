@@ -7,7 +7,8 @@
      */
     function ride($owner) {
         $rides = array('car', 'boat', 'bike');
-        for($i = 0, $i < count($rides), $i++) {
+        $arr_length = count($rides);
+        for($i = 0; $i < $arr_length; $i++) {
             array_push($rides, $owner . "'s " . $rides[$i]);
         }
         return $rides;

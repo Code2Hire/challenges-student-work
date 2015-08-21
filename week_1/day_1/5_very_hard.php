@@ -7,6 +7,11 @@
  -->
 
 <?php
+function cmp($packagesArray, $packageArray)
+{
+    return strcmp($packagesArray["name"], $packageArray["price"]);
+}
+
   $packagesArray = array(
     array('name' => 'Package 1', 'price' => 5.99),
     array('name' => 'Package 2', 'price' => 3.01),
@@ -16,6 +21,7 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+  
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +36,7 @@
           set $package as the inner array so we can have access to it directly
           this is appose to accessing them like so $packagesArray[0]['name'];
          -->
-        <?php foreach ($packagesArray as $packageArray): ?>
+        <?php foreach ($packagesArray as $packageArray): usort($packagesArray, "cmp"); ?>
           <tr><td><?=$packageArray['name']?></td><td><?=$packageArray['price']?></td></tr>
         <?php endforeach ?>
       </ul>

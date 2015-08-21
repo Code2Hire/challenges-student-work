@@ -23,8 +23,10 @@
               'Tru',
               'Michael'
             ];
-
-          // code goes here...
+          sort($unOrderedArray);
+          print_r($unOrderedArray);
+          rsort($unOrderedArray);
+          print_r($unOrderedArray);
           ?>
         </p>
   </body>
