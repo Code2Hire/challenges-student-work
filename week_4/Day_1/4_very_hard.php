@@ -47,25 +47,85 @@
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
+    
+    class CamcostPricing {
+        public function getBundlesByZip($zip) {
+            var_dump($zip);
+            if (is_int($zip)) {
+                
+                $zip = strval($zip);
+                
+                if (strpos($zip, '97') === 0 || strpos($zip, '84') === 0) {
+                    echo "97";
+                    $budget = 19.99;
+                    $regular = 39.99;
+                    $couchPotato = 79.99;
+                    $slowNet = 24.99;
+                    $fastNet = 54.99;
+                    
+                    return array(
+                        "Budget + SlowNet" => $budget + $slowNet,
+                        "Budget + FastNet" => $budget + $fastNet,
+                        "Regular + SlowNet" => $regular + $slowNet,
+                        "Regular + FastNet" => $regular + $fastNet,
+                        "Couch Potato + SlowNet" => $couchPotato + $slowNet,
+                        "Couch Potato + FastNet" => $couchPotato + $fastNet
+                        );
+                } elseif (strpos($zip, '28') === 0 || strpos($zip, '29') === 0) {
+                    
+                    $budget = 19.99;
+                    $regular = 39.99;
+                    $slowNet = 29.99;
+                    $fastNet = 59.99;
+                    
+                    return array(
+                        "Budget + SlowNet" => $budget + $slowNet,
+                        "Budget + FastNet" => $budget + $fastNet,
+                        "Regular + SlowNet" => $regular + $slowNet,
+                        "Regular + FastNet" => $regular + $fastNet
+                        );
+                } else {
+                    
+                    $budget = 19.99;
+                    $regular = 39.99;
+                    $slowNet = 24.99;
+                    $fastNet = 54.99;
+                    
+                    return array(
+                        "Budget + SlowNet" => $budget + $slowNet,
+                        "Budget + FastNet" => $budget + $fastNet,
+                        "Regular + SlowNet" => $regular + $slowNet,
+                        "Regular + FastNet" => $regular + $fastNet,
+                        );
+                }
+            } else {
+                
+                echo "PASS IN A REAL ZIP!!";
+                return;
+            }
+        }
+    }
 
 
     $pricing = new CamcostPricing;
-
-    $zip = '28277';
-    $bundles = $pricing->getBundlesByZip($zip);
-    echo "<h3>Camcost Bundles for customers in $zip</h3>";
-    showBundles($bundles);
-
-    $zip = '84101';
-    $bundles = $pricing->getBundlesByZip($zip);
-    echo "<h3>Camcost Bundles for customers in $zip</h3>";
-    showBundles($bundles);
-
+    
     function showBundles($bundles) {
         foreach ($bundles as $bundleName=>$bundleCost) {
             echo "<p>$bundleName: \$$bundleCost</p>";
         }
     }
+
+    $zip = 28277;
+    $bundles = $pricing->getBundlesByZip($zip);
+    echo "<h3>Camcost Bundles for customers in $zip</h3>";
+    showBundles($bundles);
+    
+    $zip = 84101;
+    $bundles = $pricing->getBundlesByZip($zip);
+    echo "<h3>Camcost Bundles for customers in $zip</h3>";
+    showBundles($bundles);
+
+    
 
     ?>
 
