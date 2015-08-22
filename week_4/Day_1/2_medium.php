@@ -5,7 +5,7 @@
 <body>
 <p>
 
-    <?php
+     <?php
 
     /**
      * Create a class called "ShoppingCart" and another class called "Item".
@@ -38,6 +38,12 @@
                 $beforeTax = $item->price + $beforeTax;
                 
             }
+            return $beforeTax;
+        }
+        public function getTaxAmount() {
+            foreach ($this->items as $item) {
+                $tax = ($item->price * .1) + $tax;
+            }
             return $tax;
         }
         public function getCostAfterTax() {
@@ -61,7 +67,7 @@
     $cart->addItem(new Item('Expensive Book', 24.99));
     $cart->addItem(new Item('Movie', 12.99));
     $cart->addItem(new Item('Video Game', 59.99));
-
+    
     echo "<p>Total cost before tax: \${$cart->getCostBeforeTax()}</p>";
     echo "<p>Tax amount: \${$cart->getTaxAmount()}</p>";
     echo "<p>Total cost after tax: \${$cart->getCostAfterTax()}</p>";

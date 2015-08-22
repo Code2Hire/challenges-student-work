@@ -41,6 +41,12 @@
                 $beforeTax = $item->price + $beforeTax;
                 
             }
+            return $beforeTax;
+        }
+        public function getTaxAmount() {
+            foreach ($this->items as $item) {
+                $tax = ($item->price * $item->tax) + $tax;
+            }
             return $tax;
         }
         public function getCostAfterTax() {
@@ -81,7 +87,7 @@
     $cart->addItem(new Book('Expensive Book', 24.99));
     $cart->addItem(new DVD('Movie', 12.99));
     $cart->addItem(new VideoGame('Video Game', 59.99));
-
+    
     $beforeTax = number_format($cart->getCostBeforeTax(), 2);
     $taxAmount = number_format($cart->getTaxAmount(), 2);
     $afterTax = number_format($cart->getCostAfterTax(), 2);
