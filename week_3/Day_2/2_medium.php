@@ -14,9 +14,9 @@
             
             
             
-            function createDeck() {
+            function createDeck() { //turns code from previous execise into a function
                   
-                $suits = array ("clubs", "diamonds", "hearts", "spades");
+                $suits = array ("clubs", "diamonds", "hearts", "spades"); 
                 $faces = array (
                     "Ace" => 1, "2" => 2,"3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
                     "8" => 8, "9" => 9, "10" => 10, "Jack" => 11, "Queen" => 12, "King" => 13
@@ -44,28 +44,28 @@
                 modify this function so that it returns the number of cards specified to the user
                 also, it must modify the deck so that those cards are no longer available to be ditributed
             */
-            $deck = createDeck();
+            $deck = createDeck(); //fills $deck using createDeck function
             
-            function dealCards(&$deck, $number_of_cards = 0) {
-                $playercards = array();
+            function dealCards(&$deck, $number_of_cards = 0) { //function to deal cards
+                $playercards = array(); //array for a hand of cards
                 
                 for ($i = 1; $i <= $number_of_cards; $i++) {
                     $randsuit = rand(0, 3);
                 
-                    $suits = array_keys($deck);
+                    $suits = array_keys($deck); //sets $suits to array keys of $deck array
                 
-                    $suit = $suits[$randsuit];
+                    $suit = $suits[$randsuit]; //pulls a random suit
                 
                     
                 
-                    $card = array_rand($deck[$suit], 1);
+                    $card = array_rand($deck[$suit], 1); //to pick a random card// first pick random suit
                 
-                    array_push($playercards, $card);
+                    array_push($playercards, $card);  //pushes $card into hand or $playercards array
                     
-                    unset($deck[$suit][$card]);
+                    unset($deck[$suit][$card]); //removes that card from deck
                 }
                 
-                return $playercards;
+                return $playercards; //saves data
                 
             }
 

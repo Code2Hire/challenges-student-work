@@ -23,13 +23,14 @@
               'Tru',
               'Michael'
             ];
-              sort($unOrderedArray);
+              sort($unOrderedArray); //sorts array in alphabetical order
               
-              print_r($unOrderedArray);
+              print_r($unOrderedArray); //displays array
               
-              rsort($unOrderedArray);
+              rsort($unOrderedArray); //sorts array in reverse alphabetical order
               
-              print_r($unOrderedArray);
+              print_r($unOrderedArray); // displays array
+          
           ?>
         </p>
   </body>

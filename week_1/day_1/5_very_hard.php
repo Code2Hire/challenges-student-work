@@ -16,13 +16,13 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
-  function build_sorter($key) {
+  function build_sorter($key) {  //build sorter creates function to sort array by specified key
     return function ($a, $b) use ($key) {
         return strnatcmp($a[$key], $b[$key]);
     };
 }
 
-usort($packagesArray, build_sorter('price'));
+usort($packagesArray, build_sorter('price')); //usort implements build_sorter to actually sort array
 
 foreach ($packagesArray as $item) {
     echo $item['name'] . ', ' . $item['price'] . "<br />";
@@ -33,7 +33,7 @@ foreach ($packagesArray as $item) {
   <head></head>
 	<body>
       <h1>Packages</h1>
-      <p>Here are all the packages we offer and there price:</p>
+      <p>Here are all the packages we offer and their price:</p>
       <table>
         <th><td>Name</td><td>Price</td></th>
         <!-- 

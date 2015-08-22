@@ -16,10 +16,10 @@
 	<body>
         <p>
           <?php
-            $number = 3; // this came from the previous page as a post variable
+            $number = 3; 
 
           	// code goes here ...
-          	switch ($number) {
+          	switch ($number) {  //switch statement provides solution for various cases
           	  case 0:
           	  echo "zero";
           	  break;
@@ -54,7 +54,7 @@
           	  echo "ten";
           	  break;
           	  default: 
-          	    echo "Nothing is greater than 10";
+          	    echo "Nothing is greater than 10"; //displays if anything other than cases specified
           	}
           ?>
         </p>

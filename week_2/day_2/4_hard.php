@@ -29,14 +29,14 @@
     </p>
     <p>
         <?php
-            // Write your own using clean_then_call and closures to manipulate the string further
+            
            
             
-            echo clean_then_call('Chuck Pavlick', function($name) {
-                $name = strtoupper($name);
+            echo clean_then_call('Chuck Pavlick', function($name) { //uses closure, a function w/ no name for one time use
+                $name = strtoupper($name); //customizes what function does
                 $name = strrev($name);
                 
-                return $name;
+                return $name; //saves data
                 
             } );
         ?>

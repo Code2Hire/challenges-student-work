@@ -48,14 +48,14 @@
     // Put your code here!
     ///////////////////////////
     
-    class CamcostPricing {
-        public function getBundlesByZip($zip) {
-            var_dump($zip);
-            if (is_int($zip)) {
+    class CamcostPricing { //creates pricing class
+        public function getBundlesByZip($zip) { //names custom method
+            
+            if (is_int($zip)) { //ensures data entered into $zip is an integer
                 
                 $zip = strval($zip);
                 
-                if (strpos($zip, '97') === 0 || strpos($zip, '84') === 0) {
+                if (strpos($zip, '97') === 0 || strpos($zip, '84') === 0) { //if condition for utah and oregon
                     echo "97";
                     $budget = 19.99;
                     $regular = 39.99;
@@ -63,7 +63,7 @@
                     $slowNet = 24.99;
                     $fastNet = 54.99;
                     
-                    return array(
+                    return array( //sets array that will be returned
                         "Budget + SlowNet" => $budget + $slowNet,
                         "Budget + FastNet" => $budget + $fastNet,
                         "Regular + SlowNet" => $regular + $slowNet,
@@ -71,7 +71,7 @@
                         "Couch Potato + SlowNet" => $couchPotato + $slowNet,
                         "Couch Potato + FastNet" => $couchPotato + $fastNet
                         );
-                } elseif (strpos($zip, '28') === 0 || strpos($zip, '29') === 0) {
+                } elseif (strpos($zip, '28') === 0 || strpos($zip, '29') === 0) { //elseif for nc and sc
                     
                     $budget = 19.99;
                     $regular = 39.99;
@@ -79,26 +79,26 @@
                     $fastNet = 59.99;
                     
                     return array(
-                        "Budget + SlowNet" => $budget + $slowNet,
+                        "Budget + SlowNet" => $budget + $slowNet, //array that will be returned
                         "Budget + FastNet" => $budget + $fastNet,
                         "Regular + SlowNet" => $regular + $slowNet,
                         "Regular + FastNet" => $regular + $fastNet
                         );
-                } else {
+                } else { //else for all other states
                     
                     $budget = 19.99;
                     $regular = 39.99;
                     $slowNet = 24.99;
                     $fastNet = 54.99;
                     
-                    return array(
+                    return array( //array that will be returned
                         "Budget + SlowNet" => $budget + $slowNet,
                         "Budget + FastNet" => $budget + $fastNet,
                         "Regular + SlowNet" => $regular + $slowNet,
                         "Regular + FastNet" => $regular + $fastNet,
                         );
                 }
-            } else {
+            } else { //else for is_int that gives error message if $zip entered is not a complete integer
                 
                 echo "PASS IN A REAL ZIP!!";
                 return;

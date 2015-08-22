@@ -22,22 +22,22 @@
     // Put your code here!
     ///////////////////////////
     
-    class Rectangle {
+    class Rectangle { //create rectangle class
         
-        public function  __construct($width, $height) {
+        public function  __construct($width, $height) { //construct that can establish width and height
             $this->width = $width;
             $this->height = $height;
         }
         
-        public function getArea() {
+        public function getArea() { //method that multiplies width by height to get area
             return $this->width * $this->height;
         }
         
-        public function getPerimeter() {
+        public function getPerimeter() { //method that adds width*2 and height*2
             return $this->width * 2 + $this->height * 2;
         }
         
-        public function isSquare() {
+        public function isSquare() { //function that checks width=height
             if ($this->width === $this->height) {
                 return true;
             }

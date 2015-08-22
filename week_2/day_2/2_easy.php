@@ -10,13 +10,14 @@
   <head></head>
   <body>
     <p>
-        $array = array(1,2,3,4,5);
+        <?php
+            $array = array(1,2,3,4,5);
             function add($array) {
-                $num = 0;
-                foreach ($array as $integer) {
-                    $num += $integer;
+                $num = 0; //sets number to be added to as 0
+                foreach ($array as $integer) { //individualizes each number in array
+                    $num += $integer; //adds each number to array
                 }
-                return $num;
+                return $num; //saves result
             }
         ?>
     </p>

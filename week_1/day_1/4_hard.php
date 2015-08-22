@@ -16,7 +16,7 @@
         <p>
           <?php
           
-          		// months I dont want to render
+          	// months I dont want to render
           	$monthExcludeArray = [
           	 'January', 
           	 'February',
@@ -28,19 +28,20 @@
           	 'September',
           	 'November'
           	];
-          	  $myMonthArray = [
+          	  $myMonthArray = [ // creates an array of months we want
           	      'April', 'September', 'December'
           	  ];
           	   
-          	   foreach($myMonthArray as $mymonth) {
+          	   foreach($myMonthArray as $mymonth) { //specifies each individual month in array
           	   
-          	if (in_array($mymonth, $monthExcludeArray)) {
+          	if (in_array($mymonth, $monthExcludeArray)) { //in_array makes sure months we want are not in $monthExcludeArray w/ ifelse statement
           	    echo "Wrong";
           	    }
             else {
                 echo $mymonth;
             }
           	   }
+          	
           ?>
         </p>
 	</body>

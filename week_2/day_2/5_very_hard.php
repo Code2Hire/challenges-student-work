@@ -24,19 +24,19 @@
             'mark zuckerburg '
         ];
         //add names
-        array_push($names, 'bOb ARK');
+        array_push($names, 'bOb ARK'); //array_push adds new names to $names array
         array_push($names, 'DeReK wall');
 
         // Without writing a loop, use an array function to filter our list
         // of names down to only those who pass the score test.
-            function score(&$name) {
-            $name = trim(ucwords(strtolower($name)));
-            $posA = stripos($name, 'a');
-            $parts = explode(' ', $name);
-            $last = $parts[count($parts)-1];
-            $lenLast = strlen($last);
-            $numWords = str_word_count($name);
-            $score = $posA * $lenLast / $numWords;
+            function score(&$name) { //pass by reference, '&' changes 'original copy' of array
+            $name = trim(ucwords(strtolower($name))); //nesting, start by calling $name, then lowercase all letters, then uppercase first letter of each string then trim extra space off each side
+            $posA = stripos($name, 'a'); //stripos return position of the substring we are looking for
+            $parts = explode(' ', $name); //explodes each name string into an array, exploded by a space
+            $last = $parts[count($parts)-1]; //sets $last to the last name by calling the '1' position in the $parts array
+            $lenLast = strlen($last); //gets the length of the last name string
+            $numWords = str_word_count($name); //str_word_count counts number of words in $name string (2)
+            $score = $posA * $lenLast / $numWords; //sets $score to an equation using previously stated variables
             return $score;
             
             //or if($score > 5) {
@@ -44,7 +44,7 @@
             //}
         };
         
-        $passedNames = array_filter($names, function($name) {
+        $passedNames = array_filter($names, function($name) { // uses closure to call custom function score on a $name
             
             return score($name) > 5;
             
@@ -53,7 +53,7 @@
         // Without writing a loop, print out the winners separated by a comma and a space
         print implode(', ', $passedNames);
         
-        usort($passedNames, function($a, $b) {
+        usort($passedNames, function($a, $b) { //uses usort to sort names by their score
             $a = score($a);
             $b = score($b);
             if($a == $b) {

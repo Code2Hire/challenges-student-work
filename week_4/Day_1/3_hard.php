@@ -26,50 +26,46 @@
     // Put your code here!
     ///////////////////////////
     
-    class ShoppingCart {
-        public $items = array();
-        var $beforeTax;
+    class ShoppingCart { //sets class ahopping cart
+        public $items = array(); //establishes $items array
+        var $beforeTax; //sets variable names
         var $tax;
         var $afterTax;
         
-        public function addItem(Item $item) {
+        public function addItem(Item $item) { //method that adds items to item array
             $this->items[] = $item;
         }
         
-        public function getCostBeforeTax() {
+        public function getCostBeforeTax() { //method 'gets' price before tax
             foreach ($this->items as $item) {
                 $beforeTax = $item->price + $beforeTax;
                 
             }
             return $beforeTax;
         }
-        public function getTaxAmount() {
+        public function getTaxAmount() { //method 'gets' how much tax is for each item added together
             foreach ($this->items as $item) {
-                $tax = ($item->price * $item->tax) + $tax;
+                $tax = ($item->price * .1) + $tax;
             }
             return $tax;
         }
-        public function getCostAfterTax() {
+        public function getCostAfterTax() { //method 'gets' how much total of all items with tax
             $afterTax = ($this->getTaxAmount() + $this->getCostBeforeTax());
             return $afterTax;
         }
-        
-        public function removeItem($item) {
-            unset($this->items[$item]);
-        }
     }
     
-    class Item {
+    class Item { // creates item class
         public $name;
         public $price;
         
-        public function __construct($name, $price) {
+        public function __construct($name, $price) { // construct allows to set name and price for each item
             $this->name = $name;
             $this->price = $price;
         }
     }
     
-    class Book extends Item {
+    class Book extends Item { //extends item class
         public $tax = 0;
     }
     

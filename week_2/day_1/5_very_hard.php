@@ -29,60 +29,58 @@
 <p>
 
     <?php
-
-
-    // initialize scores to 0
-    $Ericscore = 0;
+    
+    $Ericscore = 0; // initialize scores to 0
     $Markscore = 0;
-    // set the possible selections
-    $options = array('Rock', 'Paper', 'Scissors');
+    
+    $options = array('Rock', 'Paper', 'Scissors'); //create an array of possible selections
 
-    // loop while neither mark or eric have at least 4 wins
-    while($Ericscore < 4 && $Markscore < 4){
+   
+    while($Ericscore < 4 && $Markscore < 4){ // while loop runs as long as score for either is not 4
 
-        // pick a random selection for both mark and eric
-        $Markroll=$options[rand(0,2)];
+        
+        $Markroll=$options[rand(0,2)]; //sets roll to a random integer from 0 to 2(3 numbers)
         $Ericroll=$options[rand(0,2)];
 
-        // If it is a tie, move on
-        if($Ericroll == $Markroll) {
-            //rolled same thing
+        
+        if($Ericroll == $Markroll) { //sets conditions and what will happen in case of a tie
+            
             echo "Eric Rolled $Ericroll<br />";
             echo "Mark Rolled $Markroll<br />";
             echo "Tie Game!<br />";
             echo "<br />";
-            // Do not run any other code for this game, move to the next
-            continue;
+            
+            continue; //continue ends current game and allows code to continue
         }
 
-        // Check for winning conditions
-        if($Ericroll == "Rock"){
-            // Mark wins if Paper
-            if($Markroll == "Paper") {
+        
+        if($Ericroll == "Rock"){ //ifelse statements write out possible outcomes only have to run games from eric's point of view to shorten amount of code
+            
+            if($Markroll == "Paper") { // Mark wins if Paper and his score goes up 1, else Eric score goes up
                 $Markscore++;
             } else {
                 $Ericscore++;
             }
         }
         elseif($Ericroll == "Paper"){
-            // Mark wins if Scissors
-            if($Markroll == "Scissors") {
+            
+            if($Markroll == "Scissors") { // Mark wins if Scissors
                 $Markscore++;
             } else {
                 $Ericscore++;
             }
         }
         elseif($Ericroll == "Scissors"){
-            // Mark wins if Rock
-            if($Markroll == "Rock") {
+            
+            if($Markroll == "Rock") { // Mark wins if Rock
                 $Markscore++;
             } else {
                 $Ericscore++;
             }
         }
 
-        // Display the results of the current game
-        echo "Eric Rolled $Ericroll<br />";
+       
+        echo "Eric Rolled $Ericroll<br />"; //shows results
         echo "Mark Rolled $Markroll<br />";
         echo "Eric's score = $Ericscore<br />";
         echo "Mark's score = $Markscore<br />";

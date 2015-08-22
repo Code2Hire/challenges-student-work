@@ -5,12 +5,12 @@
      *
      * Can you fix the code below so it works as expected?
      */
-    function ride($owner) {
+    function ride($owner) { //creates funtion that displays rides when a name string is input
         $rides = array('car', 'boat', 'bike');
-        for($i = 0; $i < count($rides); $i++) {
-            $rides[$i] = $owner . "'s " . $rides[$i];
+        for($i = 0; $i < count($rides); $i++) { //runs through each key
+            $rides[$i] = $owner . "'s " . $rides[$i]; //sets elements in rides array to this string w/ owners name included
         }
-        return $rides;
+        return $rides; //saves data
     }
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
     <p>
         <pre>
         <?php
-            print_r(ride('Jason'));
+            print_r(ride('Jason')); // displays array data
         ?>
         </pre>
     </p>

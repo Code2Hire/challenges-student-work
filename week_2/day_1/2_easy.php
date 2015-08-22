@@ -36,11 +36,11 @@
                 
                 //or
                 
-                do {
+                do {  //dowhile statement generates a random number 1-7 WHILE the number displayed is not 7
                     $num = rand(1, 7);
                     echo $num . "<br />";
                 } while ($num != 7);
-
+                
             ?>
         </p>
 	</body>

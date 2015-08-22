@@ -13,9 +13,9 @@
 	<body>
         <p>
           <?php
-          	$name = 'Eric'; // this came from the previous page as a post variable
+          	$name = 'Eric'; 
 
-          	// this came from the db
+          	
 			$nameToColorArray = array(
 	          'Alex' => 'blue',
 	          'Joseph' => 'green',
@@ -28,8 +28,9 @@
 	          'Tru' => 'red',
 	         );
 	         
-	         echo $nameToColorArray['Eric'];
+	         echo $nameToColorArray['Eric']; //calls key Eric to return value black
 
+	         
           ?>
         </p>
 	</body>

@@ -12,8 +12,8 @@
     <p>
 
         <?php
-
-             // code goes here...
+    
+            // code goes here...
          //function my_range($start, $end, $step = 1) {
          //    $numbers = array();
          //    for($i = $start; $i <= $end; $i += $step) {
@@ -34,9 +34,7 @@
             
             //or
             
-            echo array_sum(range(1, 20));
-
-
+            echo array_sum(range(1, 20)); //array_sum is a built in function that adds up all numbers in array
         ?>
     </p>
   </body>

@@ -21,10 +21,11 @@
 <p>
 	<?php
 
-		$months = range(1, 12);
-		foreach ($months as $month) {
-			$name = date('F', strtotime("$month/01/2015"));
-			if(strpos($name, 'J') === 0) {
+		
+		$months = range(1, 12); //establishes months as a range from 1-12
+		foreach ($months as $month) { //individualizes each month
+			$name = date('F', strtotime("$month/01/2015")); // utilizes built in date function to genreate a date
+			if(strpos($name, 'J') === 0) { //utilizes strpos to specify only months that start with j
 			echo "$month - $name - " . strlen($name) . "<br />";
 		}
 		}
