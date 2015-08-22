@@ -95,6 +95,10 @@
             $this->total_after_tax = ($this->total_before_tax)+($this->tax);
             return $this->total_after_tax;
         }
+        
+        function removeItem($item){
+            unset($this->items, $item);
+        }
     }
     
     $cart = new ShoppingCart();
