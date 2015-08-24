@@ -7,6 +7,7 @@
  -->
 
 <?php
+//multidemensional array way before we learned about multidemensional arrays
   $packagesArray = array(
     array('name' => 'Package 1 ', 'price' => 5.99),
     array('name' => 'Package 2 ', 'price' => 3.01),
@@ -16,6 +17,7 @@
     array('name' => 'Package 6 ', 'price' => 10.99),
     array('name' => 'Package 7 ', 'price' => 11.00),
   );
+  //foreach loop letting us print all the packages and prices
   foreach($packagesArray as $package => $row) {
     $name[$package]  = $row['name'];
     $price[$package] = $row['price'];

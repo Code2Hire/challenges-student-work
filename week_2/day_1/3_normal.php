@@ -20,7 +20,7 @@
 <body>
 <p>
 		<?php
-
+		//prints all months that start with J
 		for($i = 1; $i <= 12; $i++){
 			$monthName = date("F", strtotime("2015-$i-1"));
 			if(stripos($monthName, "J") === 0){

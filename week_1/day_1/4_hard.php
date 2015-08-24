@@ -33,7 +33,7 @@
           	    'September',
           	    'December'
           	    ];
-            
+            //this is incorrect, will eventually fix
             if(in_array($monthIncludeArray, $monthExcludeArray)){
             echo "Your array does include these months";
             }

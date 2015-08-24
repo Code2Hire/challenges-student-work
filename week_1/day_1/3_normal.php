@@ -28,6 +28,8 @@
 	          'Tru' => 'red',
 	          'Dakota' => 'yellow',
 	         ];
+	         
+	         //basic if statement, do i need to explain?
 			if($nameToColorArray[$name]){
 				echo $nameToColorArray[$name];
 			}

@@ -16,8 +16,9 @@
 	<body>
         <p>
           <?php
-            $number = 31; // this came from the previous page as a post variable
-
+            $number = 5; // this came from the previous page as a post variable
+            
+            //finds number and prints something according to that number
           	switch($number){
           	  case 1:
           	    echo "One";

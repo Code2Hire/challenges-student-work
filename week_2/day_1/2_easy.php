@@ -25,7 +25,7 @@
 	<body>
         <p>
             <?php
-
+            //echos a number randomly between 1 and 7
             do {
                 $num = rand(1,7);
                 echo $num . "<br/>";
