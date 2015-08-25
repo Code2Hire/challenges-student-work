@@ -45,11 +45,12 @@
                 
                     $suit = $suits[$randsuit];
                 
-                    $card = array_rand($deck[$suit], 1);
-                
-                    array_push($playercards, $card);
+                    $cardkey = array_rand($deck[$suit], 1);
                     
-                    unset($deck[$suit][$card]);
+                    $playercards[$cardkey] = $deck[$suit][$cardkey];
+                    // $playercards['ace of me'] = 99;
+                    
+                    unset($deck[$suit][$cardkey]);
                     
                     if (count($deck[$suit]) === 0) {
                         unset($deck[$suit]);
@@ -57,17 +58,21 @@
                     
                 }
                 
+                
                 return $playercards;
                 
             }
             
             $deck = createDeck();
             
+            //var_dump($deck);
+            
             function countCards($deck) { //while count recursive will count the total amount of ALL elements in deck array, including suits, I subtract the amount of suits from the total
                 $count = count($deck, COUNT_RECURSIVE) - count($deck);
                 return $count;
             }
-
+            
+            
             /*
              * Bring in your createDeck and dealCards function
                For the specified number of players below, assign each one an even set of cards.
@@ -90,8 +95,8 @@
                     $players[$i] = dealCards($deck, $num_cards_to_give_each_player); 
                     
                   }
-                  
-                //var_dump($players);
+                 
+                var_dump($players);
                /*
                lets create a simple game
                each player will play a card and whoever has the highest value wins. if there are 2 cards played
@@ -109,25 +114,65 @@
 
               //$round_winners = array();
               
+              function pickCard ($player) {
+                  $randface = rand(0, count($player) - 1);
+                      
+                  $faces = array_keys($player);
+                      
+                  $face = $faces[$randface];
+                  
+                  return $face;
+                  
+              }
+              
               function playGame($players) {
                   
                   $playedCards = array();
                   
-                  foreach($players as $player) {
+                  $roundCards = array();
+                  
+                  $num_cards = count($players[1]);
+                  
+                  for($i = 1; $i <= $num_cards; $i++) {
+                      //echo "round $i <br />";
+                      $playerNum = 1;
                       
-                      $card = rand(0, count($player) - 1);
+                      $roundWinCard = 0;
                       
-                      $playedCard = $player[$card];
+                      $roundWinCardName = '';
                       
+                      $roundWinPlayer = 0;
+                      
+                  foreach($players as &$player) {
+                      echo "player $playerNum";
                       if(count($player) === 0) {
-                          unset($player);
-                          unset($players);
-                          echo 'GAME OVER';
+                          return 'GAME OVER';
                       }
                       
-                      array_push($playedCards, $playedCard);
+                      $face = pickCard($player);
+                      echo "Played the $face <br />";
                       
+                      $playedCards[$playerNum][$face] = $player[$face];
+                      
+                      
+                      
+                      if($player[$face] > $roundWinCard){
+                          $roundWinCard = $player[$face];
+                          $roundWinPlayer = $playerNum;
+                          $roundWinCardName = $face;
+                      }    
+                      
+                      unset($player[$face]);
+                      
+                      $playerNum++;
+            
+                    }
+                    
+                    // round is over -- find winner
+                    echo 'Player ' . $roundWinPlayer . ' won with the ' . $roundWinCardName . '<br />';                    
                   }
+                  
+                  echo 'GAME OVER';
                   
                   return $playedCards;
                   
