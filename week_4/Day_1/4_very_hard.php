@@ -49,6 +49,47 @@
     ///////////////////////////
 
 
+    class CamcostPricing { 
+        public $bundleDefault = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + FastNet" => 74.98,
+            "Regular + SlowNet" => 64.98,
+            "Regular + FastNet" => 94.98);
+        public $bundleUtah = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + FastNet" => 74.98,
+            "Regular + SlowNet" => 64.98,
+            "Regular + FastNet" => 94.98, 
+            "CouchPotato + SlowNet" => 104.98, 
+            "CouchPotato + FastNew" => 134.98);
+        public $bundleNCSC = array(
+            "Budget + SlowNet" => 49.98, 
+            "Budget +FastNet" => 79.98, 
+            "Regular + SlowNet" => 69.98, 
+            "Regluar + FastNet" => 99.98);
+            
+        public function getBundlesByZip($zip) { 
+            //zip code
+            if (strpos($zip, 27) === 0 || strpos($zip, 28) === 0 || strpos($zip, 29) === 0) { 
+                return $this->bundleNCSC; 
+            } 
+            elseif (strpos($zip, 84) === 0 || strpos($zip, 97) === 0) { 
+                return $this->bundleUtah;
+            } 
+            else { 
+                return $this->bundleDefault;
+            }
+        } 
+    }
+    
+    
+        function showBundles($bundles) {
+            foreach ($bundles as $bundleName=>$bundleCost) {
+                echo "<p>$bundleName: \$$bundleCost</p>";
+            }
+        } 
+    
+    
     $pricing = new CamcostPricing;
 
     $zip = '28277';
@@ -60,12 +101,6 @@
     $bundles = $pricing->getBundlesByZip($zip);
     echo "<h3>Camcost Bundles for customers in $zip</h3>";
     showBundles($bundles);
-
-    function showBundles($bundles) {
-        foreach ($bundles as $bundleName=>$bundleCost) {
-            echo "<p>$bundleName: \$$bundleCost</p>";
-        }
-    }
 
     ?>
 
