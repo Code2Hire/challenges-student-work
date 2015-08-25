@@ -32,38 +32,42 @@
                 
                 return $deck;
               }
-
-            /*
-                We will now create a function to deal these cards to each user
-                modify this function so that it returns the number of cards specified to the user
-                also, it must modify the deck so that those cards are no longer available to be ditributed
-            */
-            $deck = createDeck();
             
             function dealCards(&$deck, $number_of_cards = 0) {
+                
                 $playercards = array();
                 
-                for ($i = 1; $i <= $number_of_cards; $i++) {
-                    $randsuit = rand(0, 3);
+                for($i = 1; $i <= $number_of_cards; $i++) {
+                    
+                    $randsuit = rand(0, count($deck) - 1);
                 
                     $suits = array_keys($deck);
                 
                     $suit = $suits[$randsuit];
-                
-                    
                 
                     $card = array_rand($deck[$suit], 1);
                 
                     array_push($playercards, $card);
                     
                     unset($deck[$suit][$card]);
+                    
+                    if (count($deck[$suit]) === 0) {
+                        unset($deck[$suit]);
+                    }
+                    
                 }
                 
                 return $playercards;
                 
             }
+            
+            $deck = createDeck();
+            
+            function countCards($deck) { //while count recursive will count the total amount of ALL elements in deck array, including suits, I subtract the amount of suits from the total
+                $count = count($deck, COUNT_RECURSIVE) - count($deck);
+                return $count;
+            }
 
-            $player = dealCards($deck,10); // player should now have 10 random cards in his hand
             /*
              * Bring in your createDeck and dealCards function
                For the specified number of players below, assign each one an even set of cards.
@@ -71,19 +75,23 @@
                are in the deck. then dividing them so we know how many cards each player should get
              */
 
-               $deck = 
-               $num_players = 4;
-               $num_cards_in_deck = //find a function to count the # of elements in an array
-               $num_cards_to_give_each_player = 
-
+               $num_players = 4; //already in code from the start
+               $num_cards_in_deck = countCards($deck);
+               //echo $num_cards_in_deck; //proves my countCards function works
+               $num_cards_to_give_each_player = $num_cards_in_deck / $num_players;
+               //echo $num_cards_to_give_each_player; //proves my equation to determine the amount of cards to deal works
                 /*
                   use a for loop to add the "dealt hands" to the $players array
                 */
                   $players = array(); 
-                  for() {
-
+                  
+                  for($i = 1; $i <= $num_players; $i++) {
+                      
+                    $players[$i] = dealCards($deck, $num_cards_to_give_each_player); 
+                    
                   }
-               
+                  
+                //var_dump($players);
                /*
                lets create a simple game
                each player will play a card and whoever has the highest value wins. if there are 2 cards played
@@ -99,8 +107,34 @@
                 
                */
 
-              $round_winners = 
-
+              //$round_winners = array();
+              
+              function playGame($players) {
+                  
+                  $playedCards = array();
+                  
+                  foreach($players as $player) {
+                      
+                      $card = rand(0, count($player) - 1);
+                      
+                      $playedCard = $player[$card];
+                      
+                      if(count($player) === 0) {
+                          unset($player);
+                          unset($players);
+                          echo 'GAME OVER';
+                      }
+                      
+                      array_push($playedCards, $playedCard);
+                      
+                  }
+                  
+                  return $playedCards;
+                  
+              }
+            
+              var_dump(playGame($players));
+              
         ?>
 
     </p>
