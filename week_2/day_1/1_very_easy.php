@@ -14,7 +14,13 @@
         <?php
 
             // code goes here...
-
+            $t=0;
+                for ($i=1;$i<=20;$i++){
+                    $t+=$i;
+                }
+                echo $t . "<br />"; 
+                
+                //echo array_sum(range(1,20));
 
         ?>
     </p>

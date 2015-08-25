@@ -11,6 +11,21 @@
   <body>
     <p>
         <?php
+            
+            function add($numbers){
+                
+                $result = 0;
+                
+                foreach ($numbers as $number) {
+            
+                   $result = $number + $result;
+                   
+                 }
+                 
+                 return $result;
+            }
+            
+            
             echo add(array(1,2,3,4,5));
         ?>
     </p>

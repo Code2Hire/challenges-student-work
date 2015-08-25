@@ -29,6 +29,7 @@
 	         ];
 
 	         // code goes here
+	         echo $nameToColorArray[$name];
           ?>
         </p>
 	</body>

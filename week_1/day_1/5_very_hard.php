@@ -16,6 +16,14 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+    $pricearray = array();
+  foreach ($packagesArray as $package => $value){
+     array_push($pricearray, $value['price']); 
+  }
+    array_multisort($pricearray, $packagesArray);
+   var_dump($packagesArray);
+  exit;
+
 ?>
 <!DOCTYPE html>
 <html>

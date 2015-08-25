@@ -16,9 +16,41 @@
 	<body>
         <p>
           <?php
-            $number = 3 // this came from the previous page as a post variable
+            $number = 3; // this came from the previous page as a post variable
 
-          	// code goes here ...
+          	// code goes here ... 
+            switch ($number){
+              case 1:
+                echo "one";
+                break;
+              case 2:
+                echo "two";
+                break;
+              case 3:
+                echo "three";
+                break;
+              case 4:
+                echo "four";
+                break;
+              case 5:
+                echo "five";
+                break;
+              case 6:
+                echo "six";
+                break;
+              case 7:
+                echo "seven";
+                break;
+              case 8:
+                echo "eight";
+                break;
+              case 9:
+                echo "nine";
+                break;
+              case $number > 10: 
+                echo "Nothing is greater than 10";
+                break;
+            }
           ?>
         </p>
 	</body>

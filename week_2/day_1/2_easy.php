@@ -27,7 +27,10 @@
             <?php
 
           	    // code goes here ...
-
+               do {
+                      $t = rand(1,7); 
+                       echo $t . "<br />";
+                  } while( $t!=7);
             ?>
         </p>
 	</body>
