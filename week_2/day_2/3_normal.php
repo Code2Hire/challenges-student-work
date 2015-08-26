@@ -1,13 +1,8 @@
 <?php
-    /**
-     * This function is SUPPOSED to take an "owner" string
-     * and return an array of "rides" possessed by that "owner".
-     *
-     * Can you fix the code below so it works as expected?
-     */
+    
     function ride($owner) {
         $rides = array('car', 'boat', 'bike');
-        for($i = 0, $i < count($rides), $i++) {
+        for($i = 0; $i < count($rides); $i++) {
             array_push($rides, $owner . "'s " . $rides[$i]);
         }
         return $rides;

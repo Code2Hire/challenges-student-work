@@ -9,8 +9,8 @@
      * Can you implement this function?
      */
     function clean_then_call($string, callable $callback) {
-        // Use the string cleaning procedure we came up with in exercise 1 on $string
-        
+         $string= ucwords(strtolower(trim($string)));
+        return $callback($string);
         // return the result of the $callback function with $string passed in as a parameter
         
     }
@@ -28,6 +28,11 @@
     <p>
         <?php
             // Write your own using clean_then_call and a closure to manipulate the string further
+            clean_then_call2($string, function ($string) {
+                strrev($string);
+                
+            });
+            echo clean_then_call2 ('Conner')
         ?>
     </p>
   </body>
