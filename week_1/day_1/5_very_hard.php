@@ -16,6 +16,10 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+  usort($packagesArray, function($a, $b){
+    return $a['price'] - $b['price'];
+    });
+    var_dump($packagesArray);
 ?>
 <!DOCTYPE html>
 <html>
