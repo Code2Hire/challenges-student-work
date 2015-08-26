@@ -12,6 +12,8 @@
   <body>
         <p>
           <?php
+          
+          
             $unOrderedArray = [
               'Joseph',
               'Lauren',
@@ -24,7 +26,8 @@
               'Michael'
             ];
 
-          // code goes here...
+          sort($unOrderedArray);
+          var_dump($unOrderedArray);
           ?>
         </p>
   </body>
