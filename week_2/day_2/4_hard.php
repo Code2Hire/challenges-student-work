@@ -28,6 +28,7 @@
     <p>
         <?php
             // Write your own using clean_then_call and a closure to manipulate the string further
+            
         ?>
     </p>
   </body>

@@ -28,7 +28,12 @@
 	          'Tru' => 'red',
 	         ];
 
-	         // code goes here
+	         if(array_key_exists($name,$nameToColorArray)) {
+	         	echo $nameToColorArray[$name];
+	         }
+	         else {
+	         	echo "this name is not in DB";
+	         }
           ?>
         </p>
 	</body>

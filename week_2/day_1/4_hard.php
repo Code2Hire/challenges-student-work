@@ -14,7 +14,7 @@
 	 Divisible by 3 = ###
 	 Divisible by 6 = ###
 
-
+			
  -->
 
 <!DOCTYPE html>
@@ -26,8 +26,30 @@
             <?php
 
 
-                // code goes here ...
-
+            $number = range(1, 100);
+            $array3 = array();
+            $array6 = array();
+            
+            foreach($number as $key => $value) {
+            	if(($value % 3) === 0) {
+            		array_push($array3, $value);
+            		echo "$value, ";
+            	}
+            }
+            
+            echo "<br/>";
+            echo 'Divisible by 3 = ' . count($array3);
+            echo "<br/>";
+            
+            foreach($number as $key => $value) {
+            	if(($value % 6) === 0) {
+            		array_push($array6, $value);
+            		echo "$value, "; 
+            	}
+            }
+           echo "<br/>";
+           echo 'Divisible by 6 = ' . count($array6);
+          
             ?>
         </p>
 	</body>

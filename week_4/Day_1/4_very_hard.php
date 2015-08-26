@@ -45,11 +45,49 @@
 
 
     ///////////////////////////
-    // Put your code here!
+    //bundles - "Budget" for $19.99, "Regular" for $39.99 and "Couch Potato(UTAH AND OREGON)" for $79.99.
+    //          "SlowNet" and "FastNet" (VARIABLE PRICES) (NC) = 29.99/59.99 // else 24.99/54.99
+    
+    class CamcostPricing{
+        public $Bundledef = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + Fastnet" => 74.98,
+            "Regular + Slownet" => 64.98,
+            "Regular + Fastnet" => 94.98,);
+        public $BundleOR = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + Fastnet" => 74.98,
+            "Regular + Slownet" => 64.98,
+            "Regular + Fastnet" => 94.98,
+            "Couch Potato + Slownet" =>104.98,
+            "Couch Potato + Fastnet" => 134.98);
+        public $BundleNC = array(
+            "Budget + SlowNet" => 49.98,
+            "Budget + Fastnet" => 79.98,
+            "Regular + Slownet" => 69.98,
+            "Regular + Fastnet" => 99.98,);
+        public function getBundlesByZip($zip){
+           if (strpos($zip, 27) === 0 || strpos($zip, 28) === 0 || strpos($zip, 29)){
+               return $this->BundleNC;
+           } 
+            elseif(strpos($zip, 84) === 0 || strpos($zip, 97)){
+                return $this->BundleOR;
+            }
+            else{
+                return $this->Bundledef;
+            }
+        }
+    }
     ///////////////////////////
 
 
     $pricing = new CamcostPricing;
+    
+    function showBundles($bundles) {
+        foreach ($bundles as $bundleName=>$bundleCost) {
+            echo "<p>$bundleName: \$$bundleCost</p>";
+        }
+    }
 
     $zip = '28277';
     $bundles = $pricing->getBundlesByZip($zip);
@@ -61,11 +99,7 @@
     echo "<h3>Camcost Bundles for customers in $zip</h3>";
     showBundles($bundles);
 
-    function showBundles($bundles) {
-        foreach ($bundles as $bundleName=>$bundleCost) {
-            echo "<p>$bundleName: \$$bundleCost</p>";
-        }
-    }
+    
 
     ?>
 
