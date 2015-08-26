@@ -12,10 +12,9 @@
     <p>
 
         <?php
-
-            // code goes here...
-
-
+        
+      echo array_sum(range(1,20)); 
+        
         ?>
     </p>
   </body>
