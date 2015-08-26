@@ -1,25 +1,34 @@
 <!-- 
-	Using everything you have learned and some googling
+  Using everything you have learned and some googling
 
-  Imagine this is a post page and they have sent you a number
-  you want to return them the number it text format. For instance:
-    
-    - 1 -> one
-    - 2 -> two
+  I have an array of names below but they are all out of order 
+  figure out the code needed to put them in order
 
-  but anything that is above 10 we want to return "Nothing is greater than 10"
+  Bonus: render all of the names in reverse order
  -->
-
 <!DOCTYPE html>
 <html>
   <head></head>
-	<body>
+  <body>
         <p>
           <?php
-            $number = 3 // this came from the previous page as a post variable
+          
+          
+            $unOrderedArray = [
+              'Joseph',
+              'Lauren',
+              'Eric',
+              'James',
+              'Derek',
+              'Mark',
+              'Alex',
+              'Tru',
+              'Michael'
+            ];
 
-          	// code goes here ...
+          sort($unOrderedArray);
+          var_dump($unOrderedArray);
           ?>
         </p>
-	</body>
+  </body>
 </html>
