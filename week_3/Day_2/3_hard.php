@@ -6,7 +6,7 @@
     <p>
 
         <?php
-            /*
+          /*
              * Bring in your createDeck and dealCards function
                For the specified number of players below, assign each one an even set of cards.
                We will do this by counting out how many players there are, counting how many cards
@@ -51,20 +51,28 @@
                     unset($deck[$suit][$card]);
                     
                 } 
+              }
 
                $deck = createDeck();
                $num_players = 4;
                $num_cards_in_deck = count($deck);
                $num_cards_to_give_each_player = $num_cards_in_deck / $num_players; 
+               
+               echo $num_cards_to_give_each_player; // gives one card to each player 
+               
+               // use the loop to add that one card over and over to the player 
 
                 /*
                   use a for loop to add the "dealt hands" to the $players array
                 */
-                  $players = array(); 
-                  for($i = 0; $i <= $num_cards_to_give_each_player; $i++) { 
-                      dealCards(); 
-                  } 
-               
+                $players = array();
+                for($i = 1; $i <= $num_cards_in_deck; $i++) {
+                    array_push($players, $num_cards_to_give_each_player);
+                    // adds the cards to the players array
+                } 
+                
+                var_dump($players);
+                
                /*
                lets create a simple game
                each player will play a card and whoever has the highest value wins. if there are 2 cards played
