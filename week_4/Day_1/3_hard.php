@@ -22,8 +22,54 @@
      */
 
 
-    ///////////////////////////
-    // Put your code here!
+        ///////////////////////////
+    class ShoppingCart{
+        public $cartItems = array();
+        public function addItem($item){
+            $this->cartItems[] = $item;
+        }
+        //adds prices
+        public function getCostBeforeTax(){
+            $price = 0;
+            foreach($this->cartItems as $item){
+                $price += $item->price;
+            }
+            return $price;
+        }
+        //uses prices to find tax
+        public function getTaxAmount() {
+            $price = $this->getCostBeforeTax;
+            return $price * .1;
+        }
+        //adds cost and tax
+        public function getCostAfterTax(){
+            $price = $this->getCostBeforeTax();
+            $tax = $this->getTaxAmount();
+            return $price + $tax;
+        }
+        //remove item
+        public function removeItem($item){
+            unset($this->items[item]);
+        }
+    }
+    class Item{
+        public $name;
+        public $price;
+        
+        public function __construct($name, $price){
+            $this->name = $name;
+            $this->price = $price;
+        }
+    }
+    class VideoGame extends Item{
+        public $tax = .05;
+    }
+    class DVD extends Item{
+        public $tax = .10;
+    }
+    class Book extends Item{
+        public $tax = 0;
+    }
     ///////////////////////////
 
 

@@ -45,7 +45,36 @@
 
 
     ///////////////////////////
-    // Put your code here!
+    class CamcostPricing{
+        public $Bundledef = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + FastNet" => 74.98,
+            "Regular + SlowNet" => 64.98,
+            "Regular + FastNet" => 94.98,);
+        public $BundleOR = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + FastNet" => 74.98,
+            "Regular + SlowNet" => 64.98,
+            "Regular + FastNet" => 94.98,
+            "Couch Potato + SlowNet" => 104.98,
+            "Couch Potato + FastNet" => 104.98,);
+        public $BundleNC = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + FastNet" => 79.98,
+            "Regular + SlowNet" => 69.98,
+            "Regular + FastNet" => 99.98,);
+            public function getBundlesByZip($zip){
+                if (strpos($zip, 27) === 0 || strpos($zip, 28) === 0 || strpos($zip, 29)){
+                    return $this->BundleNC;
+                }
+                elseif(strpos($zip,84) === 0 || strpos($zip, 97)){
+                    return $this->BundleOR;
+                }
+                else{
+                    return $this->Bundledef;
+                }
+        }
+    }
     ///////////////////////////
 
 

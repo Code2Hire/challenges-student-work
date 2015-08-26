@@ -17,9 +17,28 @@
      *   isSquare() : Return true of the rectangle is a square, false otherwise.
      */
 
-
     ///////////////////////////
-    // Put your code here!
+        $width = 160;
+        $height = 75;
+
+    class Rectangle{
+        public function __construct($width,$height){
+            $this->width=$width;
+            $this->height=$height;
+        } 
+        public function getArea(){
+            return $this->width * $this->height;
+        }
+        public function getPerimeter(){
+            return $this->width+$this->width+$this->height+$this->height;
+        } 
+        public function isSquare(){
+            if ($this->height == $this->width){
+                return true;
+            }
+        }
+        
+    }
     ///////////////////////////
 
 
