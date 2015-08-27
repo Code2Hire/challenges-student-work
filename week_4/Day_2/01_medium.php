@@ -52,11 +52,23 @@
           
         }
         
+        class ItemDescriber {
+          public function outputDescription ($customerItem) {
+            if ($customerItem instanceof Describable) {
+                return $customerItem->provideDescription();
+            } else {
+              throw new Exception ("Item not describable");
+            }
+          }
+        }
+        
         class ShoppingCart implements Describable {
           public $products = array();
           
-          public function provideDescription($product) {
-            
+          public function provideDescription() {
+            foreach($this->products as $product) {
+              return $product->provideDescriptionForProductType();
+            }
           }
           
           public function addProduct(Product $product) { 
@@ -109,9 +121,9 @@
         }
         
         abstract class Product implements Describable {
-          protected $name;
-          protected $brand;
-          protected $price;
+          public $name;
+          public $brand;
+          public $price;
           
           public function __construct($name, $brand, $price) {
             
@@ -248,6 +260,12 @@
         $cart = new ShoppingCart();
         $cart->addProduct(new Clothing("Hoodie", "Nike", 19.99, "large", "red", "shirt", "male"));
         $cart->addProduct(new Television("Plasma", "Sony", 1000.00, plasma, "50in"));
+        
+        echo $cart->provideDescription(); //only provides description for "hoodie" (first element)
+        echo "<br />";
+        echo $cart->getTotalPrice(); //displays any error because it is protected, if i make public it displays nothing (why)
+         
+         
         
         ?>
     </p>
