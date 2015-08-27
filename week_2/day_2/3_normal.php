@@ -7,10 +7,11 @@
      */
     function ride($owner) {
         $rides = array('car', 'boat', 'bike');
-        for($i = 0, $i < count($rides), $i++) {
-            array_push($rides, $owner . "'s " . $rides[$i]);
+        $rides2= array();                                   //new array to store owners name along with vehicles name
+        for($i = 0; $i < (count($rides)); $i++) {
+            array_push($rides2, "$owner's   $rides[$i]");   //pushes to new array the owners name along with the vehicle from the original array
         }
-        return $rides;
+        return $rides2;                                     //returns new array
     }
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
     <p>
         <pre>
         <?php
-            print_r(ride('Jason'));
+            print_r(ride('Jason'));                         //prints jasons name and his vehicles
         ?>
         </pre>
     </p>

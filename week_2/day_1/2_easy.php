@@ -27,6 +27,12 @@
             <?php
 
           	    // code goes here ...
+          	    while($rand != 7)           // loop will continue until $rand is equal to 7
+          	    {
+          	      $rand= rand(1,7);         //create a random number between 1 and 7
+          	      echo $rand;
+          	      echo "<br/>";
+          	    }
 
             ?>
         </p>
