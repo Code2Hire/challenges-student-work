@@ -4,7 +4,7 @@
   </head>
   <body>
     <p>
-        <?
+        <?php
         /**
          * So we have our products, but what are we going to do with them.
          *
@@ -45,6 +45,210 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+        
+        interface Describable {
+          
+          public function provideDescription();
+          
+        }
+        
+        class ShoppingCart implements Describable {
+          public $products = array();
+          
+          public function provideDescription($product) {
+            
+          }
+          
+          public function addProduct(Product $product) { 
+            if($product instanceof Product) {
+              $this->products[] = $product;
+            } else {
+              throw new Exception("Product not valid");
+            }
+        }
+        
+          public function removeProduct($product) {
+            if(in_array($product, $this->products)) {
+              unset($this->products[$product]);
+              return $this->products;
+            } else {
+              throw new Exception("Product not in cart");
+            }
+          }
+          
+          public function removeAllProducts($product) {
+            if(empty($this->products)) {
+              throw new Exception("No products in cart");
+              } else {
+                foreach($this->products as $product) {
+                unset($product);
+                }
+                return $this->products;
+              }
+          }
+          
+          public function getTotalPrice() {
+            foreach ($this->products as $product) {
+                $totalcost = $product->price + $totalcost;
+            }
+          }
+          
+          public function getAllProducts() {
+            return $this->products;
+          }
+          
+          public function findProductByName($name) {
+            foreach($this->products as $product) {
+              if($product->name == $name) {
+                return $product;
+              } else {
+                throw new Exception("No product with given name found in cart");
+              }
+            }
+          }
+        }
+        
+        abstract class Product implements Describable {
+          protected $name;
+          protected $brand;
+          protected $price;
+          
+          public function __construct($name, $brand, $price) {
+            
+            $this->name = $name;
+            $this->brand = $brand;
+            $this->price = $price;
+            
+            
+          }
+          
+          abstract function provideDescriptionForProductType();
+          
+          public function provideDescription() {
+            
+            return $this->provideDescriptionForProductType();
+            
+          }
+         
+         public function getName() {
+           if (empty($this->name)) {
+             throw new Exception("No name entered");
+           } else {
+             return $this->name;
+           }
+         } 
+         
+         public function getBrand() {
+           if(empty($this->brand)) {
+             throw new Exception("No brand entered");
+           } else {
+             return $this->brand;
+           }
+         }
+         
+         public function getPrice() {
+           if(is_numeric($this->price) == false) {
+             throw new Exception("Invalid price entered");
+           } else {
+             return $this->price;
+           }
+         }
+         
+        }
+        
+        class Clothing extends Product {
+          protected $size;
+          protected $color;
+          protected $type;
+          protected $gender;
+          
+          public function __construct($name, $brand, $price, $size, $color, $type, $gender) {
+            parent::__construct($name, $brand, $price);
+            
+            $this->size = $size;
+            $this->color = $color;
+            $this->type = $type;
+            $this->gender = $gender;
+          }
+          
+          public function getSize() {
+            if(empty($this->size)) {
+              throw new Exception("No size entered");
+            } else {
+              return $this->size;
+            }
+          }
+          
+          public function getColor() {
+            if((($this->color == "red") || ($this->color == "blue") || ($this->color == "green") || ($this->color == "black") || ($this->color == "white") || ($this->color == "yellow")) == false) {
+              throw new Exception("Invalid color entered");
+            } else {
+              return $this->color;
+            }
+          }
+          
+          public function getType() {
+            if(empty($this->type)) {
+              throw new Exception("No type entered");
+            } else {
+              return $this->type;
+            }
+          }
+          
+          public function getGender() {
+            if(empty($this->gender)) {
+              throw new Exception("No gender entered");
+              } else {
+                return $this->gender;
+              }
+          }
+          
+          public function provideDescriptionForProductType() {
+            try {
+            return 'This is an article of clothing. It is a ' .  $this->getBrand() . ' ' . $this->getColor() . ' ' . $this->getGender() . ' ' . $this->getType() . ' of size ' . $this->getSize() .  '. It costs ' . $this->getPrice() . '.';
+            } catch(Exception $e) {
+                echo 'There was an error determining the description to this product <br />' . $e->getMessage() . '<br />';
+            }
+          }
+          
+        }
+        
+        class Television extends Product {
+            protected $displaytype;
+            protected $size;
+            
+            public function __construct($name, $brand, $price, $displaytype, $size) {
+              parent::__construct($name, $brand, $price);
+              
+              $this->displaytype = $displaytype;
+              $this->size = $size;
+            }
+            
+            public function getDisplayType() {
+              if(empty($this->displaytype)) {
+                throw new Exception("No display type entered");
+              } else {
+                return $this->displaytype;
+              }
+            }
+            
+            public function getSize() {
+              if(empty($this->size)) {
+                throw new Exception("No size entered");
+              } else {
+                return $this->size;
+              }
+            }
+            
+            public function provideDescriptionForProductType() {
+              return 'This is a ' . $this->getSize() . ' ' . $this->getBrand() . ' ' . $this->getDisplayType . ' Television <br />';
+            }
+        }
+        
+        $cart = new ShoppingCart();
+        $cart->addProduct(new Clothing("Hoodie", "Nike", 19.99, "large", "red", "shirt", "male"));
+        $cart->addProduct(new Television("Plasma", "Sony", 1000.00, plasma, "50in"));
+        
         ?>
     </p>
   </body>
