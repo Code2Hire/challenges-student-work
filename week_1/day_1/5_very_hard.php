@@ -16,6 +16,14 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+  
+ 
+  
+  foreach($packagesArray as $package => $key) {
+    $name[$package]  = $key['name'];
+    $price[$package] = $key['price'];
+  }
+  array_multisort($price, SORT_ASC, $packagesArray); //sets prices from lowest to greatest
 ?>
 <!DOCTYPE html>
 <html>

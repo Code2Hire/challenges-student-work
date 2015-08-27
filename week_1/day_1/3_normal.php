@@ -27,8 +27,11 @@
 	          'Derek' => 'purple',
 	          'Tru' => 'red',
 	         ];
+	         
+	         echo "$name's favorite color is $nameToColorArray[$name].";// This code will display the name, and the color in a formatted away.
+	         
 
-	         // code goes here
+	         
           ?>
         </p>
 	</body>

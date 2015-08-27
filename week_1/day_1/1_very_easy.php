@@ -23,8 +23,22 @@
               'Tru',
               'Michael'
             ];
+            sort($unOrderedArray);//order the array
+            foreach ($unOrderedArray as $names)
+            {
+              echo $names;//loop to display the ordered array
+              echo "<br/>";
+            }
 
-          // code goes here...
+            echo "<br/>";//Give some space in beween each list
+            echo "<br/>";
+            
+            rsort($unOrderedArray);//order the array in reverse
+            foreach ($unOrderedArray as $namesReverse)
+            {
+              echo $namesReverse;//loop to display ordered array in reverse order
+              echo "<br/>";
+            }
           ?>
         </p>
   </body>

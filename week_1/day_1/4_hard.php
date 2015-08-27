@@ -28,7 +28,28 @@
           	 'September',
           	 'November'
           	];
-
+          	
+          	    if (!in_array('April', $monthExcludeArray)) //Displays the month after checking if the month specified is not included in the array
+          	    {
+                    echo 'April';
+                    echo "<br/>";
+                }
+        
+                
+                if (!in_array('September', $monthExcludeArray)) 
+          	    {
+                    echo 'September';
+                    echo "<br/>";
+                }
+                
+                
+                if (!in_array('December', $monthExcludeArray)) 
+          	    {
+                    echo 'December';
+                    echo "<br/>";
+                }
+                
+          	
           	// code goes here ...
           ?>
         </p>
