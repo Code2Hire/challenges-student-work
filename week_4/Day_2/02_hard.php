@@ -4,7 +4,7 @@
   </head>
   <body>
     <p>
-        <?
+        <?php
         /**
          * OVERVIEW:
          * We've decided we want to add "wishlist" functionality to our site.  If you think about it,
@@ -40,6 +40,18 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+        
+        abstract class ProductContainer {
+          
+        }
+        
+        class ShoppingCart extends ProductContainer {
+          
+        }
+        
+        class WishList extends ProductContainer {
+          
+        }
         ?>
     </p>
   </body>
