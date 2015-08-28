@@ -46,9 +46,9 @@
                $num_cards_in_deck = count($deck);//find a function to count the # of elements in an array
                $num_cards_to_give_each_player = divCards($num_cards_in_deck, $num_players);
 
-                /*
-                  use a for loop to add the "dealt hands" to the $players array
-                */
+                
+                //  use a for loop to add the "dealt hands" to the $players array
+                
                   $players = array(); 
                  
                  
@@ -66,9 +66,9 @@
                $num_players = 4;
                $num_cards_in_deck = count($deck);//find a function to count the # of elements in an array
                $num_cards_to_give_each_player = divCards($num_cards_in_deck, $num_players);
-                /*
-                  use a for loop to add the "dealt hands" to the $players array
-                */
+                
+                  // use a for loop to add the "dealt hands" to the $players array
+                
                   $players = array(); 
                    for($i = 0; $i < $num_players; $i++) {
                        $players[] = dealCards($deck, $num_cards_to_give_each_player);

@@ -40,6 +40,168 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+        class WishList extends ProductContainer{
+          abstract public function getDescriptionforProductType();
+           
+          protected $name;
+          protected $price;
+          protected $brand;
+          
+          
+          abstract function addProduct(Product $product){
+            
+            
+                     // Throw an exception if its not an item
+             if (!$item) throw new Exception('The cart requires items with unique ID values.');
+                    // Add or update:
+             if (isset($this->items[$items])) {
+                $this->updateItem($item, $this->items[$item]['qty'] + 1);
+    } 
+          else {
+             $this->items[$id] = array('item' => $item, 'qty' => 1);
+    }
+          }
+          
+          
+          
+          abstract function deleteProduct(Product $product){
+            if(isset($this->items[$items])){
+              unset($this->items[$items]);
+            }
+          }
+          
+            public function deleteAll(Product $product){
+              if($product == null){
+              foreach($items as $product){
+                deleteProduct($product);
+              }
+              }
+              else
+              throw new Exception("No instances of product");
+              
+        }
+        
+           abstract function getTotalPrice($price){
+          foreach($items as $product){
+            $sum = getPrice($product);
+            print_r($sum);
+          }
+        }
+          
+          
+        }
+        
+        // END OF WISHLIST CLASS
+        
+        
+        
+        
+        abstract class ProductContainer {
+          
+          
+          static public function createCartFromContainer($productContainer){
+            $shoppingCart_ins = new ShoppingCart();
+          }
+          
+          
+          
+          
+          
+          
+          public $items = array();
+         public function provideDescription(){
+            return "You have {$shoppingCart->getAllProducts()} in your shopping cart";
+          }
+          
+          public function addProduct(Product $product){
+            
+             $item = $item;
+                     // Throw an exception if its not an item
+             if (!$item) throw new Exception('The cart requires items with unique ID values.');
+                    // Add or update:
+             if (isset($this->items[$items])) {
+                $this->updateItem($item, $this->items[$item]['qty'] + 1);
+    } 
+          else {
+             $this->items[$id] = array('item' => $item, 'qty' => 1);
+    }
+          }
+          
+          
+          public function deleteProduct(Product $product){
+            if(isset($this->items[$items])){
+              unset($this->items[$items]);
+            }
+          }
+          
+            public function deleteAll(Product $product){
+              if($product == null){
+              foreach($items as $product){
+                deleteProduct($product);
+              }
+              }
+              else
+              throw new Exception("No instances of product");
+              
+        }
+        
+        
+        public function getTotalPrice($price){
+          foreach($items as $product){
+            $sum = getPrice($product);
+            print_r($sum);
+          }
+        }
+        
+        
+        
+        }
+        
+        
+        class ShoppingCart extends ProductContainer {
+           
+          public function addProduct(Product $product){
+            
+             $item = $item;
+                     // Throw an exception if its not an item
+             if (!$item) throw new Exception('The cart requires items with unique ID values.');
+                    // Add or update:
+             if (isset($this->items[$items])) {
+                $this->updateItem($item, $this->items[$item]['qty'] + 1);
+    } 
+          else {
+             $this->items[$id] = array('item' => $item, 'qty' => 1);
+    }
+          }
+          
+          
+          public function deleteProduct(Product $product){
+            if(isset($this->items[$items])){
+              unset($this->items[$items]);
+            }
+          }
+          
+            public function deleteAll(Product $product){
+              if($product == null){
+              foreach($items as $product){
+                deleteProduct($product);
+              }
+              }
+              else
+              throw new Exception("No instances of product");
+              
+        }
+        
+        
+        public function getTotalPrice($price){
+          foreach($items as $product){
+            $sum = getPrice($product);
+            print_r($sum);
+          }
+        }
+        }
+        
+        
         ?>
     </p>
   </body>
