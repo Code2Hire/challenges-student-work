@@ -85,7 +85,7 @@
         
           public function removeProduct($product) {
             if(in_array($product, $this->products)) {
-              unset($this->products[$product]);
+              unset($product);
               return $this->products;
             } else {
               throw new Exception("Product not in cart");
@@ -264,12 +264,20 @@
         }
         
         $cart = new ShoppingCart();
-        $cart->addProduct(new Clothing("Hoodie", "Nike", 19.99, "large", "red", "shirt", "male"));
-        $cart->addProduct(new Television("Plasma", "Sony", 1000.00, plasma, "50in"));
+        $hoodie = new Clothing("Hoodie", "Nike", 19.99, "large", "red", "shirt", "male");
+        $plasma = new Television("Plasma", "Sony", 1000.00, plasma, "50in");
+        $cart->addProduct($hoodie);
+        $cart->addProduct($plasma);
+        
+        echo implode('<br />', $cart->provideDescription());
+        echo "<br />";
+        echo $cart->getTotalPrice();
+        
+        $cart->removeProduct($hoodie);
         
         var_dump($cart->provideDescription());
-        echo "<br />";
-        echo $cart->getTotalPrice(); //displays any error because it is protected, if i make public it displays nothing (why)
+        
+        
          
          
         
