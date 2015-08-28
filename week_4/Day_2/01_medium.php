@@ -101,7 +101,8 @@
           
           public function getTotalPrice() {
             foreach ($this->products as $product) {
-                $totalcost = $product->price + $totalcost;
+                $totalprice = $product->price + $totalprice;
+                return 'Total Price: ' . $totalprice;
             }
           }
           
@@ -253,7 +254,7 @@
             }
             
             public function provideDescriptionForProductType() {
-              return 'This is a ' . $this->getSize() . ' ' . $this->getBrand() . ' ' . $this->getDisplayType . ' Television <br />';
+              return 'This is a ' . $this->getSize() . ' ' . $this->getBrand() . ' ' . $this->getname() . ' ' . $this->getDisplayType() . ' Television <br />';
             }
         }
         
