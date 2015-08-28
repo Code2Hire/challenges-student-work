@@ -4,7 +4,7 @@
   </head>
   <body>
     <p>
-        <?php
+         <?php
         /**
          * So we have our products, but what are we going to do with them.
          *
@@ -66,9 +66,13 @@
           public $products = array();
           
           public function provideDescription() {
+            
+            $productDescriptions = array();
+            
             foreach($this->products as $product) {
-              return $product->provideDescriptionForProductType();
+              array_push($productDescriptions, $product->provideDescriptionForProductType());
             }
+            return $productDescriptions;
           }
           
           public function addProduct(Product $product) { 
@@ -102,8 +106,9 @@
           public function getTotalPrice() {
             foreach ($this->products as $product) {
                 $totalprice = $product->price + $totalprice;
-                return 'Total Price: ' . $totalprice;
+                
             }
+            return 'Total Price: ' . $totalprice;
           }
           
           public function getAllProducts() {
@@ -262,7 +267,7 @@
         $cart->addProduct(new Clothing("Hoodie", "Nike", 19.99, "large", "red", "shirt", "male"));
         $cart->addProduct(new Television("Plasma", "Sony", 1000.00, plasma, "50in"));
         
-        echo $cart->provideDescription(); //only provides description for "hoodie" (first element)
+        var_dump($cart->provideDescription());
         echo "<br />";
         echo $cart->getTotalPrice(); //displays any error because it is protected, if i make public it displays nothing (why)
          
