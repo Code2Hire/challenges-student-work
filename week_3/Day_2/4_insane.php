@@ -41,10 +41,38 @@
 
              	Winner will be determined by whoever has successfully implemented this AND has the best logic
             */
-             
-        ?>
+            function createDeck() {
+                $suits = array ("clubs", "diamonds", "hearts", "spades");
+                $faces = array (
+                    "Ace" => 1, "2" => 2,"3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
+                    "8" => 8, "9" => 9, "10" => 10, "Jack" => 11, "Queen" => 12, "King" => 13
+            );
+            }
+            
+            $deck = createDeck();
+               $num_players = 2;
+               $num_cards_in_deck = count($deck);
+               $num_cards_to_give_each_player = $num_cards_in_deck / $num_players; 
 
-    </p>
+          
+            shuffle($deck);
+            $card = array_shift($deck);
+            echo $card['face'] . ' of ' . $card['suit'];
+            
+              
+            function dealCards(&$deck, $number_of_cards = 0) {
+                $playerCards = array(); 
+            }
+             
+            $hands = array(1 => array(), 2=>array());
+
+            for ($i = 0; $i < 2; $i++) {
+                $hands[1][] = implode(" of ", array_shift($deck));
+                $hands[2][] = implode(" of ", array_shift($deck));
+            }
+            
+
+    ?>
 
     </body>
 </html>

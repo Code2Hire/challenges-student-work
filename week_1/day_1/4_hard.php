@@ -9,7 +9,7 @@
 		- December
  -->
 
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
     <head></head>
 	<body>
@@ -28,8 +28,18 @@
           	 'September',
           	 'November'
           	];
-
-          	// code goes here ...
+          	
+          	unset($monthExcludeArray[7]);
+          	
+            $myMonthArray = [ 
+                'April', 
+                'September', 
+                'December',
+            ];
+            
+           
+          var_dump($monthRenderArray);
+          	
           ?>
         </p>
 	</body>

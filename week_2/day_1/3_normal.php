@@ -16,15 +16,21 @@
 
 <!DOCTYPE html>
 <html>
-<head></head>
-<body>
-<p>
-	<?php
+  <head></head>
+	<body>
+        <p>
+            <?php
 
-		// code goes here ...
-
-
-	?>
-</p>
-</body>
+          	    // code goes here ...
+          	    do { 
+          	        $number = rand(1, 7);
+          	        echo $number . "\n"; 
+          	    }
+          	    while 
+          	        ($number != 7); 
+          	    
+          	    
+            ?>
+        </p>
+	</body>
 </html>

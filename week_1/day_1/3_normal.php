@@ -29,6 +29,14 @@
 	         ];
 
 	         // code goes here
+	         if(array_key_exists($name,$nameToColorArray)) { 
+	         	echo $nameToColorArray[$name];
+	         }
+	         else { 
+	         	echo "Color is not found";
+	         } 
+	         
+	         
           ?>
         </p>
 	</body>
