@@ -85,8 +85,8 @@
         
           public function removeProduct($product) {
             if(in_array($product, $this->products)) {
-              unset($product);
-              return $this->products;
+               $key = array_search($product, $this->products);
+              unset($this->products[$key]);
             } else {
               throw new Exception("Product not in cart");
             }
@@ -263,6 +263,7 @@
             }
         }
         
+        $itemDescriber = new ItemDescriber();
         $cart = new ShoppingCart();
         $hoodie = new Clothing("Hoodie", "Nike", 19.99, "large", "red", "shirt", "male");
         $plasma = new Television("Plasma", "Sony", 1000.00, plasma, "50in");
@@ -272,13 +273,17 @@
         echo implode('<br />', $cart->provideDescription());
         echo "<br />";
         echo $cart->getTotalPrice();
-        
+        echo "<br />";
         $cart->removeProduct($hoodie);
         
-        var_dump($cart->provideDescription());
+        foreach($cart->provideDescription() as $productDescription) {
+          echo $productDescription;
+          echo '<br />';
+        }
         
+        var_dump($cart->findProductByName("Plasma"));
         
-         
+        var_dump($itemDescriber->outputDescription($cart));
          
         
         ?>
