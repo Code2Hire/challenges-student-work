@@ -5,9 +5,16 @@
      *
      * Can you fix the code below so it works as expected?
      */
+     
+     
+     
+     
     function ride($owner) {
+        //adds the string owner to the array and out puts who owns what.
         $rides = array('car', 'boat', 'bike');
-        for($i = 0, $i < count($rides), $i++) {
+        
+        for($i = 0; $i < count($rides); $i++) {
+        
             array_push($rides, $owner . "'s " . $rides[$i]);
         }
         return $rides;

@@ -42,7 +42,8 @@
      * This site will help you to know which zip codes belong to which states:
      * @see https://smartystreets.com/articles/zip-codes-101
      */
-
+     
+     $suites = array( array('name'=>'hearts','color'=>'red','icon'=>'heart.jpg') );
 
     ///////////////////////////
     // Put your code here!

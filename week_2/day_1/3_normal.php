@@ -21,10 +21,30 @@
 <p>
 	<?php
 
-		// code goes here ...
+			<?php
 
 
-	?>
+	//using the date function output the month and its info
+
+	for ($m=1; $m<=12; $m++) {
+
+	     $month = date('F', mktime(0,0,0,$m));
+     
+     // if the first letter of the generated month is a J then echo the following
+         if(substr($month,0,1)=='J'){
+         	$length = strlen($month);
+            echo "$m - ".$month. " - $length ";
+            
+        }
+
+     }
+
+
+
+
+
+?>
+
 </p>
 </body>
 </html>

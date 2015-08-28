@@ -11,8 +11,18 @@
     function clean_then_call($string, callable $callback) {
         // Use the string cleaning procedure we came up with in exercise 1 on $string
         
-        // return the result of the $callback function with $string passed in as a parameter
         
+                    $name = trim($name);
+                    $name = strtolower($name);
+                    $name  = ucwords($name);
+                    $name = $callback($name);
+        
+        
+                    
+        
+        // return the result of the $callback function with $string passed in as a parameter
+                    return $name; 
+                    
     }
 ?>
 <!DOCTYPE html>
@@ -27,7 +37,11 @@
     </p>
     <p>
         <?php
-            // Write your own using clean_then_call and a closure to manipulate the string further
+            echo clean_then_call('JAMar FLOWERS',function($name)
+                        {   
+                   
+                            printf("Hello %s\r\n", $name);
+                        });
         ?>
     </p>
   </body>

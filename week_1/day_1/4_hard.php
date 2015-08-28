@@ -17,7 +17,7 @@
           <?php
           
           	// months I dont want to render
-          	$monthExcludeArray = [
+          	$monthExcludeArray = array(
           	 'January', 
           	 'February',
           	 'March',
@@ -27,7 +27,7 @@
           	 'August',
           	 'September',
           	 'November'
-          	];
+          	);
 
           	// code goes here ...
           ?>

@@ -12,9 +12,20 @@
     <p>
 
         <?php
-
-            // code goes here...
-
+                
+            // set integer as the variable that gets added    
+            
+            $integer = 0;
+            
+            for($i = 0; $i < 20 ;$i++){
+                
+                //iteration 1:   n = n + 1 / 0 = 0 + 1
+                
+                $integer = $integer + $i;
+                
+            }
+            // output the total outside the loop
+            echo $integer;
 
         ?>
     </p>

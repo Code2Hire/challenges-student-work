@@ -26,7 +26,18 @@
         <p>
             <?php
 
-          	    // code goes here ...
+
+
+                // while random number is not equal to 7 
+          	    while ($randnum != 7){
+          	        
+          	        
+          	    // generat random number 
+          	    $randnum = rand(1,7);
+          	    
+          	    // Output random number
+          	    echo $randnum  . "  ";
+            }
 
             ?>
         </p>

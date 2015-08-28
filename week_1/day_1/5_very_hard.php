@@ -5,8 +5,11 @@
   they are all out of order and I want to present them to my customer
   in the correct order with the lowest price first
  -->
-
+  
 <?php
+
+// multidimensional array that holds package names and prices
+
   $packagesArray = array(
     array('name' => 'Package 1', 'price' => 5.99),
     array('name' => 'Package 2', 'price' => 3.01),
@@ -16,7 +19,31 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+
+
+// creating new array to hold prices 
+$price = array();
+
+// for each element of $packages array
+// we transerfer over the key and the row
+
+foreach ($packagesArray as $key => $row)
+{
+    $price[$key] = $row['price'];
+}
+
+//using price to help sort $packages array and out put the correct order.
+
+array_multisort($price, SORT_DESC, $packagesArray);
+
+
+
+  
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html>
   <head></head>

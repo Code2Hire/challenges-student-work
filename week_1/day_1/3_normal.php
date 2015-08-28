@@ -12,11 +12,11 @@
     <head></head>
 	<body>
         <p>
-          <?php
+     <?php
           	$name = 'Eric'; // this came from the previous page as a post variable
 
-          	// this came from the db
-			$nameToColorArray = [
+          	// this came from the DB.
+			$nameToColorArray = array(
 	          'Alex' => 'blue',
 	          'Joseph' => 'green',
 	          'James' => 'red',
@@ -26,10 +26,13 @@
 	          'Michael' => 'blue',
 	          'Derek' => 'purple',
 	          'Tru' => 'red',
-	         ];
+	         );
 
-	         // code goes here
-          ?>
-        </p>
+            // takes name as a key and associcates that names variable with the right color.
+			echo $nameToColorArray[$name];
+
+	         
+          ?>        
+          </p>
 	</body>
 </html>

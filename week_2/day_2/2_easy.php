@@ -5,12 +5,33 @@
      */
     
 ?>
+
 <!DOCTYPE html>
 <html>
   <head></head>
   <body>
     <p>
         <?php
+        
+        // takes array to add function
+        
+         function add($array){
+            // counter counts the size of the array to give for loop a driver 
+             $counter = count($array);
+             
+             for($I = 0; $I < $counter; $I++){
+                 // adds each element to the previous
+                    $num = $array[$I] + $num;         
+                }
+             
+             return $num; // returns the added number
+        }
+        
+        
+        
+        
+        
+        
             echo add(array(1,2,3,4,5));
         ?>
     </p>
@@ -20,4 +41,4 @@
         ?>
     </p>
   </body>
-</html>
+</html>.
