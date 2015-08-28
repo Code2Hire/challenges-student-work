@@ -45,6 +45,32 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+        interface Describable {
+          public function provideDescription(); 
+        }
+        class ShoppingCart{
+          public function provideDescription(){
+            
+          }
+          public function addProduct($product){
+            
+          }
+          public function removeOne($product){
+            
+          }
+          public function removeAll($product{
+          
+          }
+          public function getTotalPrice(){
+            
+          }
+          public function getAllProducts(){
+            
+          }
+          public function findProductByName($name){
+            
+          }
+        }
         ?>
     </p>
   </body>
