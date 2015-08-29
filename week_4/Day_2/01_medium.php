@@ -75,7 +75,7 @@
             return $productDescriptions;
           }
           
-          public function addProduct(Product $product) { 
+          public function addProduct($product) { 
             if($product instanceof Product) {
               $this->products[] = $product;
             } else {
@@ -104,6 +104,9 @@
           }
           
           public function getTotalPrice() {
+            
+            $totalprice = 0;
+            
             foreach ($this->products as $product) {
                 $totalprice = $product->price + $totalprice;
                 
@@ -116,9 +119,13 @@
           }
           
           public function findProductByName($name) {
-            foreach($this->products as $product) {
+            
+            $productKey = null;
+            
+            foreach($this->products as $key => $product) {
               if($product->name == $name) {
-                return $product;
+                $productKey = $key + 1;
+                return $product . ' is number ' . $productKey . ' in the cart. <br />';
               } else {
                 throw new Exception("No product with given name found in cart");
               }
