@@ -41,7 +41,139 @@
 
              	Winner will be determined by whoever has successfully implemented this AND has the best logic
             */
-             
+            function createDeck() {
+
+                $suits = array ("clubs", "diamonds", "hearts", "spades");
+                $faces = array (
+                    "Ace" => 1, "2" => 2,"3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
+                    "8" => 8, "9" => 9, "10" => 10, "Jack" => 10, "Queen" => 10, "King" => 10
+                );
+            
+                $deck = array();
+                foreach($suits as $suit) {
+                    foreach($faces as $key=>$face) {
+                            $deck[] = $face;
+                    }
+                }
+            
+                return $deck;
+            }
+        
+            
+            function dealCards(&$deck, $number_of_cards = 0) {
+        
+            $playerCards = array();
+            for($i=1; $i <=$number_of_cards; $i++) {
+        
+                $key = array_rand($deck);
+                $value = $deck[$key];
+        
+                if(isset($deck[$key])) {
+                    $playerCards[$key] = $value;
+                    unset($deck[$key]);
+                }
+            }
+            
+            return $playerCards;
+            }
+        
+            $players_bank = 1000;
+            $deck = createDeck();
+        
+            while($players_bank >= 0) {
+            
+            $player_start_cards = dealCards($deck, 2);
+                        $playerCards = array_values($player_start_cards);
+
+            foreach($player_start_cards as $key=>$unsetCards) {
+                unset($player_start_cards[$key]);
+            }
+            
+
+            echo "Players Card :" . "<br />";
+            var_dump($playerCards);
+            
+             if($player_start_cards[0] == 1 || $player_start_cards[1] == 1) {
+                 
+                if($player_start_cards[0] == 10 || $player_start_cards[1] == 10) {
+                    $players_bank = $players_bank + 200;
+                   
+                    echo "Players Card ( 21 ) :" . "<br />";
+                    echo $player_start_cards[0] . "<br />";
+                    echo $player_start_cards[1] . "<br />";
+                    echo "Players Bank ( 21 money ) :" . "<br />";
+                    echo $players_bank . "<br />";
+                    continue;
+                }else {
+                        $coin = rand(1,10);
+                        if($coin <= 5) {
+                           $player_start_cards[0] = 11;
+                        }else {
+                        $player_start_cards[0] = 1;
+                        }
+                }
+            }else {
+        
+                $player_sum = $player_start_cards[0] + $player_start_cards[1];
+                echo "Players Sum ( not 21 ) :" . "<br />";
+                echo $player_sum . "<br />";
+            
+            }
+          
+            $dealer_start_cards = dealCards($deck, 2);
+            if($dealer_start_cards[0] == 1 || $dealer_start_cards[1] == 1) {
+                if($dealer_start_cards[0] == 10 || $dealer_start_cards[1] == 10) {
+                    
+                    echo "Players Bank ( with dealers bank  21) :" . "<br />";
+                    $players_bank = $players_bank - 100;
+                
+                    echo "Dealers Cards ( 21 ):" . "<br />";
+                    echo $dealer_start_cards[0] . "<br />";
+                    echo $dealer_start_cards[1] . "<br />";
+                    echo $players_bank . "<br />";
+                    continue;
+        
+                }else {
+                    $coin = rand(1,10);
+                    if($coin <= 5) {
+                        $dealer_start_cards[0] = 11;
+                    }else {
+                        $dealer_start_cards[1] = 1;
+                    }
+                }
+            }else {
+                $dealer_sum = $dealer_start_cards[0] + $dealer_start_cards[1];
+                echo "Dealers Card sum ( not 21 ) :" . "<br />";
+                echo $dealer_sum . "<br />";
+            }
+            die;
+            
+            if($player_sum == $dealer_sum || $player_sum < $dealer_sum) {
+                
+                // for($i = $player_sum; $)
+                
+                  $player_card = dealCards($deck, 1);
+                  if($player_card[0] == 1) {
+                    if($player_sum == 10) {
+                       $players_bank = $players_bank + 200;
+                    }else {
+                        //choose random number of 1 or 11
+                     }
+                  }else {
+                      
+                  $player_sum = $player_card[0] + $player_sum;
+                    if($player_sum > 21) {
+                       $player_sum = $player_sum - 100;
+                    }
+                    elseif($player_sum == 21) {
+                           $players_bank = $players_bank + 200;
+                    
+                    }
+                }
+            }
+
+        }
+       
         ?>
 
     </p>
