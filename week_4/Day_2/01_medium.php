@@ -4,7 +4,11 @@
   </head>
   <body>
     <p>
+<<<<<<< HEAD
         <?php
+=======
+        <?
+>>>>>>> new-challenges/master
         /**
          * So we have our products, but what are we going to do with them.
          *
@@ -31,6 +35,7 @@
          *
          * Perform the following tasks:
          *
+<<<<<<< HEAD
          * 1. Create at least one Clothing Object and one Television Object. DONE
          * 2. Create a shopping cart instance. DONE
          * 3. Add the two products to the cart.
@@ -38,11 +43,21 @@
          * 5. Print out the total price of the cart.
          * 6. Remove the Clothing object from your cart.
          * 7. Find the product in the cart with the name of your Television Object.
+=======
+         * 1. Create at least one Clothing Object and one Television Object.
+         * 2. Create a shopping cart instance.
+         * 3. Add the two products to the cart.
+         * 4. Print out the description of the cart.
+         * 5. Print out the total price of the cart.
+         * 6. Remove the Clothing object from your cart.
+         * 7. FInd the product in the cart with the name of your Television Object.
+>>>>>>> new-challenges/master
          * 8. Pass your ShoppingCart into the ItemDescriber outputDescription method from Exercise 4 and see
          * how it will also output the description of your cart, just like it did your individual products
          */
 
         ///////////////////////////
+<<<<<<< HEAD
         //  Put your code here!  //
         ///////////////////////////
         interface Describable { 
@@ -173,6 +188,10 @@
           echo $E->getMessage();
         } 
         */ 
+=======
+        // Put your code here!
+        ///////////////////////////
+>>>>>>> new-challenges/master
         ?>
     </p>
   </body>
