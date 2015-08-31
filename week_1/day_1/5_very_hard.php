@@ -7,6 +7,7 @@
  -->
 
 <?php
+
   $packagesArray = array(
     array('name' => 'Package 1', 'price' => 5.99),
     array('name' => 'Package 2', 'price' => 3.01),
@@ -16,6 +17,13 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+  
+
+  foreach($packagesArray as $rownum => $packageArray){
+    $price[$rownum] = $packageArray["price"];
+  }
+  array_multisort($price,SORT_ASC,$packagesArray);
+
 ?>
 <!DOCTYPE html>
 <html>
