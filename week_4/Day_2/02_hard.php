@@ -38,8 +38,43 @@
          */
 
         ///////////////////////////
-        // Put your code here!
-        ///////////////////////////
+
+        abstract class ProductContainer{
+          public function provideDescription() { 
+            return $item->provideDescription;
+          } 
+          public function addProduct($item) {
+            $obj1 = new 
+          }
+          public function removeOne($item) { 
+            unset($item);
+          } 
+          public function removeAll($item) { 
+            
+          } 
+          public function getTotalPrice(){
+            
+          }
+          public function getAllProducts(){
+    
+          }
+          public function findProductByName() { 
+          } 
+        } 
+        }
+        
+      class ShoppingCart extends ProductContainer{
+        
+      } 
+      
+      class Wishlist extends ProductContainer{
+        
+      }
+
+        ?>
+
+
+
         ?>
     </p>
   </body>
