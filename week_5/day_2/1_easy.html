@@ -1,0 +1,150 @@
+<!-- Challenge 1 - Easy -  The Checkers Challenge  -->
+
+<!-- 
+
+	1. setup your html document
+	2. utilizing a table with styles, create a 8x8 black and white checkers board
+		- and example checkers.jpg is located in your images folder
+
+	Bonus challenge - The same challenge, but create it using divs
+
+	-->
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Checkers Challenge</title>
+			<style> 
+				.whitesquares { 
+				background-color: white;
+				height: 30px; 
+				width: 30px;
+				margin-bottom: -4px;
+				display: inline-block;
+				}
+				
+				.blacksquares { 
+				background-color: black;
+				height: 30px;
+				margin-bottom: -4px;
+				width: 30px;
+				display: inline-block;
+				} 
+			</style>
+		</head>
+		<body>
+			<h1>Using a table:</h1>
+			<table border="0" cellpadding="15" cellspacing="0">
+				<tr>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+				</tr>
+				<tr>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+				</tr>
+				<tr>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+				</tr>
+				<tr>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+				</tr>
+				<tr>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+				</tr>
+				<tr>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+				</tr>
+				<tr>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+				</tr>
+				<tr>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+					<td style="background-color: black";></td>
+					<td style="background-color: white";></td>
+				</tr>
+			</table>
+			
+			<h1>Using divs:</h1>
+			<div>
+				<div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div>
+			</div>
+			<div>
+				<div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div>
+			</div>
+			<div>
+				<div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div>
+			</div>
+			<div>
+				<div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div>
+			</div>
+			<div>
+				<div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div>
+			</div>
+			<div>
+				<div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div>
+			</div>
+			<div>
+				<div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div>
+			</div>
+			<div>
+				<div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div><div class="blacksquares"></div><div class="whitesquares"></div>
+			</div>
+			
+			
+			
+		
+			
+		</body>
+	</html>
