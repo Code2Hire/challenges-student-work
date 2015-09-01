@@ -4,7 +4,7 @@
   </head>
   <body>
     <p>
-        <?
+        <?php
         /**
          * OVERVIEW:
          * We've decided we want to add "wishlist" functionality to our site.  If you think about it,
@@ -63,8 +63,12 @@
           }
           
           
-          
-          abstract function deleteProduct(Product $product){
+        // if you are actually implementing a function, it should not have the
+        // keyword abstract in front of it...only unimplemented classes in
+        // the abstract class should have abstract there.  You will still need
+        // to have public there
+        // @advice
+          public function deleteProduct(Product $product){
             if(isset($this->items[$items])){
               unset($this->items[$items]);
             }
@@ -81,7 +85,12 @@
               
         }
         
-           abstract function getTotalPrice($price){
+        // if you are actually implementing a function, it should not have the
+        // keyword abstract in front of it...only unimplemented classes in
+        // the abstract class should have abstract there.  You will still need
+        // to have public there
+        // @advice
+           public function getTotalPrice($price){
           foreach($items as $product){
             $sum = getPrice($product);
             print_r($sum);
@@ -94,13 +103,22 @@
         // END OF WISHLIST CLASS
         
         
-        
-        
+        // You should move all of the functionality that would be shared from the previous
+        // exercise in here.  For instance, you should have pretty much all of the 
+        // 7 methods from the medium exercise in this class instead of your
+        // shopping cart class.
+        // @advice
+        // This is the class
         abstract class ProductContainer {
           
           
           static public function createCartFromContainer($productContainer){
+            
             $shoppingCart_ins = new ShoppingCart();
+            // you're starting in the right spot.
+            // Now, take all the products from the product coantiner that you are passing
+            // in and add them to the shopping cart.  Then return the shopping cart
+            // @advice
           }
           
           
@@ -129,6 +147,8 @@
           
           
           public function deleteProduct(Product $product){
+            // where did $items come from?  If it is not a number or a string, it doesn't
+            // make sense to reference an array key by anything else
             if(isset($this->items[$items])){
               unset($this->items[$items]);
             }
@@ -137,7 +157,8 @@
             public function deleteAll(Product $product){
               if($product == null){
               foreach($items as $product){
-                deleteProduct($product);
+                  // delete product is a method on this object...access it using $this->deleteProduct($product)
+                $this->deleteProduct($product);
               }
               }
               else
@@ -147,6 +168,9 @@
         
         
         public function getTotalPrice($price){
+          // no reference to items, you are probably trying to reference $this->items
+          // Also, i don't see getPrice as a function...is that a method on the product.
+          // if so, it would be something like $product->getPrice()
           foreach($items as $product){
             $sum = getPrice($product);
             print_r($sum);
@@ -157,11 +181,15 @@
         
         }
         
-        
+        // Move all of the methods from this class to the product container.  You've started
+        // there, but havent quite finished
+        // @advice
         class ShoppingCart extends ProductContainer {
            
           public function addProduct(Product $product){
-            
+              // where is item (or items) coming from?
+              // You are probably trying to reference them with $this, but
+              // you would still cause some issues, especially with $this->items[$items]
              $item = $item;
                      // Throw an exception if its not an item
              if (!$item) throw new Exception('The cart requires items with unique ID values.');
@@ -170,20 +198,24 @@
                 $this->updateItem($item, $this->items[$item]['qty'] + 1);
     } 
           else {
+            // where did $id come from?  It doesnt look initialized to me
              $this->items[$id] = array('item' => $item, 'qty' => 1);
     }
           }
           
           
           public function deleteProduct(Product $product){
+            // where is $items coming from here?
             if(isset($this->items[$items])){
               unset($this->items[$items]);
             }
           }
           
             public function deleteAll(Product $product){
+              
               if($product == null){
               foreach($items as $product){
+                // delete product is a method on this object...access it using $this->deleteProduct($product)
                 deleteProduct($product);
               }
               }
@@ -194,6 +226,9 @@
         
         
         public function getTotalPrice($price){
+          // no reference to items, you are probably trying to reference $this->items
+          // Also, i don't see getPrice as a function...is that a method on the product.
+          // if so, it would be something like $product->getPrice()
           foreach($items as $product){
             $sum = getPrice($product);
             print_r($sum);
