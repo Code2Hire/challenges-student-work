@@ -4,7 +4,7 @@
   </head>
   <body>
     <p>
-        <?
+        <?php
         /**
          * So we have our products, but what are we going to do with them.
          *
@@ -45,6 +45,165 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+        
+        //////////
+        //THIS DOES NOT WORK, IF YOU SEE THIS BEFORE TOMORROW, WILL HOPEFULLY FIX, SORRY
+        //////////
+        
+        interface Describable {
+          public function provideDescription();
+        }
+        
+        abstract class ShoppingCart implements Describable{
+            public $items = array();
+            protected $name, $price, $brand;
+            protected $total, $amount;
+           
+            public function __construct($name, $price, $brand){
+              $this->name = $name;
+              $this->price = $price;
+              $this->brand = $brand;
+            }
+            
+            public function getName(){
+            if(empty($this->name)){
+              throw new Exception('Value is empty');
+            }
+            return $this->name;
+          }
+          
+            public function getBrand(){
+              if(empty($this->brand)){
+                throw new Exception('Value is empty');
+              }
+              return $this->brand;
+            }
+          
+            public function getPrice(){
+              if(is_numeric($this->price)){
+                return $this->price;
+              }
+              else{
+                throw new Exception('Not a valid price');
+              }
+            }
+            
+            public function addItem($item){
+                $this->items[] = $item;
+            }
+            
+            function countItems(){
+              $amount = count($this->items);
+            }
+            
+            function getTotalPrice(){
+              foreach($this->items as $item){
+                $this->total += $item->price;
+            }
+            return $this->total;
+            }
+          
+            function removeItem($item){
+                unset($this->items, $item);
+            }
+            
+            function removeAll($item){
+             foreach($items as $it){
+               unset($this->items, $it);
+             } 
+            }
+            
+            function findProductByName($name){
+              return array_search($this->items, $name);
+            }
+            
+            abstract function provideDescriptionForProduct();
+            
+            public function provideDescription(){
+              return "Shopping Cart Contains {$this->countItems()} items, which include: </br>";
+              foreach($items as $it){
+                return "{$it->provideDescriptionForProduct()}"; 
+              }
+              return "The total is {$this->getTotalPrice()}";
+            }
+            
+        }
+        
+        class Clothing extends ShoppingCart{
+          protected $size, $color;
+          
+          public function __construct($name, $price, $brand, $size, $color){
+            parent::__construct($name, $price, $brand);
+            $this->size = size;
+            $this->color = color;
+          }
+          
+          public function getSize(){
+            if(empty($this->size)){
+              throw new Exception('Value is empty');
+            }
+            else{
+              return $this->size;
+            }
+          }
+          
+          public function getColor(){
+            if(empty($this->color)){
+              throw new Exception('Value is empty');
+            }
+            else{
+              return $this->color;
+            }
+          }
+          
+          public function provideDescriptionForProduct(){
+            return "ClOTHING {$this->getName()}, size {$this->getSize()}, {$this->getColor()} </br>";
+          }
+          
+        }
+        
+        class Television extends ShoppingCart {
+          protected $size, $type;
+          
+          public function __construct($brand, $price, $size, $type){
+            parent::__construct($brand, $price, $name);
+            $this->size = size;
+            $this->type = type;
+          }
+          
+          public function getSize(){
+            if(empty($this->size)){
+              throw new Exception('Value is empty');
+            }
+            else{
+              return $this->size;
+            }
+          }
+          
+          public function getType(){
+            if(empty($this->type)){
+              throw new Exception('Value is empty');
+            }
+            else{
+              return $this->type;
+            }
+          }
+          
+          public function provideDescriptionForProduct(){
+            return "Television {$this->getBrand()}, a {$this->getSize()} {$this->getType()} </br>";
+          }
+        }
+        
+        $BEYONDCREATION = new Clothing("SUPER HEAVY METAL EXTREME", "99.99", "CATTLE DECAPITATION", "X-TREME", "BLOOD RED");
+        $princessTV = new Television("Barbie", "250.00", "42 inch", "LCD");
+        
+        //$ShoppingCart->addItem("stuff");
+        //$ShoppingCart->addItem($princessTV);
+        
+        
+        
+        echo $ShoppingCart->provideDescription();
+        
         ?>
     </p>
   </body>
