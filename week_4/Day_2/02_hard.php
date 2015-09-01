@@ -4,7 +4,7 @@
   </head>
   <body>
     <p>
-        <?
+        <?php
         /**
          * OVERVIEW:
          * We've decided we want to add "wishlist" functionality to our site.  If you think about it,
@@ -40,6 +40,94 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+      abstract class ProductContainer implements Describable {
+
+          public  $products = array();
+      
+          public function provideDescription()
+          {
+              try {
+                  echo "This Cart Contains : " . "<br />";
+                  foreach($this->products as $product) {
+                      echo $product->name . "<br />";
+                  }
+              } catch (Exception $e) {
+                  echo 'There was an error determining the description to this product <br />' . $e->getMessage() . '<br />';
+              }
+      
+          }
+      
+          public function addProduct($product) {
+              if($product instanceof Product) {
+                  $this->products[$product->name] = $product;
+      
+                  return true;
+              } else {
+                  throw new Exception("Not an instance of Product");
+              }
+          }
+      
+          public function removeOne($parameter) {
+              foreach($this->products as $product) {
+                  foreach($product as $item) {
+                      if($item == $parameter) {
+                          unset($this->products[$item]);
+                      }else {
+                          throw new Exception("Item not found in" . $product);
+                      }
+                  }
+              }
+          }
+      
+          public function removeAll($product) {
+              foreach($this->products as $item) {
+      
+                  if($product->name == $item->name) {
+                      unset($this->products[$product->name]);
+                  }
+              }
+          }
+      
+          public function getTotalPrice() {
+              $sum = 0;
+              foreach($this->products as $product) {
+                  $sum += $product->price;
+              }
+              return $sum;
+          }
+      
+          public function getName($product) {
+              foreach($this->products as $item) {
+      
+                  if($product->name == $item->name) {
+                      return $product->name;
+                  }
+              }
+          }
+      
+          static function createCartFromContainer($productContainer) {
+              if($productContainer instanceof ProductContainer) {
+                  $products[] = $productContainer;
+              } else {
+                  throw new Exception("Not an instance of Product");
+              }
+          }
+      }
+      
+      abstract class ShoppingCart extends ProductContainer {
+      
+          public $products = array();
+      
+          public function provideDescription(){
+                       try {
+                          return "hello" ;
+                       }catch(Exception $e) {
+                           echo 'There was an error determining the description to this product <br />' . $e->getMessage() . '<br />';
+                       }
+                  }
+      
+          }
+
         ?>
     </p>
   </body>
