@@ -39,7 +39,7 @@
     }
     
     public function isSquare(){
-        
+          return($this->width == $this->height);
     }
 }
     $width = 160;
