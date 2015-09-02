@@ -40,6 +40,10 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+      
+      
+      //Will ask my mentor for help on this one................
+      
       abstract class ProductContainer implements Describable {
 
           public  $products = array();
