@@ -40,6 +40,11 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+        
+        
+        interface Describable {
+          public function provideDescription();
+        }
         class WishList extends ProductContainer{
           abstract public function getDescriptionforProductType();
            
@@ -133,7 +138,7 @@
           
           public function addProduct(Product $product){
             
-             $item = $item;
+             public $items = array();
                      // Throw an exception if its not an item
              if (!$item) throw new Exception('The cart requires items with unique ID values.');
                     // Add or update:
@@ -144,6 +149,45 @@
              $this->items[$id] = array('item' => $item, 'qty' => 1);
     }
           }
+          
+            
+          public function addProduct(Product $product){
+              // where is item (or items) coming from?
+              // You are probably trying to reference them with $this, but
+              // you would still cause some issues, especially with $this->items[$items]
+             $item = $item;
+                     // Throw an exception if its not an item
+             if (!$item) throw new Exception('The cart requires items with unique ID values.');
+                    // Add or update:
+             if (isset($this->items[$items])) {
+                $this->updateItem($item, $this->items[$item]['qty'] + 1);
+    } 
+          else {
+            // where did $id come from?  It doesnt look initialized to me
+             $this->items[$id] = array('item' => $item, 'qty' => 1);
+    }
+          }
+          
+          
+          public function deleteProduct(Product $product){
+            // where is $items coming from here?
+            if(isset($this->items[$items])){
+              unset($this->items[$items]);
+            }
+          }
+          
+            public function deleteAll(Product $product){
+              
+              if($product == null){
+              foreach($items as $product){
+                // delete product is a method on this object...access it using $this->deleteProduct($product)
+                deleteProduct($product);
+              }
+              }
+              else
+              throw new Exception("No instances of product");
+              
+        }
           
           
           public function deleteProduct(Product $product){
@@ -185,44 +229,7 @@
         // there, but havent quite finished
         // @advice
         class ShoppingCart extends ProductContainer {
-           
-          public function addProduct(Product $product){
-              // where is item (or items) coming from?
-              // You are probably trying to reference them with $this, but
-              // you would still cause some issues, especially with $this->items[$items]
-             $item = $item;
-                     // Throw an exception if its not an item
-             if (!$item) throw new Exception('The cart requires items with unique ID values.');
-                    // Add or update:
-             if (isset($this->items[$items])) {
-                $this->updateItem($item, $this->items[$item]['qty'] + 1);
-    } 
-          else {
-            // where did $id come from?  It doesnt look initialized to me
-             $this->items[$id] = array('item' => $item, 'qty' => 1);
-    }
-          }
-          
-          
-          public function deleteProduct(Product $product){
-            // where is $items coming from here?
-            if(isset($this->items[$items])){
-              unset($this->items[$items]);
-            }
-          }
-          
-            public function deleteAll(Product $product){
-              
-              if($product == null){
-              foreach($items as $product){
-                // delete product is a method on this object...access it using $this->deleteProduct($product)
-                deleteProduct($product);
-              }
-              }
-              else
-              throw new Exception("No instances of product");
-              
-        }
+         
         
         
         public function getTotalPrice($price){
