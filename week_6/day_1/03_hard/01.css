@@ -1,0 +1,80 @@
+body { 
+    font-family: Trebuchet MS;
+    color: white;
+} 
+
+.logoArea { 
+    background-color: #DB1515;
+    height: 90px;
+    width: 90px;
+} 
+
+.logoArea h1 { 
+    text-align: center;
+    padding-top: 20px;
+} 
+
+.mainBodyHeader { 
+    background-color: black;
+    height: 90px;
+    width: 1000px;
+    position: relative;
+    top: -106px;
+    left: 90px;
+} 
+
+.mainBodyHeaderlist li { 
+    display: inline;
+    font-size: 15px;
+    position: relative;
+    top: 30px;
+    padding: 20px;
+} 
+
+.mainBodyHeader p {
+    font-size: 15px;
+    position: relative;
+    bottom: 50px;
+    left: 810px;
+}
+
+.mainBodyHeader a { 
+    color: white;
+    text-decoration: none;
+} 
+
+.mainBodyHeader a:hover { 
+    color: #DB1515;
+} 
+
+.searchBar { 
+    background-color: white;
+    height: 20px;
+    width: 150px;
+    position: relative;
+    top: -6px;
+    left: 500px;
+} 
+
+.searchicon { 
+    position: absolute;
+    left: 160px;
+} 
+
+  .mainBodyHeaderlist li ul {
+    position: absolute;
+    display: none;
+    width: inherit;
+    background-color: black;
+    padding-left: 0px;
+  }
+  
+  .mainBodyHeaderlist li:hover ul {
+    display: block;
+    padding-bottom: 40px;
+  }
+
+.mainBodyHeaderlist li ul li {
+    display: block;
+    text-align: left;
+  }
