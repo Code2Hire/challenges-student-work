@@ -46,96 +46,104 @@
         // Put your code here!
         ///////////////////////////
         
-        //////////
-        //THIS DOES NOT WORK, IF YOU SEE THIS BEFORE TOMORROW, WILL HOPEFULLY FIX, SORRY
-        //////////
-        
         interface Describable {
-          public function provideDescription();
+          public function ProvideDescription();
         }
         
-        abstract class ShoppingCart implements Describable{
+        class ShoppingCart {
             public $items = array();
-            protected $name, $price, $brand;
-            protected $total, $amount;
-           
-            public function __construct($name, $price, $brand){
-              $this->name = $name;
-              $this->price = $price;
-              $this->brand = $brand;
-            }
             
-            public function getName(){
-            if(empty($this->name)){
-              throw new Exception('Value is empty');
-            }
-            return $this->name;
-          }
-          
-            public function getBrand(){
-              if(empty($this->brand)){
-                throw new Exception('Value is empty');
-              }
-              return $this->brand;
-            }
-          
-            public function getPrice(){
-              if(is_numeric($this->price)){
-                return $this->price;
-              }
-              else{
-                throw new Exception('Not a valid price');
-              }
-            }
             
             public function addItem($item){
                 $this->items[] = $item;
             }
             
             function countItems(){
-              $amount = count($this->items);
+              return count($this->items);
             }
             
             function getTotalPrice(){
               foreach($this->items as $item){
-                $this->total += $item->price;
-            }
-            return $this->total;
+                $total = $total + $item->price;
+              }
+              return $total;
             }
           
             function removeItem($item){
-                unset($this->items, $item);
+                unset($this->items[$item]);
             }
             
-            function removeAll($item){
-             foreach($items as $it){
-               unset($this->items, $it);
-             } 
+            function removeAll(){
+             $this->items = array();
             }
             
             function findProductByName($name){
               return array_search($this->items, $name);
             }
             
-            abstract function provideDescriptionForProduct();
             
-            public function provideDescription(){
-              return "Shopping Cart Contains {$this->countItems()} items, which include: </br>";
-              foreach($items as $it){
-                return "{$it->provideDescriptionForProduct()}"; 
+            
+            public function Description(){
+              echo "Shopping Cart Contains {$this->countItems()} items, which include: </br>";
+              foreach($this->items as $it){
+                echo "{$it->provideDescription()}"; 
               }
-              return "The total is {$this->getTotalPrice()}";
+             echo "The total is {$this->getTotalPrice()}";
             }
             
         }
         
-        class Clothing extends ShoppingCart{
+        class Product implements Describable {
+          protected $name;
+          protected $brand;
+          public $price;
+          
+          public function __construct($name, $brand, $price){
+            $this->name = $name;
+            $this->brand = $brand;
+            $this->price = $price;
+          }
+          
+          
+          
+          public function getName(){
+            if(empty($this->name)){
+              throw new Exception('Value is empty');
+            }
+            return $this->name;
+          }
+          public function getBrand(){
+            if(empty($this->brand)){
+              throw new Exception('Value is empty');
+            }
+            return $this->brand;
+          }
+          public function getPrice(){
+            if(is_numeric($this->price)){
+              return $this->price;
+            }
+            else{
+              throw new Exception('Not a valid price');
+            }
+            
+          }
+          
+          public function provideDescription(){
+            return $this->provideDescriptionForProduct();
+          }
+          
+          
+        
+          
+        }
+        
+        class Clothing extends Product{
           protected $size, $color;
           
           public function __construct($name, $price, $brand, $size, $color){
-            parent::__construct($name, $price, $brand);
-            $this->size = size;
-            $this->color = color;
+            parent::__construct($name, $brand, $price);
+            $this->size = $size;
+            $this->color = $color;
           }
           
           public function getSize(){
@@ -157,18 +165,18 @@
           }
           
           public function provideDescriptionForProduct(){
-            return "ClOTHING {$this->getName()}, size {$this->getSize()}, {$this->getColor()} </br>";
+            return "Clothing: {$this->getName()}, size {$this->getSize()}, {$this->getColor()}. </br>";
           }
           
         }
         
-        class Television extends ShoppingCart {
+        class Television extends Product {
           protected $size, $type;
           
           public function __construct($brand, $price, $size, $type){
-            parent::__construct($brand, $price, $name);
-            $this->size = size;
-            $this->type = type;
+            parent::__construct($name, $brand, $price);
+            $this->size = $size;
+            $this->type = $type;
           }
           
           public function getSize(){
@@ -190,20 +198,26 @@
           }
           
           public function provideDescriptionForProduct(){
-            return "Television {$this->getBrand()}, a {$this->getSize()} {$this->getType()} </br>";
+            return "Television: {$this->getBrand()}, a {$this->getSize()} {$this->getType()}. </br>";
           }
         }
         
-        $BEYONDCREATION = new Clothing("SUPER HEAVY METAL EXTREME", "99.99", "CATTLE DECAPITATION", "X-TREME", "BLOOD RED");
-        $princessTV = new Television("Barbie", "250.00", "42 inch", "LCD");
+        $ShoppingCart = new ShoppingCart();
         
-        //$ShoppingCart->addItem("stuff");
-        //$ShoppingCart->addItem($princessTV);
+        $BEYONDCREATION = new Clothing("SUPER HEAVY METAL EXTREME", '99.99', "CATTLE DECAPITATION", "X-TREME", "BLOOD RED");
+        $princessTV = new Television("Barbie", '250.00', "42 inch", "LCD");
+        
+        $ShoppingCart->addItem($BEYONDCREATION);
+        $ShoppingCart->addItem($princessTV);
         
         
-        
-        echo $ShoppingCart->provideDescription();
-        
+        try{
+          echo $ShoppingCart->Description();
+        }
+        catch(Exception $e){
+          echo $e->getMessage();
+        }
+        //var_dump($ShoppingCart->items);
         ?>
     </p>
   </body>
