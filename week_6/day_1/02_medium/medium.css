@@ -1,3 +1,12 @@
+.whole-circle {
+     width: 300px;
+     margin: 0 auto;
+}
+
+.whole-circle p {
+     margin: 0;
+}
+
 .top-half {
     overflow: hidden;
 }
@@ -44,3 +53,4 @@
     -webkit-transform: matrix(-1, 0, 0, -1, 0, 0);
     float: right;
 }
+
