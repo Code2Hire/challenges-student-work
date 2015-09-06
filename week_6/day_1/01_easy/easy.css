@@ -2,100 +2,26 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: white;
-    color: black;
-    font-family: Helvetica;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-h1 {
-    font-size: 50px;
-}
-
-.header-statement {
-    padding: 5% 10%;
-    text-align: center;
-}
-
-.page-row {
-    clear: both;
-    width: 100%;
-    overflow: hidden;
-    padding: 5%;
-    margin-bottom: 2%;
-}
-
-.cards {
-    overflow: hidden;
-}
-
-.card {
-    width: 20%;
-    margin: 2.5%;
-    height: 300px;
-    float: left;
-}
-
-.half-width {
-    width: 48%;
-    margin: 1%;
-    height: 500px;
-    float: right;
-}
-
-.hero {
-    height: 800px;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-image: url('images/magnaball.jpg');
-}
-
-.bg-red {
-    background-color: red;
-}
-
-.bg-orange {
-    background-color: orange;
-}
-
-.bg-yellow {
-    background-color: yellow;
-}
-
-.bg-green {
-    background-color: green;
-}
-
-.bg-blue {
-    background-color: blue;
-}
-
-.bg-purple {
-    background-color: purple;
-}
-
 .masthead {
     width: 100%;
+    background-color: #777;
     height: 100px;
     line-height: 100px;
-    background-color: #777;
+    margin-bottom:20px;
 }
 
 .logo {
     float: left;
+    padding-left: 15px;
 }
 
-.navbar {
-    float: right;
+.logo a{
+    color: white;
+    text-decoration: none;
 }
 
 .nav-list {
-    padding: 0;
-    margin: 0;
+    float: right;
 }
 
 .nav-link {
@@ -107,12 +33,109 @@ h1 {
 .nav-link a {
     color: white;
     text-decoration: none;
+    
+}
+
+.main {
+    padding:20px;
+    margin-bottom:10px;
+}
+
+.box-container {
+    overflow: hidden;
+    margin-bottom:20px;
+}
+
+.big-box, .little-box {
+    float: left;
+    width: 48%;
+    background-color: #777;
+    color: white;
+    text-align: center;
+}
+
+.big-box {
+    height: 500px;
+    line-height: 500px;
+    margin-right: 2%;
+}
+
+.little-box {
+    height: 215px;
+    line-height: 215px;
+    margin-left: 2%;
+}
+
+.little-box.one {
+    margin-bottom: 70px;
+}
+
+.header {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    width: 100%;
+    background-color: #777;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.cards {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.card {
+    height: 200px;
+    line-height: 200px;
+    background-color: #777;
+    color: white;
+    float: left;
+    width: 30%;
+    text-align: center;
+}
+
+.card.one, .card.two {
+    margin-right: 5%;
+}
+
+.tabs {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 1px;
+}
+
+.tab {
+    height: 25px;
+    line-height: 25px;
+    background-color: #777;
+    color: white;
+    float: left;
+    width: 24%;
+    text-align:center;
+}
+
+.tab.one, .tab.two, .tab.three {
+    margin-right: 1.33333%;
+}
+
+.paragraphs {
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    width: 100%;
+    background-color: #777;
+    color: white;
 }
 
 .footer {
     width: 100%;
     height: 100px;
     line-height: 100px;
+    background-color: #777;
+    color: white;
+    padding: 0px 15px;
 }
 
 .copyright {
@@ -121,11 +144,4 @@ h1 {
 
 .social-links {
     float: right;
-    background-color:#777;
-}
-
-.social-links a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 15px;
 }
