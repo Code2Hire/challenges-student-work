@@ -1,0 +1,185 @@
+* {
+     box-sizing: border-box;
+ }
+ 
+ body {
+     background-color: #fff;
+     color: #fff;
+     font-family: Helvetica;
+     font-size: 16px;
+     line-height: 1.5;
+ }
+ 
+ h1 {
+     font-size: 32px;
+ }
+ 
+ h2 {
+     font-size: 28px;
+     font-style: italic;
+ }
+ 
+ .header-statement {
+     padding: 5% 10%;
+     text-align: center;
+ }
+
+.page-row {
+    clear: both;
+    width: 100%;
+    overflow: hidden;
+    padding: 1%;
+    margin: 2% 0;
+    padding-top: 10%;
+}
+
+.boxes {
+    overflow: hidden;
+}
+
+.box1 {
+    width: 529px;
+    margin: 2%;
+    height: 505px;
+    float: left;
+    background-color: #777;
+}
+
+.small {
+    width: 474px;
+    height: 208px;
+    margin: 2%;
+    float: right;
+    background-color: #777;
+}
+
+.head {
+    width: 1080px;
+    height: 155px;
+    margin: 2% ;
+    padding: 1px;
+    background-color: #777;
+    overflow: hidden;
+}
+
+.hstatement {
+    text-align: center;
+    font-size: 35px;
+    font-color: #fff;
+    padding: 50px;
+}
+
+.cards {
+    overflow: hidden;
+    clear: both;
+    width: 100%;
+    padding: 1%;
+}
+
+.card {
+   width: 338px;
+    height: 252px;
+    margin: 1%;
+    padding: 1px;
+    background-color: #777; 
+    float: left;
+}
+
+.tabbed {
+    margin-left: 2.5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+.tabbed__navigation {
+    background-color: #777;
+    margin-bottom: 1px;
+}
+
+.tabbed__navigation__item {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid white;
+    position: center;
+    margin-left: 10%;
+    
+}
+
+.tabbed__content {
+    background-color: #777
+    
+}
+
+.tabbed__content__item {
+    display: none;
+    color: #fff;
+    text-align: justify;
+}
+
+.tabbed__content__item.is-active {
+    display: block;
+}
+
+.masthead {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background-color: #777;
+    position: fixed;
+}
+
+.logo {
+    float: left;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+.navbar {
+    float: right;
+}
+
+.nav-list {
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav-link {
+    list-style-type: none;
+     display: inline;
+     padding: 5px 15px;
+     font-size: 21px;
+}
+
+.nav-link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background-color: #777;
+}
+
+.copyright {
+    float: left;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.social-links {
+    float: right;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding-right: 10px;
+}
