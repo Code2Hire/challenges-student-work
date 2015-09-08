@@ -13,5 +13,28 @@
         Refer to Week 2 Day 1 Hard Challenge
 -->
 <script>
-    // Code here
+    window.onload = function() { 
+        var numbers = document.getElementById("RVNumbers");
+        for(var i = 0; i <= 100; i++) { 
+            if (i % 3 == 0) { 
+                numbers.innerHTML = numbers.innerHTML + "<br/>" + "Red";
+            } 
+            
+            if (i % 5 == 0) { 
+                numbers.innerHTML = numbers.innerHTML + "<br/>" + "Ventures";
+            } 
+            
+            if (i % 15 == 0) { 
+                numbers.innerHTML = numbers.innerHTML + "<br/>" + "RedVentures";
+            } 
+        } 
+    } 
 </script>
+
+<!DOCTYPE html>
+    <html>
+        <head></head>
+        <body>
+            <p id = "RVNumbers"></p>
+        </body>
+    </html>
