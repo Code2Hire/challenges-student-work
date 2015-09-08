@@ -11,6 +11,29 @@
 
 
 -->
-<script>
-    // Code here
-</script>
+   <script>
+                window.onload = function() { 
+                    var name = prompt("Enter your first and last name.");
+                    
+                    function reverse(s) {
+                    var o = '';
+                    for (var i = s.length - 1; i >= 0; i--)
+                    o += s[i];
+                    return o;
+                    }
+                    
+                var reversename = reverse(name);
+                var id = document.getElementById("paragraph");
+                id.innerHTML = reversename;
+                }
+            </script>
+            
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Easy Challenge</title>
+        </head>
+        <body>
+            <p id = "paragraph"></p>
+        </body>
+    </html>
