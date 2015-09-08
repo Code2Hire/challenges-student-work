@@ -275,7 +275,7 @@
         
         $items = array($TV, $clothing);
         
-        $cart = new ShoppingCart2();
+        $cart = new ShoppingCart();
         foreach($items as $item) {
             $cart->addProduct($item);
         }

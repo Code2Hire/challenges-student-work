@@ -1,0 +1,11 @@
+.circle {
+  width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, red, red 100%), linear-gradient(135deg, blue, blue), linear-gradient(225deg, yellow, yellow) , linear-gradient(225deg, green, green);
+    background-size: 50% 50%;
+    background-position: 0% 0%, 0% 100%, 100% 0%, 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+
+ 
+}

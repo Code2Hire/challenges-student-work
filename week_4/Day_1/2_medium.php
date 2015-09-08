@@ -32,20 +32,17 @@
     
     function getCostBeforeTax() {
 
-        // for($i=1;$i<=count($this->items);$i++) {
-        //   $sum = 0 +  $this->items[$i - 1]->price . "\n";
-            //}
-         //return $sum;
+      
          foreach($this->items as $this->item[$key]){
-            $sum += $this->item[$key]->price;
-            var_dump($sum);
             
-         }
-          
+            $sum += $this->item[$key]->price;
+            
+            }
+          return $sum;
     }
 
     function getTaxAmount() {
-        return array_sum($this->prices) * .1;
+        return $this->getCostBeforeTax() * .1;
     }
 
     function getCostAfterTax() {
