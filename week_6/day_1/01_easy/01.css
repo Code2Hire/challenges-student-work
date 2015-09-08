@@ -1,197 +1,249 @@
 /*CSS for easy challenge*/
 
-    body { 
-        font-family: Helvetica;
-        color: white;
-        height: 2000px;
-    } 
+body { 
+    font-family: Helvetica;
+    color: #975eff;
+    height: 2000px;
+    background-color: #975eff;
+    padding-top: 100px;
+} 
 
-    .header { 
-        width: 98%;
-        height: 100px;
-        position: fixed;
-        background-color: #666666;
-        z-index: 10;
+a { 
+    color: white;
+    text-decoration: none;
+} 
+
+a:hover { 
+    color: #5eff97;
+}
+
+h1 { 
+    float: left;
+    color: white;
+    margin-top: 30px;
+    margin-left: 25px;
+} 
+
+h2 { 
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    padding-top: 50px;
+} 
+
+h3 { 
+    color: white;
+    text-align: center;
+} 
+
+.header { 
+    background-color: #ff975e;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 5px #000000;
+    position: fixed;
+    top: 0;
+    
+}
+
+.icon { 
+    float: left;
+} 
+
+.links li { 
+    list-style-type: none;
+    padding-right: 20px;
+    font-size: 20px;
+    margin-top: 15px;
+    float: right;
+} 
+
+.links li ul {
+    position: absolute;
+    display: none;
+    width: 150px;
+    background-color: #ff975e;
+    padding-left: 0px;
+  }
+  
+.links li:hover ul {
+    display: block;
+    padding-bottom: 15px;
+  }
+
+.links li ul li {
+    display: block;
+    text-align: left;
+  }
+  
+.welcome-boxes {
+     overflow: hidden;
+     padding: 10px 0; 
+     width: 100%;
+}
+
+.largebox { 
+    background-color: #c6ff5e;
+    float: left;
+    width: 500px;
+    height: 500px;
+    box-shadow: 3px 3px 5px #000;
+    margin-left: 50px;
+} 
+
+.largebox p { 
+    text-align: center;
+    margin-top: 50px;
+} 
+
+.kitten1 { 
+    margin-top: 80px;
+    margin-left: 50px;
+} 
+
+.smallbox1 {
+    background-color: #c6ff5e;
+    width: 472px;
+    height: 210px;
+    box-shadow: 3px 3px 5px #000;
+    float: right;
+    margin-right: 50px;
+} 
+
+.kitten2 { 
+    margin-top: 20px;
+    margin-left: 135px;
+} 
+
+.smallbox1 p { 
+    text-align: center;
+    margin-top: 10px;
+} 
+
+.smallbox2 { 
+    background-color: #c6ff5e;
+    width: 472px;
+    height: 210px;
+    box-shadow: 3px 3px 5px #000;
+    float: right;
+    margin-top: 80px;
+    margin-right: 50px;
+    clear: right;
+} 
+
+.kitten3 { 
+    margin-top: 20px;
+    margin-left: 135px;
+} 
+
+.smallbox2 p { 
+    text-align: center;
+    margin-top: 10px;
+}
+
+.middleheader { 
+    background-color: #ff975e;
+    width: 100%;
+    height: 140px;
+    box-shadow: 3px 3px 5px #000;
+    margin-top: 15px;
+} 
+
+.page-row { 
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-left: 80px;
+} 
+
+.page-row.tabs { 
+    margin-left: 0;
+}
+
+.page-row.cards {
+    margin-left: 0;
+}
+
+.cards { 
+    width: 100%;
+} 
+
+.card { 
+    background-color: #c6ff5e;
+    width: 341px;
+    height: 254px;
+    box-shadow: 3px 3px 5px #000;
+    margin: 10px;
+    margin-left: 40px;
+    float: left;
+} 
+
+.card-container {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 1200px;
+}
+
+.cardkittens { 
+    margin-top: 26px;
+    margin-left: 70px;
+} 
+
+.tabs { 
+    overflow: hidden;
+} 
+
+.tab { 
+    background-color: #ff975e;
+    width: 233px;
+    height: 61px;
+    float: left;
+    margin: 5px;
+    box-shadow: inset 0 0 5px #000000;
+} 
+
+.tab-container {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 975px;
+}
+
+.hugeparagraphbox { 
+    background-color: #c6ff5e;
+    width: 1076px;
+    height: 610px;
+    margin: 0 auto;
+    box-shadow: 3px 3px 5px #000;
+} 
+
+.hugeparagraphbox p { 
+    text-align: justify;
+    margin: 15px;
+} 
+
+.footer { 
+    background-color: #ff975e;
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    box-shadow: inset 0 0 5px #000000;
     } 
     
-    .icon { 
-        position: relative;
-        bottom: 16px;
-    } 
+.footer .copyright { 
+    color: white;
+    float: left;
+    font-size: 25px;
+    margin-top: 35px;
+    margin-left: 30px;
     
-    .links li { 
-        display: inline;
-        padding-right: 15px;
-        float: right;
-    } 
-    
-    a { 
-        color: white;
-        text-decoration: none;
-        font-size: 20px;
-    } 
-    
-    .largebox { 
-        background-color: #777;
-        width: 500px;
-        height: 500px;
-        position: relative;
-        top: 140px;
-        margin-left: 50px;
-    } 
-    
-    .kitten { 
-        position: relative;
-        top: 100px;
-        left: 45px;
-    } 
-    
-    .smallbox1 {
-        background-color: #777;
-        width: 472px;
-        height: 210px;
-        float: right;
-        position: relative;
-        bottom: 359px;
-        margin-right: 50px;
-        
-    } 
-    
-    .kitten2 { 
-        position: relative;
-        top: 35px;
-        left: 140px;
-    } 
-    
-    .smallbox2 {
-        background-color: #777;
-        width: 472px;
-        height: 210px;
-        float: right;
-        position: relative;
-        top: -70px;
-        left: 520px;
-        margin-right: 50px;
-        
-    } 
-    
-    .kitten3 { 
-        position: relative;
-        top: 35px;
-        left: 140px;
-    } 
-    
-    .middleheader { 
-        background-color: #777;
-        width: 1235px;
-        height: 156px;
-        position: relative;
-        top: 200px;
-        left: 49px;
-    } 
-    
-    .middleheader h1 { 
-        text-align: center;
-        white-space: nowrap;
-        position: relative;
-        top: 60px;
-        left: 450px;
-    } 
-    
-     .leftcard { 
-        background-color: #777;
-        width: 341px;
-        height: 254px;
-        position: relative;
-        top: 275px;
-        left: 49px;
-        
-    } 
-    
-    .card1kitten { 
-        position: relative;
-        top: 27px;
-        left: 65px;
-    } 
-    
-    .card2kitten { 
-        position: relative;
-        left: 70px;
-        top: 27px;
-    } 
-    
-    .card3kitten { 
-        position: relative;
-        left: 70px;
-        top: 27px;
-    } 
-    
-     .rightcard { 
-        background-color: #777;
-        width: 341px;
-        height: 254px;
-        position: relative;
-        top: 21px;
-        left: 938px;
-    } 
-    
-     .middlecard { 
-        background-color: #777;
-        width: 341px;
-        height: 254px;
-        position: relative;
-        top: -232px;
-        left: 490px;
-    } 
-    
-    .tab1, .tab2, .tab3, .tab4 { 
-        background-color: #777;
-        width: 233px;
-        height: 61px;
-        float: left;
-        margin-left: 5px;
-        position: relative;
-        top: -150px;
-        left: 170px;
-    } 
-    
-    .tab1, .tab2, .tab3, .tab4 h2 { 
-        text-align: center;
-    } 
-    
-    .hugeparagraphbox { 
-        background-color: #777;
-        width: 1076px;
-        height: 610px;
-        position: relative;
-        top: -75px;
-        left: 110px;
-    } 
-    
-    .hugeparagraphbox p { 
-        text-align: justify;
-        margin-left: 15px;
-        margin-right: 15px;
-    } 
-    
-    .footer { 
-        background-color: #777;
-        width: 98%;
-        height: 100px;
-        margin-left: 15px;
-        margin-bottom: 20px;
-    } 
-    
-    .footer p { 
-        font-size: 30px;
-        padding-left: 15px;
-        padding-top: 15px;
-    } 
-    
-    .footer .footerlinks li{ 
-        position: relative;
-        top: -60px;
-        left: 800px;
-        display: inline;
-        padding: 15px;
-    } 
+} 
+
+.footer .socialmedia { 
+    color: white;
+    float: right;
+    font-size: 25px;
+    margin-top: 35px;
+    margin-right: 30px;
+} 
