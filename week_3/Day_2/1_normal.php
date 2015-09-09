@@ -14,17 +14,17 @@
              eg: "King of spades" should be one of the elements of the array and it should have a value of 13
              
              */
-
+            
+            //what to make the deck with
             $suits = array ("clubs", "diamonds", "hearts", "spades");
             $faces = array (
                 "Ace" => 1, "2" => 2,"3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
                 "8" => 8, "9" => 9, "10" => 10, "Jack" => 11, "Queen" => 12, "King" => 13
             );
-            
-            $deck = array(
+            //naming complete deck
+            $deck = array();
                 
-            );
-                
+            //making the completed deck    
             foreach($suits as $suit){
                 foreach($faces as $value=>$face){
                     $newKey = "$value of $suit";
@@ -35,7 +35,7 @@
 
 
             // print here
-
+            //that ^
                 var_dump($deck);
            // echo json_encode($deck) . "<br/>";
 

@@ -11,6 +11,8 @@
              */
              $name = "vader";
              $number = 5;
+             
+             //function that takes two parameters and prints them from the amount specified
              function prints($name, $number){
                  echo str_repeat($name, $number);
              }

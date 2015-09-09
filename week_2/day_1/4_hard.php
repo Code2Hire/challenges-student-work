@@ -24,9 +24,11 @@
         <p>
 
             <?php
+            //arrays for wether they are divisble by a number
             $threeArray = array();
             $sixArray = array();
 
+            //finding numbers divisible by 3 and 6 and putting them in the array accordingly
 			for($i = 1; $i <= 100; $i++){
 				$three = $i % 3;
 				$six = $i % 6;
@@ -37,6 +39,7 @@
 					array_push($sixArray, $i);
 				}			
 			}
+			//printing the numbers
 			echo "<pre>";
                 $comma3 = implode(",", $threeArray);
                 echo $comma3;

@@ -13,16 +13,17 @@
                are in the deck. then dividing them so we know how many cards each player should get
              */
             
-        
+            //what to make deck out of
             function createDeck() {
                 $suits = array ("clubs", "diamonds", "hearts", "spades");
             $faces = array (
                 "Ace" => 1, "2" => 2,"3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
                 "8" => 8, "9" => 9, "10" => 10, "Jack" => 11, "Queen" => 12, "King" => 13
             );
-            
+            //naming new deck
             $deck = array();
               
+            //making completed deck  
             foreach($suits as $suit){
                 foreach($faces as $value=>$face){
                     $newKey = "$value of $suit";
@@ -33,11 +34,12 @@
                 return $deck;
                 
             }
+            //shuffles deck keys
             function shuffle_assoc(&$array) {
                  $keys = array_keys($array);
 
                  shuffle($keys);
-
+            
              foreach($keys as $key) {
                  $new[$key] = $array[$key];
             }
@@ -46,6 +48,7 @@
 
                 return true;
             }
+            //using the functions
             $deck = createDeck();
             shuffle_assoc($deck); 
         
@@ -55,7 +58,7 @@
                 modify this function so that it returns the number of cards specified to the user
                 also, it must modify the deck so that those cards are no longer available to be ditributed
             */
-    
+                
                $num_players = 4;
                $num_cards_in_deck = count($deck);
                $num_cards_to_give_each_player = $num_cards_in_deck / $num_players;
@@ -71,6 +74,7 @@
               'three' => array(),
               'four' => array()
             ); 
+            //dealing cards
             function dealCards($deck, $num_cards_to_give_each_player) {
                 $players = array_chunk($deck, $num_cards_to_give_each_player);
                 return($players);

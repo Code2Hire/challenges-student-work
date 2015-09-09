@@ -16,6 +16,8 @@
          *
          * @see http://php.net/manual/en/function.usort.php
          */
+         
+         //nasty looking names ew
          $names = [
             'JASON hunter',
             ' eRic Schwartz',
@@ -23,11 +25,14 @@
         ];
 
         // Add a couple extra names to the $names array
+        //does that ^
         array_push($names, 'bOb ARK');
         array_push($names, 'DeReK wall');
 
         // Without writing a loop, use an array function to filter our list
         // of names down to only those who pass the score test.
+        
+        //takes out spaces, lower case, upper case first letter, scorring each name
         function score(&$name) {
             $name = trim(ucwords(strtolower($name)));
             $posA = stripos($name, 'a');

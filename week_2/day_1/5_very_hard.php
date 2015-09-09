@@ -30,7 +30,7 @@
 
     <?php
 
-
+    //p1 wins, p2 wins, what choices each player have, the choices, and how many games played
     $p1win = 0;
     $p2win = 0;
     $choicep1 = "";
@@ -38,10 +38,15 @@
     $choices = array("rock", "paper", "scissors");
     $played = 0;
     
+    //the game
     while($p1win < 4 && $p2win < 4){
         $won = "";
+        
+        //giving the choices randomly
         $choicep1 = $choices[rand(0,2)];
         $choicep2 = $choices[rand(0,2)];
+        
+        //more in depth of the game
         if($choicep1 == $choicep2){
             $won = "No One";
         }
@@ -77,8 +82,9 @@
                 }
             }
         }
-
+        
         $played++;
+        //printing the outcome of each game
         echo "
             Game $played <br/> 
             player 1 - $choicep1 <br/> 
