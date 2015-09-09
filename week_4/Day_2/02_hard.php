@@ -40,11 +40,14 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+<<<<<<< HEAD
+=======
         
         
         interface Describable {
           public function provideDescription();
         }
+>>>>>>> shandy
         class WishList extends ProductContainer{
           abstract public function getDescriptionforProductType();
            
@@ -57,7 +60,11 @@
             
             
                      // Throw an exception if its not an item
+<<<<<<< HEAD
+             if (!$product) throw new Exception('The cart requires products with unique ID values.');
+=======
              if (!$item) throw new Exception('The cart requires items with unique ID values.');
+>>>>>>> shandy
                     // Add or update:
              if (isset($this->items[$items])) {
                 $this->updateItem($item, $this->items[$item]['qty'] + 1);
@@ -114,10 +121,24 @@
         // shopping cart class.
         // @advice
         // This is the class
+<<<<<<< HEAD
+        abstract class ProductContainer implements Describable {
+          
+           abstract function provideDescription();
+           abstract function addProduct($product);
+           abstract function countItems();
+           abstract function getTotalPrice();
+           abstract function deleteProduct($product);
+           abstract function deleteAll();
+           abstract function getAllProducts();
+           abstract function findProductByName($name);
+              static public function createCartFromContainer($productContainer){
+=======
         abstract class ProductContainer {
           
           
           static public function createCartFromContainer($productContainer){
+>>>>>>> shandy
             
             $shoppingCart_ins = new ShoppingCart();
             // you're starting in the right spot.
@@ -131,13 +152,28 @@
           
           
           
+<<<<<<< HEAD
+          public $products = array();
+=======
           public $items = array();
+>>>>>>> shandy
          public function provideDescription(){
             return "You have {$shoppingCart->getAllProducts()} in your shopping cart";
           }
           
           public function addProduct(Product $product){
             
+<<<<<<< HEAD
+             $this->products[] = $product;
+                     // Throw an exception if its not an item
+             if (!$product) throw new Exception('The cart requires items with unique ID values.');
+                    // Add or update:
+             if (isset($this->products[$products])) {
+                $this->updateItem($item, $this->items[$item]['qty'] + 1);
+    } 
+          else {
+             $this->products[$] = array('product' => $product, 'qty' => 1);
+=======
              public $items = array();
                      // Throw an exception if its not an item
              if (!$item) throw new Exception('The cart requires items with unique ID values.');
@@ -160,6 +196,100 @@
              if (!$item) throw new Exception('The cart requires items with unique ID values.');
                     // Add or update:
              if (isset($this->items[$items])) {
+                $this->updateItem($item, $this->items[$item]['qty'] + 1);
+    } 
+          else {
+            // where did $id come from?  It doesnt look initialized to me
+             $this->items[$id] = array('item' => $item, 'qty' => 1);
+>>>>>>> shandy
+    }
+          }
+          
+          
+          public function deleteProduct(Product $product){
+<<<<<<< HEAD
+            // where did $items come from?  If it is not a number or a string, it doesn't
+            // make sense to reference an array key by anything else
+            if(isset($this->products[$products])){
+              unset($this->products[$products]);
+=======
+            // where is $items coming from here?
+            if(isset($this->items[$items])){
+              unset($this->items[$items]);
+            }
+          }
+          
+            public function deleteAll(Product $product){
+              
+              if($product == null){
+              foreach($items as $product){
+                // delete product is a method on this object...access it using $this->deleteProduct($product)
+                deleteProduct($product);
+              }
+              }
+              else
+              throw new Exception("No instances of product");
+              
+        }
+          
+          
+          public function deleteProduct(Product $product){
+            // where did $items come from?  If it is not a number or a string, it doesn't
+            // make sense to reference an array key by anything else
+            if(isset($this->items[$items])){
+              unset($this->items[$items]);
+>>>>>>> shandy
+            }
+          }
+          
+            public function deleteAll(Product $product){
+              if($product == null){
+              foreach($items as $product){
+                  // delete product is a method on this object...access it using $this->deleteProduct($product)
+                $this->deleteProduct($product);
+              }
+              }
+              else
+              throw new Exception("No instances of product");
+              
+        }
+        
+        
+        public function getTotalPrice($price){
+          // no reference to items, you are probably trying to reference $this->items
+          // Also, i don't see getPrice as a function...is that a method on the product.
+          // if so, it would be something like $product->getPrice()
+<<<<<<< HEAD
+          $this->products;
+          foreach($products as $product){
+            $sum = $product->getPrice($product);
+=======
+          foreach($items as $product){
+            $sum = getPrice($product);
+>>>>>>> shandy
+            print_r($sum);
+          }
+        }
+        
+        
+        
+        }
+        
+        // Move all of the methods from this class to the product container.  You've started
+        // there, but havent quite finished
+        // @advice
+        class ShoppingCart extends ProductContainer {
+<<<<<<< HEAD
+           
+          public function addProduct(Product $product){
+              // where is item (or items) coming from?
+              // You are probably trying to reference them with $this, but
+              // you would still cause some issues, especially with $this->items[$items]
+             
+                     // Throw an exception if its not an item
+             if (!$product) throw new Exception('The cart requires items with unique ID values.');
+                    // Add or update:
+             if (isset($this->products[$products])) {
                 $this->updateItem($item, $this->items[$item]['qty'] + 1);
     } 
           else {
@@ -188,48 +318,9 @@
               throw new Exception("No instances of product");
               
         }
-          
-          
-          public function deleteProduct(Product $product){
-            // where did $items come from?  If it is not a number or a string, it doesn't
-            // make sense to reference an array key by anything else
-            if(isset($this->items[$items])){
-              unset($this->items[$items]);
-            }
-          }
-          
-            public function deleteAll(Product $product){
-              if($product == null){
-              foreach($items as $product){
-                  // delete product is a method on this object...access it using $this->deleteProduct($product)
-                $this->deleteProduct($product);
-              }
-              }
-              else
-              throw new Exception("No instances of product");
-              
-        }
-        
-        
-        public function getTotalPrice($price){
-          // no reference to items, you are probably trying to reference $this->items
-          // Also, i don't see getPrice as a function...is that a method on the product.
-          // if so, it would be something like $product->getPrice()
-          foreach($items as $product){
-            $sum = getPrice($product);
-            print_r($sum);
-          }
-        }
-        
-        
-        
-        }
-        
-        // Move all of the methods from this class to the product container.  You've started
-        // there, but havent quite finished
-        // @advice
-        class ShoppingCart extends ProductContainer {
+=======
          
+>>>>>>> shandy
         
         
         public function getTotalPrice($price){
