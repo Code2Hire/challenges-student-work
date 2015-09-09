@@ -29,7 +29,16 @@
           	 'November'
           	];
 
-          	// code goes here ...
+          	$monthExcludeArray[0] = "April";
+          	$monthExcludeArray[2] = "December";
+          	foreach($monthExcludeArray as $key=>$val){
+          	    $arr = [1,3,4,5,6,8];
+          	    if(in_array($key,$arr)){
+          	        unset($monthExcludeArray[$key]);
+          	    }
+          	}
+          	
+          	print_r($monthExcludeArray);
           ?>
         </p>
 	</body>

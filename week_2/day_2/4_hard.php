@@ -1,4 +1,8 @@
 <?php
+
+    function dd($arg) {
+        die(var_dump($arg));
+    }
     /**
      * This function cleans a string, then calls a function with
      * the string as a parameter.
@@ -12,7 +16,25 @@
         // Use the string cleaning procedure we came up with in exercise 1 on $string
         
         // return the result of the $callback function with $string passed in as a parameter
+        $mod_string = "";
         
+            
+           $mod_string =  ucwords(strtolower(trim($string)));
+         
+        
+        $mod_string;
+        dd($mod_string);
+        
+        
+        $parts = explode(" ", $mod_string);
+        echo "<br />";
+        $lastname = array_pop($parts);
+        $firstname = implode(" ", $parts);
+        echo "<br />";
+        echo $mod_string;
+        
+         
+         return $callback($string);
     }
 ?>
 <!DOCTYPE html>
@@ -28,6 +50,7 @@
     <p>
         <?php
             // Write your own using clean_then_call and a closure to manipulate the string further
+            echo clean_then_call("G0rdon FreeMAN", "md5");
         ?>
     </p>
   </body>

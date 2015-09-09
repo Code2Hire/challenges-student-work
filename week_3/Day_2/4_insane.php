@@ -41,6 +41,66 @@
 
              	Winner will be determined by whoever has successfully implemented this AND has the best logic
             */
+            
+            
+             $playersBank = 1000;
+            $playerOne;
+            $playerTotal = $value;
+            
+            
+            
+            if($playerTotal == 21){
+                echo "You win";
+                $playersBank + 200;
+            }
+            $dealer;
+            $suits = array (
+                "Spades", "Hearts", "Clubs", "Diamonds"
+                    );
+
+            $faces = array (
+                "Ace" => 1, "2" => 2,"3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
+                "8" => 8, "9" => 9, "10" => 10, "Jack" => 11, "Queen" => 12, "King" => 13
+            );
+            $deck = array();
+
+        foreach ($suits as $suit) {
+            foreach ($faces as $face => $value) {
+                    $deck[] = array ("face"=>$face, "suit"=>$suit,"value"=> $value);
+    }
+}
+
+
+        shuffle($deck);
+        $card = array_shift($deck);
+
+       print_r($card['face'] . ' of ' . $card['suit'] ." => " . $card['value']);
+            
+            
+            
+             function countCards(){
+                
+            }
+             function evaluateHand($hand)  {
+                        global $faces;
+                        $value = 0;
+                             foreach ($hand as $card) {
+                                 if ($value > 11 && $card['face'] == 'Ace') {
+                                     $value = $value + 1;  
+             } else {
+                    $value = intval($value) + intval($faces[$card['face']]);
+        }
+    }
+                        return $value;
+                }
+
+
+            $size = count($deck);
+             evaluateHand($card);
+             
+             
+             
+             
              
         ?>
 
