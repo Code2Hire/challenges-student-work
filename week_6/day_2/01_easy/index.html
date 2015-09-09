@@ -11,6 +11,31 @@
 
 
 -->
+<html>
+    <head>
+        
+    
 <script>
-    // Code here
+function prompter(){
+    var name = prompt("What is your full name? :");
+    alert("Welcome " + name);
+}
+
+function reverse(s) {
+  return (s === '') ? '' : reverse(s.substr(1)) + s.charAt(0);
+  
+    
+}
+  
+
 </script>
+</head>
+<body>
+    <h2> Prompt </h2>
+    <form action ="">
+        <input type="button" name="b1" id="b1" value="Whats your full name? " onclick="prompter()" />
+        <input type="button" id="js-output" onclick="reverse(name)">Click me to reverse name</button>
+    </form>
+    
+</body>
+</html>
