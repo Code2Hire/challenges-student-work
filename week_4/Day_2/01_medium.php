@@ -45,44 +45,44 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
-        
+        //tells each class that uses the describable interfaec that they have to use this function located inside
         interface Describable {
           public function ProvideDescription();
         }
-        
+        //the cart 
         class ShoppingCart {
             public $items = array();
             
-            
+            //adds item to cart
             public function addItem($item){
                 $this->items[] = $item;
             }
-            
+            //counts items
             function countItems(){
               return count($this->items);
             }
-            
+            //prices of items in cart
             function getTotalPrice(){
               foreach($this->items as $item){
                 $total = $total + $item->price;
               }
               return $total;
             }
-          
+            //removes item from cart
             function removeItem($item){
                 unset($this->items[$item]);
             }
-            
+            //resets cart
             function removeAll(){
              $this->items = array();
             }
-            
+            //find a product inside thecart
             function findProductByName($name){
               return array_search($this->items, $name);
             }
             
             
-            
+            //the description set up
             public function Description(){
               echo "Shopping Cart Contains {$this->countItems()} items, which include: </br>";
               foreach($this->items as $it){
@@ -92,7 +92,7 @@
             }
             
         }
-        
+        //products
         class Product implements Describable {
           protected $name;
           protected $brand;
@@ -136,7 +136,7 @@
         
           
         }
-        
+        //clothing is a proudct
         class Clothing extends Product{
           protected $size, $color;
           
@@ -169,7 +169,7 @@
           }
           
         }
-        
+        //telivision is a product
         class Television extends Product {
           protected $size, $type;
           

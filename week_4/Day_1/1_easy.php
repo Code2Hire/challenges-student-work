@@ -21,17 +21,22 @@
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
+    //takes a rectangles width and height and does stuff
     class Rectangle {
+        //sets up the rectangle
         public function __construct($width, $height){
             $this->width = $width;
             $this->height = $height;
         }
+        //explains self
         public function getArea(){
             return $this->width * $this->height;
         }
+        //explains self
         public function getPerimeter(){
             return ($this->width * 2) + ($this->height * 2);
         }
+        //still explains self
         public function isSquare(){
             return ($this->width == $this->height);
         }
@@ -42,12 +47,13 @@
     $height = 75;
 
     echo "<h2>With a width of $width and a height of $height...</h2>";
-
+    //makes rectangle
     $r = new Rectangle($width, $height);
+    
 
     echo '<p>The area of the rectangle is ' . $r->getArea() . '</p>';
     echo '<p>The perimeter of the rectangle is ' . $r->getPerimeter() . '</p>';
-
+    //do I really need to explain what is happening
     echo '<p>This rectangle is ';
     if ($r->isSquare()) {
         echo 'also';

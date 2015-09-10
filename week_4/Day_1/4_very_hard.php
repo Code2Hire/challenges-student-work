@@ -50,9 +50,10 @@
     
         
         
-        
+        //camcost pricing determines where you are and returns what bundles you can use depending on the zip code
         class CamcostPricing {
             public function getBundlesByZip($zip){
+                    //utah
                     if(stripos($zip, '87') === 0 || stripos($zip, '84') ===0){
                         return array( 
                             'Budget + Slownet'=>'44.98',
@@ -62,6 +63,7 @@
                             'Potato + Slownet'=>'104.99',
                             'Potato + FastNet'=>'134.99');
                     }
+                    //sc and nc
                     elseif(stripos($zip, '29')===0 || stripos($zip, '28')===0){
                         return array(
                             'Budget + Slownet'=>'49.98',
@@ -69,6 +71,7 @@
                             'Regular + Slownet'=>'69.98',
                             'Regular + FastNet'=>'99.98');
                     }
+                    //everywhere else
                     else{
                         return array(
                             'Budget + Slownet'=>'44.98',
@@ -88,7 +91,7 @@
     }
     
     $pricing = new CamcostPricing;
-
+    //determing the bundles
     $zip = '28277';
     $bundles = $pricing->getBundlesByZip($zip);
     echo "<h3>Camcost Bundles for customers in $zip</h3>";

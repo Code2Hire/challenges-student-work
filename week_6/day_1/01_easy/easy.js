@@ -1,6 +1,6 @@
 window.onload = function() {
     var tabbed = document.getElementsByClassName('js-tabbed');
-    
+    //opens tabs
     for (var i = 0; i < tabbed.length; i++){
         tabbed[i].onclick = function() {
             

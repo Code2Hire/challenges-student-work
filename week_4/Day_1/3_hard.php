@@ -25,6 +25,7 @@
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
+    //book class for specified items
     class Book {
         public $name;
         public $price;
@@ -38,6 +39,7 @@
         }
         
     } 
+    //video game class for specified items
     class VideoGame {
         public $name;
         public $price;
@@ -51,6 +53,7 @@
             return (.10);
         }
     } 
+    //dvd class for specified items
     class DVD {
         public $name;
         public $price;
@@ -66,7 +69,7 @@
         
     } 
     
-    
+    //the cart which holds and prices all the specified items
     class ShoppingCart {
         public $items = array();
         protected $getCostBeforeTax;

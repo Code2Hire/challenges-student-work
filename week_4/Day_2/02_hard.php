@@ -40,10 +40,11 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+        //tells each class that uses this interface that they have to use the functions inside
         interface Describable {
           public function ProvideDescription();
         }
-        
+        //class that sets up each container, wishlist and shopping cart
         abstract class ProductContainer implements Describable {
           abstract function provideDescription();
           abstract function addItem($item);
@@ -54,10 +55,10 @@
           abstract function getAllProducts();
           abstract function findProductByName($name);
         }
-        
+        //shopping cart container
         class ShoppingCart extends ProductContainer{
             public $items = array();
-            
+            //description for the cart
             public function provideDescription() {
               echo "The Shopping Cart Contains {$this->countItems()} items, which include: </br>";
               foreach($this->items as $it){
@@ -65,42 +66,42 @@
               }
              echo "The total is {$this->getTotalPrice()}";
             }
-            
+            //adds item to the cart
             public function addItem($item) { 
                 $this->items[] = $item;
             }
-            
+            //count items in cart
             function countItems(){
               return count($this->items);
             }
-            
+            //total price of items
             function getTotalPrice(){
               foreach($this->items as $item){
                 $total = $total + $item->price;
               }
               return $total;
             }
-          
+          //remove item in cart
             function removeItem($item){
                 unset($this->items[$item]);
             }
-            
+            //resets cart
             function removeAll(){
              $this->items = array();
             }
-            
+            //print each item in cart
             function getAllProducts(){
               for($i = 0; $i < $this->countItems(); $i++){
                 return $this->items[$i];
               }
             }
-            
+            //find item in cart
             function findProductByName($name){
               return array_search($this->items, $name);
             }
             
         }
-        
+        //wishlist cart, does the same thing as shopping cart yet a different container
         class WishList extends ProductContainer{
             public $items = array();
             
@@ -151,7 +152,7 @@
             }
             
         }
-        
+        //product sets up each product
         abstract class Product implements Describable {
           protected $name;
           protected $brand;
@@ -197,7 +198,7 @@
         
           
         }
-        
+        //clothing product
         class Clothing extends Product{
           protected $size, $color;
           
@@ -230,7 +231,7 @@
           }
           
         }
-        
+        //telivision product
         class Television extends Product {
           protected $size, $type;
           
@@ -262,7 +263,7 @@
             return "Television: {$this->getBrand()}, a {$this->getSize()} {$this->getType()}. </br>";
           }
         }
-        
+        //tells wether an item has a description
         class ItemDescriber {
           public function outputDescription ($item) {
               if ($item instanceof Describable) {
@@ -273,12 +274,14 @@
             }
         }
         
+        
+        
         $BEYONDCREATION = new Clothing("SUPER HEAVY METAL EXTREME", '99.99', "CATTLE DECAPITATION", "X-TREME", "BLOOD RED");
         $princessTV = new Television("Barbie", '250.00', "42 inch", "LCD");
         
         $shoppingCart = new ShoppingCart();
         $wishList = new WishList();
-        
+        //trys to add product to the wishlist
         try{
         $wishList->addItem($princessTV);
         }
@@ -291,6 +294,7 @@
         catch(Exception $e){
           echo $e->getMessage() . "</br>";
         }
+        //I tried making a function for the try catches up above but it wasnt working
 
         try{
           echo $wishList->provideDescription();
