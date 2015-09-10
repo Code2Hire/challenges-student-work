@@ -38,10 +38,12 @@
             foreach($myMonthArray as $myMonth)
 
           	// code goes here ...
-          	if(in_array($myMonth, $monthExcludeArray)){ 
-          	    echo $myMonth . "<br/>"
-          	} else { 
-          	    echo "I don't want that month."; 
+          	if (in_array($myMonth, $monthExcludeArray)) { 
+          	    echo "I don't want that month. <br/>";
+          	}
+          	
+          	else { 
+          	    echo $myMonth . "<br/>"; 
           	} 
           	
           ?>

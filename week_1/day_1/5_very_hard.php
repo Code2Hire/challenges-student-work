@@ -16,6 +16,15 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+
+    foreach ($packagesArray as $package => $row) {
+      $name[$package]  = $row['name'];
+      $price[$package] = $row['price'];
+    }
+    
+    // sorts price in ascending order
+    array_multisort($price, SORT_ASC, $packagesArray);
+    
   
 ?>
 <!DOCTYPE html>
@@ -37,17 +46,7 @@
           foreach ($packagesArray as $packageArray): ?>
           <tr><td><?=$packageArray['name']?></td><td><?=$packageArray['price']?></td></tr>
           
-        <?php endforeach;
-        
-        array_multisort($packagesArray, SORT_ASC); 
-        var_dump($packagesArray);
-        
-        ?>
-        <!-- 
-        I understand what this code is doing, but I don't know how to include the 
-        array_multisort function. Example #3 on php.net for the function makes a lot 
-        more sense to me than this and I'm not sure how to work with what I'm given.
-        -->
+        <?php endforeach; ?>
       </ul>
 	</body>
 </html>

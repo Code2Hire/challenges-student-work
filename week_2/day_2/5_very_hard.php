@@ -16,7 +16,7 @@
          *
          * @see http://php.net/manual/en/function.usort.php
          */
-            
+        
         $names = [
             'JASON hunter',
             ' eRic Schwartz',
@@ -29,32 +29,30 @@
 
         // Without writing a loop, use an array function to filter our list
         // of names down to only those who pass the score test.
-        // Without writing a loop, print out the winners separated by a comma and a space
-        
-        
-        
-        // write new function using a callback 
-        function sort_then_print($names, callable $callback) { 
+        function sort_then_print($names) { 
             $passedNames = array_filter($names, function(&$name) { 
-            $name = ucwords(strtolower(trim($name)));
-            // Multiply the position of the letter 'a' (case insensitive) in the name by the
-            // length of the last name divided by the number of words in the string
-            $posA = stripos($name, 'a'); 
-            $parts = explode(' ', $name); 
-            $last = array_pop($parts);
-            $lenLast = strlen($last);
-            $numWords = str_word_count($name);
-            $score = $posA * $lenLast / $numWords; 
+                $name = ucwords(strtolower(trim($name)));
+                // Multiply the position of the letter 'a' (case insensitive) in the name by the
+                // length of the last name divided by the number of words in the string
+                $posA = stripos($name, 'a'); 
+                $parts = explode(' ', $name); 
+                $last = array_pop($parts);
+                $lenLast = strlen($last);
+                $numWords = str_word_count($name);
+                $score = $posA * $lenLast / $numWords; 
+                
+                return $score > 5; 
+                
+            } );
             
-            return $score > 5; 
-            
-            usort $callback($passedNames, $names));
-            // not sure how to make this work 
-        } );
-        } 
-        
-        echo sort_then_print($passedNames);
-        //print implode(', ', $passedNames); 
+            usort($passedNames, "sort_then_print");
+        }
+
+
+        // Without writing a loop, print out the winners separated by a comma and a space
+        print implode(', ', $passedNames); 
+
+
         ?>
 
     </p>
