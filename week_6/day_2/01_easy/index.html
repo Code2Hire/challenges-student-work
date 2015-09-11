@@ -1,0 +1,38 @@
+<!-- 
+    Task: 
+        Write a program that asks for the users first and
+        last name. Once you have that, print it to the screen. 
+        After you have printed the first and last name, reverse 
+        the string and print it again.
+
+    Useful Links:
+        https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt
+        http://eddmann.com/posts/ten-ways-to-reverse-a-string-in-javascript/
+
+
+-->
+<script>
+    window.onload=function() {
+        var name = prompt("What is your first and last name?");
+        console.log(prompt);
+        function reverse(s) {
+         
+          var o = '';
+          for (var i = s.length - 1; i >= 0; i--)
+            o += s[i];
+          return o;
+}
+    var reversename = reverse(name);
+    var id = document.getElementById("none-paragraph");
+    id.innerHTML = reversename;
+    };
+</script>
+
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <p id="none-paragraph">
+        </p>
+    </body>
+</html>

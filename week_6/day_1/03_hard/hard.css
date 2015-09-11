@@ -1,0 +1,98 @@
+    *{
+        box-sizing:border-box;
+    }
+    
+    p { 
+        color: white;
+    } 
+    .masthead{
+        background-color:black;  
+        line-height:104px;
+        height:104px;
+        width:100%;
+        margin-bottom:20px;
+        position:fixed;
+        top:0;
+        left:0;
+    }
+    
+    .logo{
+        background-color:red;
+        float:left;
+        width: 100px;
+        height: 104px;
+     
+    }
+    
+    .logo a{
+        color:white;
+        text-decoration:none;
+        font-size:35px;
+    }
+    
+    .nav-list{
+        list-style-type:none;
+        padding:0;
+        margin:0;
+        float:left;
+    }
+    
+    .nav-link{
+        background-color:black;
+        display:inline;
+        padding:5px 15px;
+    }
+    
+    .nav-link a{
+        color:white;
+        text-decoration:none;
+    }
+    
+    .sign-in{
+        float:right;
+    }
+    
+    .nav-link2{
+        margin-bottom:20px;
+    }
+    
+    .searchbar{
+        background-color: white;
+        width:200px;
+        height:20px;
+        position: relative;
+        top: 40px;
+        left: 500px;
+    }
+    
+    .searchbar a{
+        color:white;
+        display:inline;
+    }
+    
+    .searchbar-image{
+        background-color:red;
+        position:relative;
+        top: -145px;
+        left: 200px;
+        display:inline;
+       
+    }
+    
+    .signinlinks { 
+        float: right;
+        position: relative;
+        bottom: 40px;
+    } 
+    
+    .viewcart { 
+        color: white;
+        position: relative;
+        bottom: 75px;
+    } 
+    
+    .carticon{
+        position:relative;
+        bottom:70px;
+    }
+    

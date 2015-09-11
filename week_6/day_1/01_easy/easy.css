@@ -1,0 +1,143 @@
+*{
+        box-sizing:border-box;
+    }
+    .masthead{
+        background-color:#777;  
+        line-height:104px;
+        height:104px;
+        width:100%;
+        margin-bottom:20px;
+        position:fixed;
+        top:0;
+        left:0;
+    }
+    
+    .logo{
+        background-color:#777;
+        float:left;
+        padding-left:20px;
+    }
+    
+    .logo a{
+        color:white;
+        text-decoration:none;
+    }
+    
+    .nav-list{
+        list-style-type:none;
+        padding:0;
+        margin:0;
+        float:right;
+    }
+    
+    .nav-link{
+        background-color:#777;
+        display:inline;
+        padding:5px 15px;
+    }
+    
+    .nav-link a{
+        color:white;
+        text-decoration:none;
+    }
+    
+    .welcome-boxes{
+        margin-bottom:20px;
+        overflow:hidden;
+    }
+    
+    .large-box{
+        float:left;
+        line-height:500px;
+        height:500px;
+        width:48%;
+        margin-right:2%;
+        background-color:#777;
+    }
+    
+    .small-box1{
+        float:left;
+        line-height:215px;
+        height:215px;
+        width:48%;
+        margin-left:2%;
+        margin-bottom:70px;
+        background-color:#777;
+    }
+    
+    .small-box2{
+        float:left;
+        line-height:215px;
+        height:215px;
+        width:48%;
+        margin-left:2%;
+        background-color:#777;
+    }
+    
+    .header{
+        background:#777;
+        line-height:158px;
+        height:158px;
+        width:100%;
+        margin-bottom:20px;
+    }
+    
+    .card-section{
+        overflow:hidden;
+        margin-bottom:20px;
+        width:100%;
+    }
+
+    .card{
+        background-color:#777; 
+        line-height:250px;
+        height:250px;
+        width:30%;
+        margin-bottom:20px;
+        float:left;
+    }
+    
+    .card.one, .card.two{
+        margin-right:5%;
+    }
+    .tab-container{
+        overflow:hidden;
+        margin-bottom:5px;
+        width:100%;
+    }
+    
+    .tab{
+        background-color:#777;
+        line-height:60px;
+        height:60px;
+        width:23%;
+        margin-bottom:20px;
+        float:left;
+    }
+    
+    .tab.one, .tab.two, .tab.three{
+        margin-right:2.66%;
+    }
+    .paragraphs{
+        background-color:#777;
+        line-height:604px;
+        height:604px;
+        width:100%;
+        margin-bottom:20px;
+    }
+    
+    .footer{
+        background-color:#777;
+        line-height:104px;
+        height:104px;
+        width:100%;
+        padding:0 15px;
+    }
+    
+    .copyright{
+        float:left;
+    }
+    
+    .links{
+        float:right;
+    }

@@ -1,0 +1,30 @@
+.top-left{
+    height: 150px;
+    width:150px;
+    border-radius:150px 0 0 0;
+    background-color:red;
+    display:inline-block;
+}
+.top-right{
+    height: 150px;
+    width:150px;
+    border-radius:0 150px 0 0;
+    background-color:yellow;
+    display:inline-block;
+}
+
+.bottom-left{
+    height: 150px;
+    width:150px;
+    border-radius:0 0 0 150px;
+    background-color:green;
+    display:inline-block;
+}
+
+.bottom-right{
+    height: 150px;
+    width:150px;
+    border-radius:0 0 150px 0;
+    background-color:blue;
+    display:inline-block;
+}
