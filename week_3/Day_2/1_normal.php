@@ -33,7 +33,7 @@
                 $deck[$suit] = $suitCards;
             }
             
-            var_dump($deck);
+            print_r($deck);
 
         ?>
 

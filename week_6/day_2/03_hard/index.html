@@ -13,5 +13,31 @@
         Refer to Week 2 Day 1 Hard Challenge
 -->
 <script>
-    // Code here
+
+
+//   for(var $i=1; $i<=100; $i++){
+//       if($i % 3 !== 0 && $i % 5 !== 0 ){
+//           document.write($i);
+//       }
+//       if( $i % 3 === 0 ) {
+//         document.write("Red");
+//      }
+   
+//      if( $i % 5 === 0 ) {
+//         document.write("Ventures");
+//      }
+     
+//      if( $i % 3 === 0 && $i % 5 === 0 ) {
+//       document.write("RedVentures")
+//       }
+      
+  
+//       document.write('<br>');
+//   }
+  
+    for(var $i=1; $i<=100; $i++){
+        var Red=$i%3==0, Ventures=$i%5==0;
+        document.write(Red ? Ventures ? "RedVentures" : "Red" : Ventures ? "Ventures" : $i);
+        document.write('<br>');    
+    }
 </script>

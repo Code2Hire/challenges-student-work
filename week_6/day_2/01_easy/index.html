@@ -12,12 +12,29 @@
 
 -->
 <script>
-    var name=window.prompt("whats your name?");
-    
-    function reverse(s) {
-  var o = '';
-  for (var i = s.length - 1; i >= 0; i--)
-    o += s[i];
-  return o;
-}
+       
+      window.onload = function(){
+      var name=window.prompt("whats your name?");
+       document.getElementById("first") .innerHTML =name;
+      
+      function reverse(name) {
+          
+          var reversename = '';
+          for (var i = name.length -1; i >= 0; i--)
+          reversename += name[i];
+          
+          window.alert(reversename);
+          return reversename;
+     }
+      
+     
+     
+
+    document.getElementById("name") .innerHTML =reverse(name);
+};
 </script>
+<!DOCTYPE <!DOCTYPE html>
+<html>
+    <p id="first"></p>   
+    <p id="name"></p>
+</html>

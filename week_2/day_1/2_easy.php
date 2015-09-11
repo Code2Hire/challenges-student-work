@@ -28,7 +28,7 @@
 
           	    // code goes here ...
                do {
-                      $t = rand(1,7); 
+                      $t = mt_rand(1,7); 
                        echo $t . "<br />";
                   } while( $t!=7);
             ?>

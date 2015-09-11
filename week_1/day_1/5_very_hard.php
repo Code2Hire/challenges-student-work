@@ -12,17 +12,24 @@
     array('name' => 'Package 2', 'price' => 3.01),
     array('name' => 'Package 3', 'price' => 100.01),
     array('name' => 'Package 4', 'price' => 11.00),
-    array('name' => 'Package 5', 'price' => 25.95),
+    array('name' => 'Package 5', 'price' => 25.95),           
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
-    $pricearray = array();
-  foreach ($packagesArray as $package => $value){
-     array_push($pricearray, $value['price']); 
-  }
-    array_multisort($pricearray, $packagesArray);
-   var_dump($packagesArray);
-  exit;
+  //   $pricearray = array();
+  // foreach ($packagesArray as $package => $value){
+  //   array_push($pricearray, $value['price']); 
+  // }
+  //   array_multisort($pricearray, $packagesArray);
+  array_multisort(
+      array_map(
+          function($product){ 
+              return $product['price'];
+          }, 
+          $packagesArray
+      ),
+      $packagesArray
+  );
 
 ?>
 <!DOCTYPE html>

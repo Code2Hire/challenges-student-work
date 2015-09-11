@@ -7,10 +7,11 @@
      */
     function ride($owner) {
         $rides = array('car', 'boat', 'bike');
+        $owners= array();
         for($i = 0; $i < count($rides); $i++) {
-             $rides[$i] = $owner . "'s " . $rides[$i];
+             $owners[] = $owner . "'s " . $rides[$i];
         }
-        return $rides;
+        return $owners;
     }
 ?>
 <!DOCTYPE html>

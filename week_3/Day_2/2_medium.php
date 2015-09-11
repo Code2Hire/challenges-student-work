@@ -44,10 +44,10 @@
                     $key = array_rand($deck);
                     $value = $deck[$key];
                     
-                    if(isset($deck[$key])) {
-                    $playerCards[$key] = $value;
-                    unset($deck[$key]);
-                    }
+                    // if(isset($deck[$key])) {
+                    // $playerCards[$key] = $value;
+                    // unset($deck[$key]);
+                    //}
                 }
                 
                 return $playerCards;

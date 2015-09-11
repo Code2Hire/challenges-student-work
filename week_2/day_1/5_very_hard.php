@@ -79,7 +79,38 @@
                 $Ericscore++;
             }
         }
+       
+       // Check for winning conditions
+        // switch ($Ericroll) {
+        //     case "Rock":
+        //         // Mark wins if Paper
+        //         if($Markroll == "Paper") {
+        //             $Markscore++;
+        //         } else {
+        //             $Ericscore++;
+        //         }
+        //         break;
         
+        //     case "Paper":
+        //         // Mark wins if Scissors
+        //         if($Markroll == "Scissors") {
+        //             $Markscore++;
+        //         } else {
+        //             $Ericscore++;
+        //         }
+        //         break;
+        
+        //     case "Scissors":
+        //         // Mark wins if Rock
+        //         if($Markroll == "Rock") {
+        //             $Markscore++;
+        //         } else {
+        //             $Ericscore++;
+        //         }
+        //         break;
+        // } 
+       
+       
         // Display the results of the current game
         echo "Eric Rolled $Ericroll<br />";
         echo "Mark Rolled $Markroll<br />";

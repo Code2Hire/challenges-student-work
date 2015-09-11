@@ -36,10 +36,10 @@
             "December"
             ];
             foreach($myExcludeArrray as $myMounth){
-            if (!in_array("April", $monthExcludeArray)){
-                echo $myMounth . "<br />";
+            if (!in_array($myMounth, $monthExcludeArray)){
+                echo "this is not in the big array" . $myMounth . "<br />"; //Fixed code by using $myMouth
             }else{
-                echo "I dont";
+                echo "i am in the big array" . $myMounth . "<br />";
             }
             }
           ?>

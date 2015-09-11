@@ -33,9 +33,9 @@
     function getCostBeforeTax() {
 
       
-         foreach($this->items as $this->item[$key]){
+         foreach($this->items as $item){
             
-            $sum += $this->item[$key]->price;
+            $sum += $item->price;
             
             }
           return $sum;
@@ -59,13 +59,13 @@ class Item{
         $this->price = $price;
     }
 
-    function getName() {
-        return $this->name;
-    }
+    // function getName() {
+    //     return $this->name;
+    // }
 
-    function getPrice() {
-        return $this->price;
-    }
+    // function getPrice() {
+    //     return $this->price;
+    // }
 
 }
     $cart = new ShoppingCart();

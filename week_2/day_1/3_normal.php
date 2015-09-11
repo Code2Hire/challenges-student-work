@@ -25,8 +25,8 @@
 		for ($m=1; $m<=12; $m++) {
 		    $month = date('F', mktime(0,0,0,$m, 1, date('Y')));
 			if( $month[0]=="J"){
-			 $length = strlen($month);
-			 echo $m . "-" . $month . "-" . $length . "<br />";
+			 //$length = strlen($month);
+			 echo $m . "-" . $month . "-" . strlen($month) . "<br />";
 			}
 	    }
 	?>

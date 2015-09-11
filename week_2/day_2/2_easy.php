@@ -16,9 +16,13 @@
                 
                 $result = 0;
                 
+                if(!is_array($numbers)){
+                $numbers = (array)$numbers;
+                }
+                
                 foreach ($numbers as $number) {
             
-                   $result = $number + $result;
+                   $result += $number;
                    
                  }
                  

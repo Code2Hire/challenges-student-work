@@ -25,7 +25,7 @@
             $lenLast = strlen($last);
             $numWords=  str_word_count($name);
             $score = $posA * $lenLast / $numWords;
-            echo $score . "\n";
+            //echo $score . "\n";
             return $score > 5;
         };
         
@@ -42,9 +42,9 @@
         // Without writing a loop, use an array function to filter our list
         // of names down to only those who pass the score test.
            $passedNames = array_filter($names, $score);
-
+              
         // Without writing a loop, print out the winners separated by a comma and a space
-            print implode(', ',$passedNames);
+            print implode(', ' , $passedNames);
 
         ?>
 
