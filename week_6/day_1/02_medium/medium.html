@@ -1,0 +1,82 @@
+<!-- Pie Chart -->
+
+<!-- Instructions:
+
+    - build out the pie chart seen in the image using only html and css (no images!)
+
+    - set the background color of each section to the color it is labeled
+
+    very useful link:https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pie Chart</title>
+    <style>
+        .red-circle {
+            background-color:red;
+            height:100px;
+            width: 100px;
+            border-top-left-radius: 100px;
+            display:inline-block;
+            text-align:center;
+            color:white;
+            margin-bottom:0px;
+            margin-left:0px;
+            margin-right:0px;
+            
+        }
+        .yellow-circle {
+            background-color:yellow;
+            height:100px;
+            width: 100px;
+            border-top-right-radius:100px;
+            display:inline-block;
+            text-align:center;
+            color:black;
+            margin-bottom:0px;
+            margin-left:0px;
+            margin-right:0px;
+        }
+        
+        .green-circle {
+            background-color:green;
+            height:100px;
+            width: 100px;
+            border-bottom-right-radius: 100px;
+            display:inline-block;
+            text-align:center;
+            color:white;
+            margin:0;
+        }
+        
+        .blue-circle {
+            background-color:blue;
+            height:100px;
+            width: 100px;
+            border-bottom-left-radius: 100px;
+            display:inline-block;
+            text-align:center;
+            color:white;
+            margin:0;
+        }
+        .group{
+            display:inline-block;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+   
+            <h1>Pie Chart made using CSS and HTML only</h1>
+            <div class="group">
+                <div class="red-circle"></br><h6>Red</h6></div>
+                <div class="yellow-circle"></br><h6>Yellow</h6></div>
+            </div>
+            <div class="group">
+                <div class="blue-circle"><h6>Blue</h6></div>
+                <div class="green-circle"><h6>Green</h6></div>
+            </div>
+         
+</body>
+</html>
