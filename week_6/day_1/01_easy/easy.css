@@ -77,11 +77,12 @@
 }
 
 .card {
-   width: 338px;
+    width: 338px;
     height: 252px;
     margin: 1%;
     padding: 1px;
     background-color: #777; 
+    position: relative;
     float: left;
 }
 
