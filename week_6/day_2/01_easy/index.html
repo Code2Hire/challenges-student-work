@@ -13,4 +13,33 @@
 -->
 <script>
     // Code here
+    window.onload = function() {
+        var firstName = prompt("Enter your first name: ");
+        var lastName = prompt("Enter your last name: ");
+        
+        var fullName = firstName + " " + lastName;
+        
+        var element = document.getElementById("userOne");
+        
+        element.innerHTML= fullName;
+        
+        function reverse(s) {
+            var o = '';
+            for (var i = s.length - 1; i >= 0; i--)
+                o += s[i];
+            return o;
+        }
+        
+        var reversedName = reverse(fullName);
+        element.innerHTML= "Full name: " + fullName +  "</br>" + "Full name reversed: " + reversedName;
+    };
 </script>
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="userOne">
+            
+        </p>
+    </body>
+</html>

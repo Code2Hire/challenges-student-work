@@ -12,6 +12,7 @@
 	- have each product title link to the product's page from amazon or walmart
 	- be creative, 
 
+
 Have a couple of questions about this one
 	-->
 <!DOCTYPE html>
@@ -19,15 +20,6 @@ Have a couple of questions about this one
 	<head>
 		<title>Products Grid</title>
 		<style>
-		div{
-			height: 500px;
-    		width: 370px;
-    		float:left;
-    		overflow:hidden;
-    		border-style:dotted;
-    		border-color:black;
-    		border-width:1px;
-		}
 		h7{
 			text-align:left;
 			font-size: 14px;
@@ -51,14 +43,30 @@ Have a couple of questions about this one
 			color:red;
 			font-style:italic;
 		}
+		.divOne{
+			width:100%;
+			display:block;
+		}
+		.divTwo{
+			width:100%;
+			display:block;
+		}
+		.grid{
+			height: 500px;
+    		width: 370px;
+    		float:left;
+    		overflow:hidden;
+    		border-style:dotted;
+    		border-color:black;
+    		border-width:1px;
+		}
 		
 		</style>
 	</head>
 	<body bgcolor="white">
 		</body>
-		<table>
-			<tr>
-				<div>
+		<div class="divOne">
+			<div class="grid">
 					<img align="middle" src="http://ecx.images-amazon.com/images/I/412%2BXzSkJML._SX425_.jpg" height ="230" width="190" /></br></br>
 					<a href="http://www.amazon.com/Xbox-One-Halo-Master-Collection-Bundle/dp/B00YXOYHVM/ref=lp_6469295011_1_3?s=videogames&ie=UTF8&qid=1441089095&sr=1-3"/><h7>Xbox One Halo: The Master Chief Collection 1TB Bundle</h7></a>
 					</br>
@@ -73,7 +81,7 @@ Have a couple of questions about this one
 						<li>Quickly switch back-and-forth between games, live TV, and apps</li>
 					</ul>
 				</div>
-				<div>
+				<div class="grid">
 					<img align="middle" src="http://i.ebayimg.com/00/s/NDM4WDU1MQ==/z/dnsAAOSwu4BVt95Y/$_35.JPG" height ="230" width="190" /></br></br>
 					<a href="http://www.amazon.com/500GB-PlayStation-Console-Batman-Arkham-4/dp/B00VETEZ16/ref=lp_6427871011_1_1?s=videogames&ie=UTF8&qid=1441092081&sr=1-1"/><h7>500GB PlayStation 4 Console - Batman Arkham Knight Bundle</h7></a>
 					</br>
@@ -88,7 +96,7 @@ Have a couple of questions about this one
 						
 					</ul>
 				</div>
-				<div>
+				<div class="grid">
 					<img align="middle" src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/6327/6327118_sd.jpg" height ="230" width="190" /></br></br>
 					<a href="http://www.amazon.com/Nintendo-Wii-Console-Splatoon-Special-U/dp/B00YATFPU2/ref=lp_3075116011_1_2?s=videogames&ie=UTF8&qid=1441092600&sr=1-2"/><h7>Nintendo Wii U 32GB Console Splatoon Special Edition Bundle - Black</h7></a>
 					</br>
@@ -103,7 +111,7 @@ Have a couple of questions about this one
 						
 					</ul>
 				</div>
-				<div>
+				<div class="grid">
 					<img align="middle" src="http://i.walmartimages.com/i/p/00/71/17/19/22/0071171922031_500X500.jpg" height ="230" width="190" /></br></br>
 					<a href="http://www.amazon.com/Sony-PlayStation-Vita-WiFi/dp/B00PV515DU/ref=sr_1_2?s=videogames&ie=UTF8&qid=1441092780&sr=1-2&keywords=ps+vita"/><h7>Sony PlayStation Vita WiFi</h7></a>
 					</br>
@@ -117,39 +125,11 @@ Have a couple of questions about this one
 						<li>Entertainment and Apps: Search funny videos, check your friend's status, watch your favorite TV shows and movies, stream music, and much much more on the PS Vita system.</li>
 					</ul>
 				</div>
-			</tr>
-			</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					</br>
-					<!--I'm sure there's a better way to align these divs properly but this is the only way that worked for me, 
-					I could've used a table just as easily but wanted to use divs as it felt more appropiate for the task-->
-			<tr>
-				<div>
+			</div>
+			
+					
+			<div class="divTwo">
+				<div class="grid">
 					<img align="middle" src="http://ecx.images-amazon.com/images/I/81qKt8MSikL._SY679_.jpg" height ="240" width="180" /></br></br>
 					<a href="http://www.amazon.com/Motorola-Unlocked-Cellphone-Midnight-Warranty/dp/B00R1984DI/ref=sr_1_1?s=wireless&ie=UTF8&qid=1441094113&sr=1-1&keywords=nexus+6&pebp=1441094115136&perid=1N6KSAMZAJT9TYCRGGTH"/><h7>Motorola Nexus 6 Unlocked Cellphone, 32GB, Midnight Blue (U.S. Warranty)</h7></a>
 					</br>
@@ -164,7 +144,7 @@ Have a couple of questions about this one
 						<li>Get the most out of Android 5.0, Lollipop</li>
 					</ul>
 				</div>
-				<div>
+				<div class="grid">
 					<img align="middle" src="http://www.droid-life.com/wp-content/uploads/2015/04/overview_design_phone_white.jpg" height ="230" width="190" /></br></br>
 					<a href="http://www.amazon.com/LG-G4-Ceramic-Verizon-Wireless/dp/B00XMGTFZA/ref=lp_10472157011_1_1?s=wireless&ie=UTF8&qid=1441093837&sr=1-1"/><h7>LG G4, Ceramic White 32GB (Verizon Wireless)</h7></a>
 					</br>
@@ -179,7 +159,7 @@ Have a couple of questions about this one
 						
 					</ul>
 				</div>
-				<div>
+				<div class="grid">
 					<img align="middle" src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/4313/4313000_sd.jpg" height ="240" width="130" /></br></br>
 					<a href="http://www.amazon.com/Samsung-Galaxy-S6-Sapphire-Wireless/dp/B00V7FXCZ2/ref=sr_1_3?ie=UTF8&qid=1441093413&sr=8-3&keywords=samsung+galaxy+s6"/><h7>Samsung Galaxy S6, Black Sapphire 32GB (Verizon Wireless)</h7></a>
 					</br>
@@ -195,7 +175,7 @@ Have a couple of questions about this one
 						
 					</ul>
 				</div>
-				<div>
+				<div class="grid">
 					<img align="middle" src="http://orzly.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone-6-flexislim-smoke-white_3.jpg" height ="230" width="210" /></br></br>
 					<a href="http://www.amazon.com/Apple-iPhone-Silver-16-Unlocked/dp/B00NQGP3L6/ref=sr_1_1?s=pc&ie=UTF8&qid=1441093152&sr=8-1&keywords=iphone+6&pebp=1441093154362&perid=1K03NP4RX09VHCMKMBVN"/><h7>Apple iPhone 6, Silver, 16 GB (Unlocked)</h7></a>
 					</br>
@@ -210,6 +190,6 @@ Have a couple of questions about this one
 						<li>1080p HD video recording (30 fps or 60 fps)</li>
 					</ul>
 				</div>
-			</tr>
-		</table>
+			</div>
 </html>
+

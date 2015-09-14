@@ -13,5 +13,33 @@
         Refer to Week 2 Day 1 Hard Challenge
 -->
 <script>
-    // Code here
+    window.onload = function() { 
+        var element = document.getElementById("printElements"); 
+        for(var i = 0; i <= 100; i++){ 
+            /*
+            if(i % 15 == 0){ 
+                element.innerHTML = element.innerHTML + "</br>" + "RedVentures" + "</br>"; 
+            } else if(i % 3 == 0){ 
+                element.innerHTML = element.innerHTML + "</br>" + "Red" + "</br>"; 
+            } else if(i % 5 == 0){ 
+                element.innerHTML = element.innerHTML + "</br>" +  "Ventures" + "</br>";
+            } else{
+                element.innerHTML = element.innerHTML + "</br>" + i + "</br>";
+            }
+            */
+            element.innerHTML = (i % 15 == 0) ? element.innerHTML + "</br>" + "RedVentures" + "</br>" : (i % 3 == 0) ? element.innerHTML + "</br>" + "Red" + "</br>": (i % 5 == 0) ? element.innerHTML + "</br>" +  "Ventures" + "</br>": element.innerHTML + "</br>" + i + "</br>"; 
+        } 
+        
+        
+        
+    };
 </script>
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="printElements">
+            
+        </div>
+    </body>
+</html>
