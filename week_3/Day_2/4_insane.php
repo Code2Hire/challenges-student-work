@@ -72,7 +72,7 @@
             
             $deck = rearrange($deck);
             // v Checking stuff
-          // var_dump($deck);exit;
+            //var_dump($deck);
             
             //cards totals and money and sorts
             $pcard1 = 0;
@@ -87,42 +87,75 @@
             $dcard4 = 0;
             $dtotal = 0;
             
-            $pmoney = 1000;
+            $pmoney = 100;
+            $original = $pmoney;
             $winround = 100;
-            $loseround = 100;
+            $loseround = 50;
             $round = 0;
             $blackjack = 0;
             
-            //like that movie 21 or rain man or almost every gambling movie that is centered arround a genius
-            function countCards($cards, $card){
-                
-                if($card + $cards <= 21){
-                    if($card == 1 && $cards <= 10){
-                        return 11; 
+            //replaces values in array for the probability to count cards            
+            function replaceValue($array){
+                for($i=0;$i<count($array);$i++) {
+                    if($array[$i] == 1) {
+                        $array[$i] = -1;
                     }
-                    else{
-                    return $card;
+                    if($array[$i] == 2) {
+                        $array[$i] = 1;
+                    }
+                    if($array[$i] == 3) {
+                        $array[$i] = 1;
+                    }
+                    if($array[$i] == 4) {
+                        $array[$i] = 1;
+                    }
+                    if($array[$i] == 5) {
+                        $array[$i] = 1;
+                    }
+                    if($array[$i] == 6) {
+                        $array[$i] = 1;
+                    }
+                    if($array[$i] == 7) {
+                        $array[$i] = 0;
+                    }
+                    if($array[$i] == 8) {
+                        $array[$i] = 0;
+                    }
+                    if($array[$i] == 9) {
+                        $array[$i] = 0;
+                    }
+                    if($array[$i] == 10) {
+                        $array[$i] = -1;
                     }
                 }
-                else{
-                    return 0;
+                return $array;
+            }
+            //like that movie 21 or rain man or almost every gambling movie that is centered arround a genius
+            function countCards($card, $deck){
+                $countCardsArray = replaceValue($deck);
+                $talley = array_sum($countCardsArray);
+                
+                //var_dump($countCardsArray);
+                //echo $talley . "</br>";
+                
+                if($talley > 0){
+                    return $card;
                 }
                 
             }
             
             //as if the dealer is a god and no mortal can ever beat him
-            function dealerCountCards($cards, $deck){
-                if($deck[5] + $cards <= 21){
-                    if($deck[5] == 1 && $cards <= 10){
-                        return 11; 
-                    }
-                    else{
-                    return $deck[5];
-                    }
+            function dealerCountCards($card, $deck){
+                $countDealerArray = replaceValue($deck);
+                $talley = array_sum($countDealerArray);
+                
+                //var_dump($countDealerArray);
+                //echo $talley . "</br>";
+                
+                if($talley > 0){
+                    return $card;
                 }
-                else{
-                    return 0;
-                }
+                
             }
             
             //removes # cards from deck
@@ -144,6 +177,10 @@
                 $dcard1 = $deck[1];
                 $pcard2 = $deck[2];
                 $dcard2 = $deck[3];
+                $pcard3 = 0;
+                $dcard3 = 0;
+                $pcard4 = 0;
+                $dcard4 = 0;
                 // v Just checking stuff 
                 // $pcard3 = $deck[4];
                 // $pcard4 = $deck[5];
@@ -167,33 +204,56 @@
                 //echo "$pcard1 $pcard2 ... $dcard1 $dcard2 <br/>";
                 
                 //the hits of the dealer and player 
-                $ptotal = $pcard1 + $pcard2;
-                $pcard3 = countCards($ptotal, $deck[4]);
-                $ptotal = $pcard1 + $pcard2 + $pcard3;
-                if($pcard3 !== 0){
-                    $pcard4 = countCards($ptotal, $deck[5]);
-                }
-                //echo "$pcard1     $pcard2     $pcard3     $deck[4] <br/>"; 
-                
-                /*if($ptotal <= $dcard1 + $dcard2 && $ptotal < 22){
-                    $pcard3 = $deck[4];
-                } */
-                
-                /* $dtotal = $dcard1 + $dcard2;
-                $dcard3 = dealerCountCards($dtotal, $deck);
-                */
-                //echo "$dcard1     $dcard2     $dcard3 <br/>"; 
-                
-                if($dcard1 + $dcard2 < $pcard1 + $pcard2 + $pcard3 + $pcard4 && $dcard1 + $dcard2 < 22){
-                    $dcard3 = $deck[6];
-                    if($dcard1 + $dcard2 + $dcard3 < $pcard1 + $pcard2 + $pcard3 + $pcard4 && $dcard1 + $dcard2 + $dcard3 < 22){
-                        $dcard4 = $deck[7];
+                if($pcard1 + $pcard2 < 16){
+                    if($round !== 1){
+                        $pcard3 = countCards($deck[4], $deck);
+                    }
+                    else{
+                        $pcard3 = $deck[4];
                     }
                 }
                 
+                if($pcard3 !== 0 && $pcard1 + $pcard2 + $pcard3 < 16){
+                    $pcard4 = countCards($deck[5], $deck);
+                }
+                //echo "$pcard1     $pcard2     $pcard3   $pcard4 <br/>"; 
+                
+                //$ptotal = $pcard1 + $pcard2 + $pcard3 + $pcard4;
+                //if($ptotal <= $dcard1 + $dcard2 && $ptotal < 22){
+                  //  $pcard3 = $deck[4];
+                //}
+                
+                
+ 
+                if($pcard3 == 0){
+                    if($dcard1 + $dcard2 < 17){
+                        $dcard3 = $deck[4];
+                        if($dcard1 + $dcard2 + $dcard3 < 17){
+                            $dcard4 = $deck[5];
+                        }
+                    }
+                }
+                if($pcard3 !== 0 && $pcard4 == 0) {
+                    if($dcard1 + $dcard2 < 17){
+                        $dcard3 = $deck[5];
+                        if($dcard1 + $dcard2 + $dcard3 < 17){
+                            $dcard4 = $deck[6];
+                        }
+                    }
+                }
+                if($pcard4 !== 0) {
+                    if($dcard1 + $dcard2 < 17){
+                        $dcard3 = $deck[6];
+                        if($dcard1 + $dcard2 + $dcard3 < 17){
+                            $dcard4 = $deck[7];
+                        }
+                    }
+                }
+                //var_dump($deck);
+                //echo "$dcard1     $dcard2     $dcard3    $dcard4<br/>";
                 
                 //figure it out
-                $ptotal = $pcard1 + $pcard2 + $pcard3;
+                $ptotal = $pcard1 + $pcard2 + $pcard3 + $pcard4;
                 $dtotal = $dcard1 + $dcard2 + $dcard3 + $dcard4;
                 
                 //echo 'c-before' . count($deck);
@@ -201,7 +261,10 @@
                     if($ptotal == $dtotal || $ptotal > 21 && $dtotal > 21){
                         $roundwinner = "No One";
                         $deck = rearrange($deck);
-                        
+                    }
+                    if($ptotal == 21 && $dtotal == 21){
+                        $roundwinner = "Natural";
+                        $deck = rearrange($deck);
                     }
                     elseif($ptotal > $dtotal){
                         if($ptotal > 21){
@@ -210,6 +273,9 @@
                             $deck = remove($deck, 4);
                             if($pcard3 !== 0){
                                 $deck = remove($deck, 1);
+                                if($pcard4 !== 0){
+                                    $deck = remove($deck, 1);
+                                }
                             }
                             if($dcard3 !== 0){
                                 $deck = remove($deck, 1);
@@ -219,7 +285,7 @@
                                 }
                             }
                         else{
-                            if($ptotal < 21){
+                            if($ptotal = 21){
                                 $blackjack++;
                             }
                             $pmoney += $winround;
@@ -227,31 +293,33 @@
                             $deck = remove($deck, 4);
                             if($pcard3 !== 0){
                                 $deck = remove($deck, 1);
-                            }
-                                if($dcard3 !== 0){
+                                if($pcard4 !== 0){
                                     $deck = remove($deck, 1);
-                                    if($dcard4 !== 0){
-                                        $deck = remove($deck, 1);
-                                    }
                                 }
                             }
-                        }   
+                            if($dcard3 !== 0){
+                                $deck = remove($deck, 1);
+                                if($dcard4 !== 0){
+                                    $deck = remove($deck, 1);
+                                }
+                            }
+                        }
+                    }   
                     elseif($dtotal > $ptotal){
                         if($dtotal > 21){
                             $pmoney += $winround;
                             $roundwinner = "Player";
                             $deck = remove($deck, 4);
                             if($pcard3 !== 0){
-                                
-                                
                                 $deck = remove($deck, 1);
-                                
-                                
-                                if($dcard3 !== 0){
+                                if($pcard4 !== 0){
                                     $deck = remove($deck, 1);
-                                    if($dcard4 !== 0){
-                                        $deck = remove($deck, 1);
-                                    }
+                                }
+                            }
+                            if($dcard3 !== 0){
+                                $deck = remove($deck, 1);
+                                if($dcard4 !== 0){
+                                    $deck = remove($deck, 1);
                                 }
                             }
                         }
@@ -261,16 +329,19 @@
                             $deck = remove($deck, 4);
                             if($pcard3 !== 0){
                                 $deck = remove($deck, 1);
-                                if($dcard3 !== 0){
-                                    $deck = remove($deck, 1);
-                                    if($dcard4 !== 0){
+                                if($pcard4 !== 0){
                                         $deck = remove($deck, 1);
-                                    }
+                                }
+                            }
+                            if($dcard3 !== 0){
+                                $deck = remove($deck, 1);
+                                if($dcard4 !== 0){
+                                    $deck = remove($deck, 1);
                                 }
                             }
                         }
-                        
                     }
+                        
                // echo 'c-after' . count($deck);
             
                 
@@ -279,15 +350,24 @@
                 //echo $dtotal . "<br/>";
                 
                 //script of what to print after each game
-                echo "
-                Round: $round <br/>
-                Round Winner: $roundwinner <br/>
-                Players Money: $$pmoney <br/><br/>
-                ";
+                if($roundwinner !== "Natural"){
+                    echo "
+                    Round: $round <br/>
+                    Round Winner: $roundwinner <br/>
+                    Players Money: $$pmoney <br/><br/>
+                    ";
+                }
+                else {
+                    echo "
+                    Round: $round <br/>
+                    This round is a $roundwinner<br/>
+                    Players Money: $$pmoney <br/><br/>
+                    ";
+                }
                 
                 // v Just checking stuff again
                 //echo "Count" . count($deck) . "<br/>";
-                if($pmoney == 500){
+                if($pmoney == $original/2){
                     $halfway = true;
                     $amount = $round;
                 }
@@ -295,7 +375,7 @@
                 //script of what to print when a winner is found
                 if(count($deck) <= 4 && $pmoney > 0 ){
                     if($halfway == true){
-                      echo "The player hit halfway in round $amount <br/>";  
+                      echo "The player hit half of what he started with in round: $amount <br/>";  
                     }
                     if($blackjack !== 0){
                         if($blackjack == 1){
@@ -311,9 +391,6 @@
                     echo "Winner of the Game: Dealer! It took $round rounds to beat the player.";
                 }
                 
-                
-                
-      
             }
             
             
