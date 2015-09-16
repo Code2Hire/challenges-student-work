@@ -4,7 +4,13 @@
     </head>
     <body>
     <p>
-
+        <h4>Please enter an amount you would like your player to start with</h4>
+        <form  method="post" action="">
+        <input type="number" name="value">
+        <input type="submit">
+        </br>
+        </br>
+        </form>
         <?php
             /* 
               Using your advanced knowledge of cards and arrays, Create a game of Blackjack
@@ -64,7 +70,9 @@
                     
             }
             
+            //echo $_POST['value'];
             $deck = createDeck($deck);
+            
             function rearrange($array){
                 shuffle($array);
                 return $array;
@@ -72,7 +80,7 @@
             
             $deck = rearrange($deck);
             // v Checking stuff
-            //var_dump($deck);
+            var_dump($deck);
             
             //cards totals and money and sorts
             $pcard1 = 0;
@@ -87,10 +95,11 @@
             $dcard4 = 0;
             $dtotal = 0;
             
-            $pmoney = 100;
+            $pmoney = $_POST['value'];
             $original = $pmoney;
-            $winround = 100;
-            $loseround = 50;
+            $winround = $original;
+            $bet = $original/2;
+            
             $round = 0;
             $blackjack = 0;
             
@@ -181,6 +190,7 @@
                 $dcard3 = 0;
                 $pcard4 = 0;
                 $dcard4 = 0;
+                
                 // v Just checking stuff 
                 // $pcard3 = $deck[4];
                 // $pcard4 = $deck[5];
@@ -267,8 +277,8 @@
                         $deck = rearrange($deck);
                     }
                     elseif($ptotal > $dtotal){
+                        $pmoney -= $bet;
                         if($ptotal > 21){
-                            $pmoney -= $loseround;
                             $roundwinner = "Dealer";
                             $deck = remove($deck, 4);
                             if($pcard3 !== 0){
@@ -306,6 +316,7 @@
                         }
                     }   
                     elseif($dtotal > $ptotal){
+                        $pmoney -= $bet;
                         if($dtotal > 21){
                             $pmoney += $winround;
                             $roundwinner = "Player";
@@ -324,7 +335,6 @@
                             }
                         }
                         else{
-                            $pmoney -= $loseround;
                             $roundwinner = "Dealer";
                             $deck = remove($deck, 4);
                             if($pcard3 !== 0){
@@ -392,7 +402,6 @@
                 }
                 
             }
-            
             
             
             
