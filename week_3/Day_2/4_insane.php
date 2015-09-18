@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script>
+            window.onload = function(){
+                document.getElementById("myInput").focus();
+            }
+        </script>
     </head>
     <body>
     <p>
         <h4>Please enter an amount you would like your player to start with</h4>
         <form  method="post" action="">
-        <input type="number" name="value">
+        <input type="number" name="value" id="myInput">
         <input type="submit">
         </br>
         </br>
@@ -80,7 +85,7 @@
             
             $deck = rearrange($deck);
             // v Checking stuff
-            var_dump($deck);
+            //var_dump($deck);
             
             //cards totals and money and sorts
             $pcard1 = 0;
