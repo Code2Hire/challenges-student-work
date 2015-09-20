@@ -85,9 +85,13 @@ window.onload = document.body.style.backgroundColor = getRandomColor();
         var hits = parseInt(values.getItem('andrewhit'), 10) + 1;
         values.setItem('andrewhit', hits);
         document.getElementById('andrew-numhits').innerHTML = values.getItem('andrewhit');
+        document.getElementById('andrew-bam').style.display = '';
         window.setTimeout(function(){
-        headshot.play();
+            headshot.play();
         }, 1000);
+        window.setTimeout(function(){
+            document.getElementById('andrew-bam').style.display = 'none';
+        }, 2200);
     }
  };
  
@@ -104,9 +108,13 @@ window.onload = document.body.style.backgroundColor = getRandomColor();
         var hits = parseInt(values.getItem('charleshit'), 10) + 1;
         values.setItem('charleshit', hits);
         document.getElementById('charles-numhits').innerHTML = values.getItem('charleshit');
+        document.getElementById('charles-bam').style.display = '';
         window.setTimeout(function(){
-        headshot.play();
+            headshot.play();
         }, 1000);
+        window.setTimeout(function(){
+            document.getElementById('charles-bam').style.display = 'none';
+        }, 2200);
     }
  };
  
