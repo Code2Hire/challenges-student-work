@@ -13,8 +13,27 @@
  * this function adds an image to the page
  * @param {String} name an image filename
  */
+ var images = [
+  '2lnw.jpg', 
+  'CKfEUPBUwAAVLLk.jpg',
+  'clipboard013.jpg',
+  'jackson.jpg',
+  'washington.jpg'
+  ];
+ 
 function addImage(name) {
   var img = document.createElement('img');
   img.src = name;
   document.getElementById('image-box').appendChild(img);
 }
+
+function randomPic(){
+  window.setTimeout(function(){
+    var rand = Math.floor(Math.random() * ((images.length - 1) - 0 + 1)) + 0;
+    addImage(images[rand]);
+    randomPic();
+  },2500);
+}
+
+
+randomPic();

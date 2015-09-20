@@ -18,6 +18,13 @@ function getText() {
   return document.getElementById('save-me').value;
 }
 
+var saveIt = localStorage;
+
+saveButton.onclick= function() {
+  saveIt.setItem('key', getText());
+};
+
+
 /**
  * Puts different text
  * @param {String} text the stuff you want to put in the box
@@ -25,3 +32,7 @@ function getText() {
 function setText(text) {
   return document.getElementById('save-me').value = text;
 }
+
+loadButton.onclick= function() {
+    setText(saveIt.getItem('key'));
+};
