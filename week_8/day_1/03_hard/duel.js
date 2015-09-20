@@ -33,3 +33,52 @@
  * - ???
  * - Profit!
  */
+function Chance() { 
+    var num = Math.random() * 100;
+    if (num > 50) { 
+        return true;
+    } 
+} 
+// buttons
+var jackButton = document.getElementById('andrew-shoot');
+var charButton = document.getElementById('charles-shoot');
+
+//hits
+var jackHits = document.getElementById('andrew-numhits');
+var charHits = document.getElementById('charles-numhits');
+var jHitNum = parseInt(jackHits.innerHTML, 10);
+var cHitNum = parseInt(charHits.innerHTML, 10);
+
+// total shots
+var jackShots = document.getElementById('andrew-numshots');
+var jackNum = parseInt(jackShots.innerHTML, 10);
+
+var charShots = document.getElementById('charles-numshots');
+var charNum = parseInt(charShots.innerHTML, 10);
+
+// reset button
+var resetButton = document.getElementById('reset');
+resetButton.onclick = function() { 
+    document.getElementById("andrew-numshots").innerHTML = 0; 
+    document.getElementById("andrew-numhits").innerHTML = 0; 
+    document.getElementById("charles-numshots").innerHTML = 0; 
+    document.getElementById("charles-numhits").innerHTML = 0; 
+    
+var resetButtonCount = document.getElementById('num-resets'); 
+    resetButtonCount.innerHTML = parseInt(resetButtonCount.innerHTML, 10) + 1;
+    
+};
+
+jackButton.addEventListener('click', function() {
+    jackShots.innerHTML = jackNum++;
+    if (Chance() === true) { 
+        jackHits.innerHTML = jHitNum++;
+    } 
+});
+
+charButton.addEventListener('click', function() { 
+    charShots.innerHTML = charNum++;
+    if  (Chance() === true) { 
+        charHits.innerHTML = cHitNum++;
+    } 
+});
