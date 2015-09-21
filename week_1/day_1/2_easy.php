@@ -16,12 +16,35 @@
 	<body>
         <p>
           <?php
-            $number = 3 // this came from the previous page as a post variable
+          	
+          // Gets what the user typed
+          $num = $_GET['mynumber'];
 
-          	// code goes here ...
-          	
-          	
-          ?>
+          if($num > 10){
+            echo "Nothing is bigger than ten";
+          } else {
+          
+            // Define the lookup array
+            $arr = [
+              1=>"one",
+              2=>"two",
+              3=>"three",
+              4=>"four",
+              5=>"five",
+              6=>"six",
+              7=>"seven",
+              8=>"eigth",
+              9=>"nine",
+              10=>"ten",
+            ];
+            
+            // Get the "word" of the number
+            $numberWord = $arr[$num];
+            
+            // Echo that thing we just got
+            echo($numberWord);
+          }
+    ?>
         </p>
 	</body>
 </html>
