@@ -24,7 +24,16 @@
               'Michael'
             ];
 
-          // code goes here...
+
+$sortedArray = sort($unOrderedArray);
+    foreach($unOrderedArray as $name){
+      echo $name . " ";
+    }
+$sortedArray = array_reverse($unOrderedArray);
+    foreach($sortedArray as $name){
+      echo $name . " ";
+    }
+        
           ?>
         </p>
   </body>

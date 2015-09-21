@@ -9,11 +9,7 @@
 		1 - January - 7
 		6 - June - 4
 		7 - July - 4
-
-
-
  -->
-
 <!DOCTYPE html>
 <html>
 <head></head>
@@ -22,7 +18,8 @@
 	<?php
 
 		// code goes here ...
-
+	
+	
 
 	?>
 </p>
