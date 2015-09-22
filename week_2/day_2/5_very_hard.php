@@ -12,11 +12,6 @@
 
             
             
-             $names = array(
-                        'JASON hunter',
-                        ' eRic Schwartz',
-                        'mark zuckerburg '
-                    );
             
             
               function score($name) {
@@ -26,16 +21,20 @@
                             // by looping through and modifying the $names array.
                             // Also remove any leading or trailing whitespace from the name.
                            
-                        global $names;    
-                        
+
+                       // Pick a random name
+                        $name = $name[rand(0,count($name)-1)]; 
+                       
+                       
+                       
+                       
                         $name = trim($name);
                         $name = strtolower($name);
                         $name  = ucwords($name);
                         
                         
             
-                        // Pick a random name
-                        $name = $names[rand(0,count($names)-1)];
+                        
                         
                 
                         // Multiply the position of the letter 'a' (case insensitive) in the name by the
@@ -60,9 +59,14 @@
                             }
             
         
+         $names = array(
+                        'JASON hunter',
+                        ' eRic Schwartz',
+                        'mark zuckerburg '
+                    );
+            
         
-        
-        
+        score($names);
         
         
         

@@ -16,6 +16,23 @@
         <p>
           <?php
           
+          
+          // All 12 months used to compare to non-render list
+            $monthsOfTheYear = array(
+            'January', 
+          	 'February',
+          	 'March',
+          	 'April',
+          	 'May',
+          	 'June',
+          	 'July',
+          	 'August',
+          	 'September',
+          	 'October',
+          	 'November',
+          	 'December'
+                );
+            
           	// months I dont want to render
           	$monthExcludeArray = array(
           	 'January', 
@@ -28,9 +45,20 @@
           	 'September',
           	 'November'
           	);
+          	
+            foreach($monthsOfTheYear as $month){
+                // for each loop takes monthsofyear as $month to compare to $monthsExcluded
+                
+                // if $months is (!) not in the array echo that month
+                
+                 if (!in_array($month, $monthExcludeArray)) {
+                     echo $month . '<br />';
+                 }
+                
+            }     
+                
 
-          	// code goes here ...
-          ?>
+            ?>          	
         </p>
 	</body>
 </html>

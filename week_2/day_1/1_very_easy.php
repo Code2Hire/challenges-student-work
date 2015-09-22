@@ -20,7 +20,6 @@
             for($i = 0; $i < 20 ;$i++){
                 
                 //iteration 1:   n = n + 1 / 0 = 0 + 1
-                
                 $integer = $integer + $i;
                 
             }

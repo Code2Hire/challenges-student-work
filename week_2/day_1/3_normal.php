@@ -21,9 +21,6 @@
 <p>
 	<?php
 
-			<?php
-
-
 	//using the date function output the month and its info
 
 	for ($m=1; $m<=12; $m++) {
@@ -33,18 +30,14 @@
      // if the first letter of the generated month is a J then echo the following
          if(substr($month,0,1)=='J'){
          	$length = strlen($month);
-            echo "$m - ".$month. " - $length ";
-            
+            echo "$m - ". $month . " - $length ";
+            echo "</br>" ;
         }
 
      }
 
-
-
-
-
 ?>
 
-</p>
-</body>
+		</p>
+	</body>
 </html>

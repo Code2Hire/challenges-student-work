@@ -41,10 +41,31 @@
          * 8. Pass your ShoppingCart into the ItemDescriber outputDescription method from Exercise 4 and see
          * how it will also output the description of your cart, just like it did your individual products
          */
+          
+          class ShoppingCart {
+            
+           public function provideDescription() {}
+         
+           public function addProduct($product) {}
+         
+           public function  removeOne($product) {}
+         
+           public function  removeAll($product) {}
+         
+           public function  getTotalPrice() {}
+        
+           public function getAllProducts() {}
+        
+           public function findProductByName($name){} 
+            
+            
+          }
+          
 
-        ///////////////////////////
-        // Put your code here!
-        ///////////////////////////
+
+
+
+
         ?>
     </p>
   </body>

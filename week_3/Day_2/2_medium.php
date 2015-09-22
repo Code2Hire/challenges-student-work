@@ -12,18 +12,23 @@
               create a function that will create a deck of cards, randomize it and then return the deck
              */
              
-             
+             // Takes the oringinal array 'pass by reference', and shuffles the array
+            
              
              function shuffle_assoc(&$array) {
+                
+                // assigns the array keys to keys
                 $keys = array_keys($array);
-        
+                
+                // switches the order of the keys
                 shuffle($keys);
         
+                // takes the key and matches it with its face
                 foreach($keys as $key) {
                     $new[$key] = $array[$key];
                 }
         
-                $array = $new;
+                $array = $new; // assigns the shuffled array to the original $  = array('' => );
         
                 return true;
             }
@@ -34,9 +39,7 @@
 
               function createDeck() {
                   
-                  
-
-                     $suits = array ("clubs", "diamonds", "hearts", "spades");
+                 $suits = array ("clubs", "diamonds", "hearts", "spades");
                         $faces = array (
                             "Ace" => 1, 
                             "2" => 2,
@@ -71,7 +74,7 @@
                 modify this function so that it returns the number of cards specified to the user
                 also, it must modify the deck so that those cards are no longer available to be distributed
             */
-            function dealCards(&$deck, $number_of_cards = 0) {
+            function dealCards(&$deck, $number_of_cards) {
                 
                 $cardToReturn = array_slice($deck, 0, $number_of_cards);
                 foreach($cardToReturn as $cardface => $value){
@@ -82,9 +85,11 @@
             }
             
             $deck = createDeck();
+      
+            
             $player = dealCards($deck,10); // player should now have 10 random cards in his hand
             var_dump($player);
-            var_dump($deck);
+        
         ?>
 
     </p>

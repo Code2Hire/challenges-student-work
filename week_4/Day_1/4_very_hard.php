@@ -6,7 +6,6 @@
 <p>
 
     <?php
-
     /**
      * Red Ventures has partnered with the cable provider "Camcost" and will market and sell
      * bundles of their TV and internet packages.
@@ -42,32 +41,84 @@
      * This site will help you to know which zip codes belong to which states:
      * @see https://smartystreets.com/articles/zip-codes-101
      */
-     
-     $suites = array( array('name'=>'hearts','color'=>'red','icon'=>'heart.jpg') );
-
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
-
-
+    
+    class CamcostPricing { //creates pricing class
+        public function getBundlesByZip($zip) { //names custom method
+            
+            if (is_int($zip)) { //ensures data entered into $zip is an integer
+                
+                $zip = strval($zip);
+                
+                if (strpos($zip, '97') === 0 || strpos($zip, '84') === 0) { //if condition for utah and oregon
+                    echo "97";
+                    $budget = 19.99;
+                    $regular = 39.99;
+                    $couchPotato = 79.99;
+                    $slowNet = 24.99;
+                    $fastNet = 54.99;
+                    
+                    return array( //sets array that will be returned
+                        "Budget + SlowNet" => $budget + $slowNet,
+                        "Budget + FastNet" => $budget + $fastNet,
+                        "Regular + SlowNet" => $regular + $slowNet,
+                        "Regular + FastNet" => $regular + $fastNet,
+                        "Couch Potato + SlowNet" => $couchPotato + $slowNet,
+                        "Couch Potato + FastNet" => $couchPotato + $fastNet
+                        );
+                } elseif (strpos($zip, '28') === 0 || strpos($zip, '29') === 0) { //elseif for nc and sc
+                    
+                    $budget = 19.99;
+                    $regular = 39.99;
+                    $slowNet = 29.99;
+                    $fastNet = 59.99;
+                    
+                    return array(
+                        "Budget + SlowNet" => $budget + $slowNet, //array that will be returned
+                        "Budget + FastNet" => $budget + $fastNet,
+                        "Regular + SlowNet" => $regular + $slowNet,
+                        "Regular + FastNet" => $regular + $fastNet
+                        );
+                } else { //else for all other states
+                    
+                    $budget = 19.99;
+                    $regular = 39.99;
+                    $slowNet = 24.99;
+                    $fastNet = 54.99;
+                    
+                    return array( //array that will be returned
+                        "Budget + SlowNet" => $budget + $slowNet,
+                        "Budget + FastNet" => $budget + $fastNet,
+                        "Regular + SlowNet" => $regular + $slowNet,
+                        "Regular + FastNet" => $regular + $fastNet,
+                        );
+                }
+            } else { //else for is_int that gives error message if $zip entered is not a complete integer
+                
+                echo "PASS IN A REAL ZIP!!";
+                return;
+            }
+        }
+    }
     $pricing = new CamcostPricing;
-
-    $zip = '28277';
-    $bundles = $pricing->getBundlesByZip($zip);
-    echo "<h3>Camcost Bundles for customers in $zip</h3>";
-    showBundles($bundles);
-
-    $zip = '84101';
-    $bundles = $pricing->getBundlesByZip($zip);
-    echo "<h3>Camcost Bundles for customers in $zip</h3>";
-    showBundles($bundles);
-
+    
     function showBundles($bundles) {
         foreach ($bundles as $bundleName=>$bundleCost) {
             echo "<p>$bundleName: \$$bundleCost</p>";
         }
     }
-
+    $zip = 28277;
+    $bundles = $pricing->getBundlesByZip($zip);
+    echo "<h3>Camcost Bundles for customers in $zip</h3>";
+    showBundles($bundles);
+    
+    $zip = 84101;
+    $bundles = $pricing->getBundlesByZip($zip);
+    echo "<h3>Camcost Bundles for customers in $zip</h3>";
+    showBundles($bundles);
+    
     ?>
 
 </p>

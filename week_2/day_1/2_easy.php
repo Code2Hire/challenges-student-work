@@ -26,11 +26,8 @@
         <p>
             <?php
 
-
-
                 // while random number is not equal to 7 
           	    while ($randnum != 7){
-          	        
           	        
           	    // generat random number 
           	    $randnum = rand(1,7);
