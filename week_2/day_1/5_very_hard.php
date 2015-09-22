@@ -29,10 +29,40 @@
 <p>
 
     <?php
-
-
-    // code goes here ...
-
+   $game = ['Rock', 'Paper', 'Scissors'];
+   $player1choice = $game[rand(0,count($game)-1)];
+   $player2choice = $game[rand(0,count($game)-1)];
+   echo $player1choice, " - ", $player2choice;
+   
+   if($player1choice = "Rock"){
+       
+       if($player2choice = "Paper"){
+           echo "<br/>" . "Player two wins";
+       }
+       else{
+           echo "Player one wins";
+       }
+   }
+   
+      if($player1choice = "Rock"){
+       
+       if($player2choice = "Paper"){
+           echo "<br/>" . "Player two wins";
+       }
+       else{
+           echo "Player one wins";
+       }
+   }
+   
+      if($player1choice = "Rock"){
+       
+       if($player2choice = "Paper"){
+           echo "<br/>" . "Player two wins";
+       }
+       else{
+           echo "Player one wins";
+       }
+   }
     ?>
 </p>
 </body>

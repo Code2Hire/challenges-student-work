@@ -16,11 +16,13 @@
 <body>
 <p>
 	<?php
-
-		// code goes here ...
-	
-	
-
+	for ($i=1; $i <= 12; $i++){
+		$monthname = date('F',strtotime("$i/1/2015"));
+		if(strpos ($monthname,'J') !== 0 ){
+			continue;
+		}
+		echo "$i - $monthname -"  . strlen($monthname) . "<br/>" ;
+	}
 	?>
 </p>
 </body>

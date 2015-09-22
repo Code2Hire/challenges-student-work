@@ -19,12 +19,27 @@
 
             <?php
 		$numarray = range(1,100);
+		$threearray = array();
+		$sixarray = array();
 		
 		foreach($numarray as $number){
 			
 			if($number%3 == 0){
-				echo $number . "<br/>" ;
+				array_push($threearray,$number);
 			}
+				
+			if($number%6 == 0){
+				array_push($sixarray,$number);
+			}
+		}
+		
+		echo implode(", ", $sixarray);
+		echo "<br/>";
+		echo implode(", " ,$threearray);
+		echo "<br/>";
+		echo "Divisible by 6 = ", count($sixarray);
+		echo "<br/>";
+		echo "Divisible by 3 = ", count($threearray);
             ?>
         </p>
 	</body>

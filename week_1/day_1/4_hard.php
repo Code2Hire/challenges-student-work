@@ -16,6 +16,22 @@
         <p>
           <?php
           
+            // All months
+            $monthsArray = [
+          	 'January', 
+          	 'February',
+          	 'March',
+          	 'April',
+          	 'May',
+          	 'June',
+          	 'July',
+          	 'August',
+          	 'September',
+          	 'October',
+          	 'November',
+          	 'December'
+          	];
+          	
           	// months I dont want to render
           	$monthExcludeArray = [
           	 'January', 
@@ -29,7 +45,23 @@
           	 'November'
           	];
 
+            $resultArray = [];
+            
           	// code goes here ...
+          	/*
+          	foreach($monthsArray as $month){
+                //if month is NOT in the $monthescludearray, then echo it
+                $inarray = in_array($month,$monthExcludeArray);
+                if(!$inarray){
+                    array_push($resultArray, $month);
+                }
+          	}
+          	*/
+          	
+          	
+          	$resultArray = array_diff($monthsArray,$monthExcludeArray);
+          	print_r($resultArray);
+          	
           ?>
         </p>
 	</body>
