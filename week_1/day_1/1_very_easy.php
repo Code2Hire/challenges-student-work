@@ -24,11 +24,24 @@
               'Michael'
             ];
 
+<<<<<<< HEAD
           // code goes here...
           sort($unOrderedArray);
           print_r ($unOrderedArray);
           echo "<br/>";
           print_r($unOrderedArray);
+=======
+
+$sortedArray = sort($unOrderedArray);
+    foreach($unOrderedArray as $name){
+      echo $name . " ";
+    }
+$sortedArray = array_reverse($unOrderedArray);
+    foreach($sortedArray as $name){
+      echo $name . " ";
+    }
+        
+>>>>>>> master
           ?>
         </p>
   </body>

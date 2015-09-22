@@ -17,6 +17,10 @@
         <p>
           
           <?php
+<<<<<<< HEAD
+=======
+          	
+>>>>>>> master
           // Gets what the user typed
           $num = $_GET['mynumber'];
 
@@ -43,9 +47,14 @@
             
             // Echo that thing we just got
             echo($numberWord);
+<<<<<<< HEAD
             
           }
           ?>
+=======
+          }
+    ?>
+>>>>>>> master
         </p>
 	</body>
 </html>

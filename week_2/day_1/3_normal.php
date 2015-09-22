@@ -9,21 +9,20 @@
 		1 - January - 7
 		6 - June - 4
 		7 - July - 4
-
-
-
  -->
-
 <!DOCTYPE html>
 <html>
 <head></head>
 <body>
 <p>
 	<?php
-
-		// code goes here ...
-
-
+	for ($i=1; $i <= 12; $i++){
+		$monthname = date('F',strtotime("$i/1/2015"));
+		if(strpos ($monthname,'J') !== 0 ){
+			continue;
+		}
+		echo "$i - $monthname -"  . strlen($monthname) . "<br/>" ;
+	}
 	?>
 </p>
 </body>
