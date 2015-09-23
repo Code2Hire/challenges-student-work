@@ -10,9 +10,9 @@
      */
     function clean_then_call($string, callable $callback) {
         // Use the string cleaning procedure we came up with in exercise 1 on $string
-        
+        $string = (ucwords(strtolower(trim($string))));
         // return the result of the $callback function with $string passed in as a parameter
-        
+        return($callback($string));
     }
 ?>
 <!DOCTYPE html>

@@ -8,11 +8,11 @@
         <?php
             /*
              *
-             Use two foreach loop to create a master array of all 52 cards in the array $deck, 
+             Use two foreach loop to create a master array of all 52 cards in the array $deck,
              each represented as a key value pair in the format 'face of suit',
              use the print_r function to print out the contents of the $deck to make sure it is correct
              eg: "King of spades" should be one of the elements of the array and it should have a value of 13
-             
+
              */
 
             $suits = array ("clubs", "diamonds", "hearts", "spades");
@@ -22,11 +22,16 @@
             );
             $deck = array();
 
+            foreach($suits as $suit){
+
+                foreach($faces as $face=>$value){
+                    $deck["$face of $suit"] = $value;
+                }
+
+            }
 
             // print here
-
-
-            /*
+            var_dump($deck);
 
         ?>
 
