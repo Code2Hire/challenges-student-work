@@ -40,14 +40,13 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
-<<<<<<< HEAD
-=======
+
         
         
         interface Describable {
           public function provideDescription();
         }
->>>>>>> shandy
+
         class WishList extends ProductContainer{
           abstract public function getDescriptionforProductType();
            
@@ -60,11 +59,11 @@
             
             
                      // Throw an exception if its not an item
-<<<<<<< HEAD
+
              if (!$product) throw new Exception('The cart requires products with unique ID values.');
 =======
              if (!$item) throw new Exception('The cart requires items with unique ID values.');
->>>>>>> shandy
+
                     // Add or update:
              if (isset($this->items[$items])) {
                 $this->updateItem($item, $this->items[$item]['qty'] + 1);
@@ -121,7 +120,7 @@
         // shopping cart class.
         // @advice
         // This is the class
-<<<<<<< HEAD
+
         abstract class ProductContainer implements Describable {
           
            abstract function provideDescription();
@@ -132,13 +131,13 @@
            abstract function deleteAll();
            abstract function getAllProducts();
            abstract function findProductByName($name);
-              static public function createCartFromContainer($productContainer){
-=======
+          static public function createCartFromContainer($productContainer){
+
         abstract class ProductContainer {
           
           
           static public function createCartFromContainer($productContainer){
->>>>>>> shandy
+
             
             $shoppingCart_ins = new ShoppingCart();
             // you're starting in the right spot.
@@ -152,28 +151,27 @@
           
           
           
-<<<<<<< HEAD
+
           public $products = array();
-=======
-          public $items = array();
->>>>>>> shandy
+
+
          public function provideDescription(){
             return "You have {$shoppingCart->getAllProducts()} in your shopping cart";
           }
           
           public function addProduct(Product $product){
             
-<<<<<<< HEAD
+
              $this->products[] = $product;
-                     // Throw an exception if its not an item
+                     
              if (!$product) throw new Exception('The cart requires items with unique ID values.');
-                    // Add or update:
+                   
              if (isset($this->products[$products])) {
-                $this->updateItem($item, $this->items[$item]['qty'] + 1);
+                $this->updateItem($product, $this->products[]['qty'] + 1);
     } 
           else {
              $this->products[$] = array('product' => $product, 'qty' => 1);
-=======
+
              public $items = array();
                      // Throw an exception if its not an item
              if (!$item) throw new Exception('The cart requires items with unique ID values.');
@@ -182,7 +180,7 @@
                 $this->updateItem($item, $this->items[$item]['qty'] + 1);
     } 
           else {
-             $this->items[$id] = array('item' => $item, 'qty' => 1);
+             $this->items[] = array('product' => $product, 'qty' => 1);
     }
           }
           
@@ -201,18 +199,18 @@
           else {
             // where did $id come from?  It doesnt look initialized to me
              $this->items[$id] = array('item' => $item, 'qty' => 1);
->>>>>>> shandy
+
     }
           }
           
           
           public function deleteProduct(Product $product){
-<<<<<<< HEAD
+
             // where did $items come from?  If it is not a number or a string, it doesn't
             // make sense to reference an array key by anything else
             if(isset($this->products[$products])){
               unset($this->products[$products]);
-=======
+
             // where is $items coming from here?
             if(isset($this->items[$items])){
               unset($this->items[$items]);
@@ -238,7 +236,7 @@
             // make sense to reference an array key by anything else
             if(isset($this->items[$items])){
               unset($this->items[$items]);
->>>>>>> shandy
+
             }
           }
           
@@ -259,14 +257,14 @@
           // no reference to items, you are probably trying to reference $this->items
           // Also, i don't see getPrice as a function...is that a method on the product.
           // if so, it would be something like $product->getPrice()
-<<<<<<< HEAD
+
           $this->products;
           foreach($products as $product){
             $sum = $product->getPrice($product);
-=======
+
           foreach($items as $product){
             $sum = getPrice($product);
->>>>>>> shandy
+
             print_r($sum);
           }
         }
@@ -279,7 +277,7 @@
         // there, but havent quite finished
         // @advice
         class ShoppingCart extends ProductContainer {
-<<<<<<< HEAD
+
            
           public function addProduct(Product $product){
               // where is item (or items) coming from?
@@ -318,9 +316,7 @@
               throw new Exception("No instances of product");
               
         }
-=======
-         
->>>>>>> shandy
+
         
         
         public function getTotalPrice($price){
@@ -333,6 +329,164 @@
           }
         }
         }
+        
+        
+        
+          class Clothing extends Product  {
+          protected $size,$color,$type,$gender;
+          public $correct_Color = array("red, blue, green, black, white, yellow");
+          
+           public function getDescriptionforProductType(){
+           return "This is an article of 
+            clothing.  It is a {$this->getName()},  {$this->getColor()},  {$this->getGender()} , {$this->type},  of size {$this->getSize()}.  It costs {$this->price}";
+         }
+           
+          public function __construct($name,$price,$brand,$size,$color,$type,$gender){
+            parent::__construct($name,$price, $brand);
+            
+            
+            $this->size = $this->setSize($size);
+            $this->color = $this->setColor($color);
+            $this->type = $this->setType;
+            $this->gender = $this->setGender;
+          }
+          
+          
+          
+          public function getSize($size){
+            return $this->size;
+          }
+          
+          public function setSize($size){
+            if(!empty($size)){
+              $this->size = $size;
+            }
+            else {
+              throw new Exception("Not a valid size");
+            }
+          }
+          
+          
+      
+          public function getColor($color){
+            
+            return $this->color;
+          }
+          
+          
+          
+          public function setColor($color){
+           if(!empty($color)){
+             if(in_array($color,$this->correct_Color)){
+               $this->color = $color;
+             }
+           }
+           else{
+             throw new Exception("Not a valid color");
+           }
+            }
+          
+          
+          
+          public function getType($type){
+            return $this->type;
+          }
+          
+          public function setType($type){
+            if(!empty($type)){
+              $this->type = $type;
+            }
+            else {
+              throw new Exception("Not a valid type");
+            }
+          }
+          
+          public function getGender($gender){
+            $this->gender = $gender;
+          }
+          
+          public function setGender($gender){
+            if(!empty($gender)){
+              $this->gender = $gender;
+            }
+            else 
+              throw new Exception("Not a valid gender");
+          }
+          
+        
+        
+        
+        public function getPrice($price){
+          $this->price = $price;
+        }
+        
+        public function setPrice($price){
+          if(!empty($price) && is_numeric($price)){
+            $this->price = $price;
+          }
+          else
+            throw new Exception("Not a valid price");
+        }
+        }
+        
+        
+         
+         class Television extends Product {
+          protected $name,$price,$brand,$displayType,$size;
+          
+           public function getDescriptionforProductType(){
+           
+           return "This is a {$this->size} {$this->brand}
+          {$this->displayType} Television";
+          
+         }
+         
+         
+         public function getSize($size){
+          $this->size = $size;
+         }
+         
+         public function setSize($size){
+           if(!empty($size)){
+             $this->size = $size;
+           }
+             else 
+              throw new Exception("Not a valid size");
+           }
+         
+         
+          
+          public function __construct($name,$price,$brand,$displayType,$size){
+            
+            parent::__construct($name,$price,$brand);
+            
+            $this->displayType = $displayType;
+            $this->size = $size;
+          }
+        }
+        
+          class ItemDescriber extends Product implements Describable {
+        public function outputDescription(Describable $shoppingCart){
+         return $shoppingCart->provideDescription();
+      }
+      
+      
+      $itemDescriber = new ItemDescriber();
+        $shoppingCart = new ShoppingCart();
+        $buttondownshirt = new Clothing("Button Down Shirt", 29.98, "J Peterman",29,"Eye piercingly bright red", "Shirt", "Male");
+        $shoppingCart->addProduct($buttondownshirt);
+        echo $buttondownshirt->provideDescription();
+        
+        $itemDescriber->provideDescription();
+        $giantTV = new Television("Giant TV",3900.90,"Kramerica","LED",100);
+        $shoppingCart->addProduct($giantTV);
+        echo "<br />";
+        echo $giantTV->provideDescription();
+       echo $shoppingCart->provideDescription();
+        $itemDescriber->provideDescription();
+        echo $shoppingCart->getTotalPrice($shoppingCart);
+        $shoppingCart->deleteProduct($buttondownshirt);
+        
         
         
         ?>

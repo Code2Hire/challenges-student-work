@@ -33,3 +33,73 @@
  * - ???
  * - Profit!
  */
+ var fireButtonAndrew = document.getElementById("andrew-shoot");
+ var fireButtonCharles = document.getElementById("charles-shoot");
+ var resetButton = document.getElementById("reset");
+ 
+ var andrewNumShots = document.getElementById("andrew-numshots");
+ var andrewNumHits = document.getElementById("andrew-numhits");
+ 
+ var charlesNumShots = document.getElementById("charles-numshots");
+ var charlesNumHits = document.getElementById("charles-numhits");
+ 
+
+ var successfulShot;
+ 
+function randomColor(randomColor){
+      document.body.style.background =  "#" + (Math.random() * 0xFFFFFF<<0).toString(16);
+       
+}
+ 
+ function randomShot(){
+     
+       var rand =  1 + Math.floor(Math.random() * 6);
+       if(rand >= 3){
+           successfulShot = false;
+       }
+       else {
+           successfulShot = true;
+           
+       }
+        document.getElementById("audio-shot").play();
+ }
+ 
+
+
+ 
+
+ function fireButton(fireButtonAndrew,fireButtonCharles){
+   fireButtonAndrew.addEventListener("click",function(){
+       randomShot();
+       
+       andrewNumShots.innerHTML = parseInt(andrewNumShots.innerHTML, 10) + 1;
+       
+       randomColor(this);
+            if(successfulShot == true){
+                andrewNumHits.innerHTML = parseInt(andrewNumHits.innerHTML, 10) + 1;
+       }
+   },false);
+   
+   fireButtonCharles.addEventListener("click",function(){
+       randomShot();
+    
+       charlesNumShots.innerHTML = parseInt(charlesNumShots.innerHTML, 10) + 1;
+       
+       randomColor(this);
+             if(successfulShot == true){
+                 charlesNumHits.innerHTML = parseInt(charlesNumHits.innerHTML,10) + 1;
+       }
+   },false);
+ }
+ 
+ resetButton.onclick = function(){
+    
+        document.getElementById("charles-numhits").innerHTML = 0; 
+        document.getElementById("charles-numshots").innerHTML = 0;
+        document.getElementById("andrew-numshots").innerHTML = 0;
+        document.getElementById("andrew-numhits").innerHTML = 0;
+        document.getElementById("num-resets").innerHTML = parseInt(document.getElementById("num-resets").innerHTML,10) + 1;
+        randomColor(this);
+        
+ };
+     fireButton(fireButtonAndrew,fireButtonCharles);

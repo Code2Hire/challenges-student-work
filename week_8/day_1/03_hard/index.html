@@ -35,7 +35,7 @@
         NUM HITS: <span id="andrew-numhits">0</span>
       </div>
       <div>
-        <button id="andrew-shoot">FIRE</button>
+        <button id="andrew-shoot" function="firebutton(firebuttonAndrew)">FIRE</button>
       </div>
     </div>
     <div class="right">
@@ -47,11 +47,15 @@
         NUM HITS: <span id="charles-numhits">0</span>
       </div>
       <div>
-        <button id="charles-shoot">FIRE</button>
+        <button id="charles-shoot" function="firebutton(firebuttonCharles)">FIRE</button>
+        
       </div>
     </div>
+    <img src="jackson.jpg" style="float: left;" height=265> </img>
+    <img src="dickinson_ca.jpg" style="float: right;" height=265></img>
     <div class="clear"></div>
   </div>
   <script src="duel.js"></script>
+  <audio src="shot.wav" id="audio-shot"></audio>
 </body>
 </html>
