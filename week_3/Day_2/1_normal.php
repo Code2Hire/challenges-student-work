@@ -15,7 +15,8 @@
              
              */
 
-            $suits = array ("clubs", "diamonds", "hearts", "spades");
+            $suits = array ("clubs", "diamonds", "hearts", "spades"); // create deck suits
+            // creates the deck faces
             $faces = array (
                 "Ace" => 1, 
                 "2" => 2,
@@ -31,7 +32,7 @@
                 "Queen" => 12, 
                 "King" => 13
             );
-            $deck = array();
+            $deck = array(); // creates a container for a completed and merged deck.
             
 
             foreach($suits as $decksuit){                // suits as decksuit to add to $face

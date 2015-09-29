@@ -66,7 +66,7 @@
                     );
             
         
-        score($names);
+        score($names); // passes $names to score function
         
         
         

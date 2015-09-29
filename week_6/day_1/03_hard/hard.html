@@ -15,3 +15,163 @@
     - build out the sub-navigation seen in the 'extra-credit-masthead.png' image, and make it show when you hover on the "Products" link in the nav
 
 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            * {
+    box-sizing: border-box;
+}
+
+.masthead {
+    height: 100px;
+    color: white;
+    width: 100%;
+    background-color: black;
+    font-family: Helvetica;
+}
+
+.logo {
+    height: 100px;
+    line-height: 100px;
+    background-color: blue;
+    float: left;
+    width: 5%;
+    text-align: center;
+    font-size: 30px;
+    min-width:90px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-list {
+    list-style-type: none;
+    line-height: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    float: left;
+    padding: 0 2%;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: white;
+}
+.nav-link a:hover {
+    text-decoration: none;
+    background-color: blue;
+    
+}
+.search-container {
+    float: left;
+    padding-top: 40px;
+}
+
+.search-container-box {
+    overflow: hidden;
+}
+
+.search-container-box input {
+    float: left;
+    height: 20px;
+    border: 0;
+    outline: 0;
+}
+
+.search-icon-container {
+    float: left;
+    height: 20px;
+    width: 20px;
+    padding: 2px;
+    background-color: red;
+}
+
+.cart-container {
+    float: right;
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.cart-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.view-cart img {
+    position: relative;
+    top: 5px;
+}
+        </style>
+    </head>
+    <body>
+        <div class="masthead">
+
+            <div class="logo">
+                <a href="/home.html">Logo</a>
+            </div>
+            
+            <nav class="navbar">
+                
+                <ul class="nav-list">
+
+                    <li class="nav-link">
+                        <a href="/home.html">Products</a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/about.html">Music</a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/stuff.html">Play</a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/contact.html">Connect</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+            
+            <div class="search-container">
+                
+                <div class="search-container-box">
+                    
+                    <input type="text" name="search_bar" placeholder="Search here">
+                    
+                    <div class="search-icon-container">
+                        <img src="search-icon.png" />
+                    </div>
+
+                </div>
+                
+            </div>
+            
+            <div class="cart-container">
+                
+                <div class="sign-in dealer-locator">
+                    
+                    <a href="/sign-in.html">Sign-In</a> / <a href="/dealer-locator.html">Dealer Locator</a>
+                    
+                </div>
+                
+                <div class="view-cart">
+                    
+                    <a href="/view-cart.html">View Cart <img src="cart-icon.png" /></a>
+                    
+                </div>
+                
+            </div>
+
+        </div>
+        
+    </body>
+</html>

@@ -7,13 +7,12 @@
      */
      
      
-     
-     
     function ride($owner) {
         //adds the string owner to the array and out puts who owns what.
-        $rides = array('car', 'boat', 'bike');
         
-        for($i = 0; $i < count($rides); $i++) {
+        $rides = array('car', 'boat', 'bike');
+        $num = count($rides);
+        for($i = 0; $i < $num ; $i++) {
         
             array_push($rides, $owner . "'s " . $rides[$i]);
         }
@@ -22,19 +21,22 @@
 ?>
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+      
+  </head>
   <body>
     <p>
         <pre>
         <?php
-            print_r(ride('Jason'));
+            print_r(ride('Jason')); // Makes Jason a owner of the rides
         ?>
         </pre>
     </p>
     <p>
         <pre>
         <?php
-            print_r(ride('Eric'));
+            print_r(ride('Eric')); // Makes eric the ower of rides
+        
         ?>
         </pre>
     </p>

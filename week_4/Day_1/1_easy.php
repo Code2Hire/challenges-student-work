@@ -19,40 +19,40 @@
 
     class Rectangle {
         
-        // set width and height to use as variable in the functions of class rectangle
-        
-        public $width = 0;
-        public $height = 0;
-        
-        function __construct($width,$height){
-        // a contructor that takes the width and height from a rectangle object
-            $this->width = $width;
-            $this->height = $height;
+            // set width and height to use as variable in the functions of class rectangle
             
+            public $width = 0;
+            public $height = 0;
             
-        }
-        public function getArea(){
-            // returns the area of the passed height and width
-            $area = $this->width * $this-height;
-            return $area;
-            
-        }
-        public function getPerimeter(){
-            // returns the perimeter
-            $perimeter = 2 * ($this->width + $this->height);
-            return $perimeter;
-            
-        } // if the height and width are not the same then the shape is not a square
-        public function isSquare(){
-            if($this->width == $this->height){
-                return true;
+            function __construct($width,$height){
+            // a contructor that takes the width and height from a rectangle object
+                $this->width = $width;
+                $this->height = $height;
                 
-            }else{
-                return false;
+                
+            }
+            public function getArea(){
+                // returns the area of the passed height and width
+                $area = $this->width * $this-height;
+                return $area;
+                
+            }
+            public function getPerimeter(){
+                // returns the perimeter
+                $perimeter = 2 * ($this->width + $this->height);
+                return $perimeter;
+                
+            } // if the height and width are not the same then the shape is not a square
+            public function isSquare(){
+                if($this->width == $this->height){
+                    return true;
+                    
+                }else{
+                    return false;
+                }
+                
             }
             
-        }
-        
         
     }
     

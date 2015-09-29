@@ -20,7 +20,7 @@
      * Bonus points: Can you implement a "removeItem" method on your shopping cart class?
      */
   
-    class ShoppingCart { //sets class ahopping cart
+    class ShoppingCart { //sets class shopping cart
         public $items = array(); //establishes $items array
         var $beforeTax; //sets variable names
         var $tax;

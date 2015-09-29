@@ -37,6 +37,7 @@
     </p>
     <p>
         <?php
+            // callback function
             echo clean_then_call('JAMar FLOWERS',function($name)
                         {   
                    

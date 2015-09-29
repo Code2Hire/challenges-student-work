@@ -7,3 +7,94 @@
     - set the background color of each section to the color it is labeled
 
 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            .whole-circle {
+     width: 300px;
+     margin: 0 auto;
+}
+
+.whole-circle p {
+     margin: 0;
+}
+
+.top-half {
+    overflow: hidden;
+}
+
+.bottom-half {
+    overflow: hidden;
+}
+
+.quarter-circle-1 {
+    background-color: red;
+    height: 150px;
+    width: 150px;
+    -moz-border-radius: 150px 0 0 0;
+    border-radius: 150px 0 0 0;
+    float: left;
+}
+
+.quarter-circle-2 {
+    background-color: yellow;
+    height: 150px;
+    width: 150px;
+    -moz-border-radius: 150px 0 0 0;
+    border-radius: 150px 0 0 0;
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    float: right;
+}
+
+.quarter-circle-3 {
+    background-color: blue;
+    height: 150px;
+    width: 150px;
+    -moz-border-radius: 150px 0 0 0;
+    border-radius: 150px 0 0 0;
+    -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
+    float: left;
+}
+
+.quarter-circle-4 {
+    background-color: green;
+    height: 150px;
+    width: 150px;
+    -moz-border-radius: 150px 0 0 0;
+    border-radius: 150px 0 0 0;
+    -webkit-transform: matrix(-1, 0, 0, -1, 0, 0);
+    float: right;
+}
+
+        </style>
+    </head>
+    <body>
+        <body>
+        
+        <div class="whole-circle">
+            
+            <div class="top-half">
+                
+                <p class="quarter-circle-1"></p>
+                <p class="quarter-circle-2"></p>
+                
+            </div>
+            
+            <div class="bottom-half">
+                
+                <p class="quarter-circle-3"></p>
+                <p class="quarter-circle-4"></p>
+                
+            </div>
+            
+        </div>
+        
+    </body>
+    </body>
+</html>
+
+
+
+
+
