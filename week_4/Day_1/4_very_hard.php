@@ -56,7 +56,7 @@
                 $zip = strval($zip);
                 
                 if (strpos($zip, '97') === 0 || strpos($zip, '84') === 0) { //if condition for utah and oregon
-                    echo "97";
+                    
                     $budget = 19.99;
                     $regular = 39.99;
                     $couchPotato = 79.99;

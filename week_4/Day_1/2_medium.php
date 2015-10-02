@@ -24,7 +24,7 @@
     ///////////////////////////
 
     class ShoppingCart { //sets class ahopping cart
-        public $items = array(); //establishes $items array
+        protected $items = array(); //establishes $items array
         var $beforeTax; //sets variable names
         var $tax;
         var $afterTax;
