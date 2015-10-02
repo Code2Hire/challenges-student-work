@@ -39,7 +39,7 @@
     $played = 0;
     
     //the game
-    while($p1win < 4 && $p2win < 4){
+    while($p1win < 4 && $p2win < 4 && $played !== 7){
         $won = "";
         
         //giving the choices randomly

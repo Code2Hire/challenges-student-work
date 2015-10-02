@@ -33,7 +33,7 @@
     } 
     //sets up a shopping cart
     class ShoppingCart {
-        public $items = array();
+        protected $items = array();
         protected $getCostBeforeTax;
         protected $total_after_tax;
         protected $tax;
@@ -52,7 +52,7 @@
         function getTaxAmount(){
             $this->tax = ($this->total_before_tax)*(.10);
             return $this->tax;
-        }
+        } 
         //cost with tax
         function getCostAfterTax(){
             $this->total_after_tax = ($this->total_before_tax)+($this->tax);

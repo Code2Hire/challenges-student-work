@@ -43,7 +43,7 @@
         
     }
 
-    $width = 160;
+    $width = 75;
     $height = 75;
 
     echo "<h2>With a width of $width and a height of $height...</h2>";

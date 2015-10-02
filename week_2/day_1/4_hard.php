@@ -41,11 +41,11 @@
 			}
 			//printing the numbers
 			echo "<pre>";
-                $comma3 = implode(",", $threeArray);
+                $comma3 = implode(", ", $threeArray);
                 echo $comma3;
                 echo "</pre>";
                 echo "<pre>";
-                $comma6 = implode(",", $sixArray);
+                $comma6 = implode(", ", $sixArray);
                 echo $comma6;
                 echo "</pre>";
                 $amount3 = count($threeArray);
