@@ -26,8 +26,7 @@
           	 'July',
           	 'August',
           	 'September',
-          	 'November',
-          	 'December'
+          	 'November'
           	];
           	$monthIncludeArray = [
           	    'April',
