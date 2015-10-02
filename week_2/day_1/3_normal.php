@@ -20,8 +20,8 @@
 <body>
 <p>
 	<?php
-
-		// code goes here ...
+	string date ( string $format)
+		
 
 
 	?>

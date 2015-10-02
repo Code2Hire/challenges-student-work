@@ -30,9 +30,17 @@
           set $package as the inner array so we can have access to it directly
           this is appose to accessing them like so $packagesArray[0]['name'];
          -->
+         array_multisort($ar1, $ar2);
+         
         <?php foreach ($packagesArray as $packageArray): ?>
           <tr><td><?=$packageArray['name']?></td><td><?=$packageArray['price']?></td></tr>
-        <?php endforeach ?>
+        <?php 
+        
+        array_multisort($packagesArray);
+        
+        
+        
+        ?>
       </ul>
 	</body>
 </html>

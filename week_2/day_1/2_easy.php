@@ -26,7 +26,8 @@
         <p>
             <?php
 
-          	    // code goes here ...
+          echo rand(1,7);
+          
 
             ?>
         </p>

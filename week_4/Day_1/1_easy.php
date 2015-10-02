@@ -21,6 +21,22 @@
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
+class rectangle {
+    public function __construct ($width, $height){
+        $this->width = $width;
+        $this->height = $height;
+    }
+    public function getArea($width, $height){
+        $area = $width * $height;
+        return $area;
+    }
+    public function getPerimeter($width, $height){
+        $Perimeter = 
+    }
+    
+}
+
+
 
 
     $width = 160;

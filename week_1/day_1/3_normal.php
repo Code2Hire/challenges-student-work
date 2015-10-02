@@ -13,9 +13,9 @@
 	<body>
         <p>
           <?php
-          	$name = 'Eric'; // this came from the previous page as a post variable
+          	$name = "Tru"; 
 
-          	// this came from the db
+       
 			$nameToColorArray = [
 	          'Alex' => 'blue',
 	          'Joseph' => 'green',
@@ -28,7 +28,10 @@
 	          'Tru' => 'red',
 	         ];
 
-	         // code goes here
+	   if ($nameToColorArray[$name])
+	   { echo $nameToColorArray[$name];}
+	   else 
+	   {echo "I Dont know that persons color";}
           ?>
         </p>
 	</body>

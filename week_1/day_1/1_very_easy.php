@@ -23,8 +23,12 @@
               'Tru',
               'Michael'
             ];
-
-          // code goes here...
+          asort($unOrderedArray);
+          foreach ($unOrderedArray as $Orederedarray){
+            echo $Orederedarray;
+          }
+       
+       
           ?>
         </p>
   </body>

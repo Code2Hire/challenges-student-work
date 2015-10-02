@@ -4,7 +4,7 @@
   </head>
   <body>
     <p>
-        <?
+        <?php
         /**
          * So we have our products, but what are we going to do with them.
          *
@@ -45,6 +45,161 @@
         ///////////////////////////
         // Put your code here!
         ///////////////////////////
+        interface Describable {
+          public function provideDescription();
+      }
+      class ShoppingCart implements Describable{
+        public provideDescription()
+      }
+       class CloudMovieFile implements Describable{
+            public function provideDescription(){
+              return "Awesome movie";
+          }
+        }
+      
+      abstract class Product implements Describable{
+          protected $Name;
+          protected $Brand; 
+          protected $Price;
+          
+           abstract public function provideDescriptionForProductType();
+          
+          
+          public function __construct($Name, $Brand, $Price){
+            
+              $this->Name = $Name;
+              $this->Brand = $Brand;
+              $this->Price = $Price;
+              
+          }
+          
+          public function provideDescription(){
+            
+            return $this->provideDescriptionForProductType(); 
+            
+          }
+        
+          public function getPrice(){
+            
+              if(is_numeric($this->Price)){
+                return $this->Price;
+              }
+          }
+          public function getBrand(){
+          
+            if(!empty($this->Brand)){
+              return $this->Brand;
+            }
+          }
+          public function getName(){
+            if ($this->name){
+              return $this->name;
+            }
+          }
+      }
+
+        class Clothing extends Product{
+          protected $Size;
+          protected $color;
+          protected $Gender;
+          protected $type;
+          
+          public function __construct($Name, $Brand, $Price, $Size, $Color, $Gender, $type){
+            parent::__construct($Name, $Brand, $Price);
+            $this->Size = $Size;
+            $this->color = $Color;
+            $this->Gender = $Gender;
+            $this->type = $type;
+          }
+          public function getSize(){
+            if ($this->Size){
+              return $this->Size;
+            }
+          } 
+          public function getColor(){
+              
+              $correctColors = array('red', 'blue', 'green', 'black', 'white', 'yellow');
+              if ($this->color){
+                if(in_array($this->color, $correctColors)) {
+                  return $this->color;
+                }
+              }
+          }    
+          public function getGender(){
+            if(($this->gender == "M") or ($this->gender == "F") or ($this->gender == "N")){
+              return $this->Gender;
+            } 
+          }
+        
+          
+          public function getType(){
+            if ($this->type){
+              return $this->type;
+            } 
+          }
+          public function provideDescriptionForProductType(){
+            return "This is an article of clothing. It is a". $this->getBrand()." " . $this->getColor()." " . $this->getGender()." " . $this->getType() . " " . "of size" ." ".  $this->getSize() ." ". "It costs". " " .$this->getPrice();
+          }
+        }
+        
+        class television extends Product{
+          protected $Displaytype;
+          protected $Size; 
+          
+          public function __construct($Name, $Brand, $Price, $Displaytype, $Size){
+          parent::__construct($Name, $Brand, $Price);
+          $this->Displaytype = $Displaytype;
+          $this->Size = $Size;
+        }
+          public function getDisplaytype(){
+                if($this->Displaytype){
+                  return $this->Displaytype;
+                }
+          }
+          public function getSize(){
+            if ($this->Size){
+              return $this->Size;
+            }
+          }
+        public function provideDescriptionForProductType(){
+          return "This is a" ." ". $this->getSize() . " " . $this->getBrand(). " " . $this->getDisplaytype(). " " . $this->getPrice();
+        } 
+      }
+        
+        
+      $shirt = new Clothing ("V neck", "hollister", 9.99, "Medium", "Red", "Male", "cotton shirt");
+      $tv = new Television ("Big tv", "Toshiba", 4.550, "plasma", "46 inch");
+      $movie = new CloudMovieFile ("kids", "The lion king", "Early 2001");
+      
+        
+        $customerItems = array($shirt, $tv, $movie);
+        
+        class ItemDescriber{
+          public function outputDescription($product){
+            if($product instanceof Describable){
+              return $product->provideDescription();
+            }
+            else {
+              throw new Exception ("Item is not here try another store");
+            }
+          }
+        }
+        
+        $describer = new ItemDescriber ();
+         try {
+         foreach($customerItems as $customerItem){
+           echo $describer->outputDescription($customerItem);
+           echo "</br>";
+         }
+        }
+          catch (Exception $e){
+            echo $e->getMessage();
+          }
+        
+        
+        
+        
+        
         ?>
     </p>
   </body>

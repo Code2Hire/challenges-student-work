@@ -22,6 +22,10 @@
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
+    class ShoppingCart{
+        public addItem;
+        
+    }
 
 
     $cart = new ShoppingCart();
