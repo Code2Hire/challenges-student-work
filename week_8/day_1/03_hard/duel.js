@@ -17,8 +17,8 @@
  *   - number of shots fired should increase every click on the "FIRE" button
  *   - number of hits obviously only increases when the shot is successful
  *   - both duelers are invincible (for now!)
- * 
- * 2. Clicking the "RESET" button resets all the shot and hit counters and
+ *              
+ v * 2. Clicking the "RESET" button resets all the shot and hit counters and
  * adds 1 to the num resets
  *
  * 3. Any time you click any of the buttons on the page, change the background
@@ -76,7 +76,7 @@ window.onload = document.body.style.backgroundColor = getRandomColor();
 
 //functions to decrease typing 
 //does stuff for the buttons if clicked
-function theClick(value, element, sound){
+function theClick(value, element){
     var number = parseInt(values.getItem(value), 10) + 1;
     values.setItem(value, number);
     document.getElementById(element).innerHTML = values.getItem(value);

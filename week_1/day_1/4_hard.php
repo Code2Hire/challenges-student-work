@@ -26,19 +26,19 @@
           	 'July',
           	 'August',
           	 'September',
-          	 'November'
+          	 'November',
+          	 'December'
           	];
           	$monthIncludeArray = [
           	    'April',
           	    'September',
           	    'December'
           	    ];
-            //this is incorrect, will eventually fix
-            if(in_array($monthIncludeArray, $monthExcludeArray)){
-            echo "Your array does include these months";
-            }
-            else {
-                echo "Your array does not include thse months";
+            //loops through bad months, finds if one of them is 
+            foreach($monthIncludeArray as $bad){
+              if(in_array($bad, $monthExcludeArray)){
+              echo "Your array does include $bad </br>";
+              }
             }
           	
           ?>
