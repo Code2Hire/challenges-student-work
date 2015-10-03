@@ -50,6 +50,8 @@
 
 
     class CamcostPricing { 
+        // the following three arrays just set up all the information 
+        // for the different pricing of the bundles.
         public $bundleDefault = array(
             "Budget + SlowNet" => 44.98,
             "Budget + FastNet" => 74.98,
@@ -69,29 +71,36 @@
             "Regluar + FastNet" => 99.98);
             
         public function getBundlesByZip($zip) { 
-            //zip code
+            // determines if the zip begins with a 27 or 28 or 29 
             if (strpos($zip, 27) === 0 || strpos($zip, 28) === 0 || strpos($zip, 29) === 0) { 
+                // assigns in the NC and SC bundle 
                 return $this->bundleNCSC; 
             } 
+            // determinds if the zip begins with a 84 or 97
             elseif (strpos($zip, 84) === 0 || strpos($zip, 97) === 0) { 
+                // assigns in the correct bundle
                 return $this->bundleUtah;
             } 
+            // everything that isn't those particular zip codes is assigned 
+            // the default bundle
             else { 
                 return $this->bundleDefault;
             }
         } 
     }
     
-    
+        // this function loops through the bundles and then displays the information
         function showBundles($bundles) {
             foreach ($bundles as $bundleName=>$bundleCost) {
                 echo "<p>$bundleName: \$$bundleCost</p>";
             }
         } 
     
-    
+    // new instance of the main class
     $pricing = new CamcostPricing;
 
+    // after getting a zip code, the getBundlesByZip function is used to determine
+    // what kind of package that location gets and then displays the output.
     $zip = '28277';
     $bundles = $pricing->getBundlesByZip($zip);
     echo "<h3>Camcost Bundles for customers in $zip</h3>";

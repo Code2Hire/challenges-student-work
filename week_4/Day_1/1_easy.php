@@ -23,20 +23,26 @@
     ///////////////////////////
     
     class Rectangle { 
+        // a constuctor that sets width and height for the class
         public function __construct($width, $height) { 
             $this->width = $width;
             $this->height = $height; 
         } 
+        
+        // width * height = area
         public function getArea() { 
             return $this->width * $this->height; 
         } 
             
+        // width * 2 + height * 2 = perimeter
         public function getPerimeter() { 
             return ($this->width * 2) + ($this->height * 2);
         } 
+        
+        // this function tests to see if rectangle is also a square
         public function isSquare() { 
             if($this->width = $this->height) {
-                return true; 
+                return false; 
             }
         } 
     } 
@@ -47,11 +53,15 @@
 
     echo "<h2>With a width of $width and a height of $height...</h2>";
 
+    // a new instance of the rectangle class 
     $r = new Rectangle($width, $height);
 
+    // echo the information in a manner that is easily read
     echo '<p>The area of the rectangle is ' . $r->getArea() . '</p>';
     echo '<p>The perimeter of the rectangle is ' . $r->getPerimeter() . '</p>';
 
+    // another if statement to determine the output on the screen if 
+    // it is also a square or not.
     echo '<p>This rectangle is ';
     if ($r->isSquare()) {
         echo 'also';

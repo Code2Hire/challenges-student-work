@@ -24,39 +24,58 @@
     ///////////////////////////
     
     class ShoppingCart { 
-        public function addItem() {
-            $this->cart = $cart; 
-        } 
+        // this adds items to an array
+        public function addItem($item) {
+            $this->cartItems[] = $item; 
+        }
+        
+        // this function loops through each item that is in the cart and 
+        // calculates the total price
         public function getCostBeforeTax() { 
-            $this->price;
-            
+            foreach($this->cartItems as $item) { 
+                $price = $price + $item->price;
+            }
+            return $price;
         } 
+        
+        // loops through each item and calculates the sales tax for the items 
+        // in the shopping cart
         public function getTaxAmount() { 
-            $tax = 0.10; 
-            $this->getCostBeforeTax * $tax;
+            foreach($this->cartItems as $item) { 
+                $calculateTax = $calucateTax + ($item->price * .1);
+            } 
+            return $calculateTax;
         } 
+        
+        // adds the price of the items and the sales tax together for an overall cost
         public function getCostAfterTax() { 
-            
+            $price = $this->getCostBeforeTax(); 
+            $taxAmount = $this->getTaxAmount();
+            return $price + $taxAmount;
         } 
     } 
     
-    class Item extends ShoppingCart { 
+    // new class that sets up the items and the price of each item
+    class Item { 
         public $name;
-        public $price; 
+        public $price;
         
+        // hooray constructor
         public function __construct($name, $price) { 
             $this->name = $name;
             $this->price = $price;
         } 
-    } 
+    }
 
-
+    // new instance of the shopping cart class
     $cart = new ShoppingCart();
+    // the next four lines just add items using the item class
     $cart->addItem(new Item('Cheap Book', 2.99));
     $cart->addItem(new Item('Expensive Book', 24.99));
     $cart->addItem(new Item('Movie', 12.99));
     $cart->addItem(new Item('Video Game', 59.99));
 
+    // the output for all the information
     echo "<p>Total cost before tax: \${$cart->getCostBeforeTax()}</p>";
     echo "<p>Tax amount: \${$cart->getTaxAmount()}</p>";
     echo "<p>Total cost after tax: \${$cart->getCostAfterTax()}</p>";

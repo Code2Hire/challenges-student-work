@@ -26,13 +26,13 @@
     // Put your code here!
     ///////////////////////////
 
-
+    // lines 29 - 71 are all the same from the medium challenge
     class ShoppingCart { 
         public $cartItems = array(); 
     
     
         public function addItem($item) {
-            $this->cartItems[] = $item; // adds cart items to the array
+            $this->cartItems[] = $item;
         }
         
         public function getCostBeforeTax() { 
@@ -40,15 +40,18 @@
             foreach($this->cartItems as $item) { 
                 $price = $price + $item->price;
             }
-            
             return $price;
         } 
         
         public function getTaxAmount() { 
             $calucateTax = 0;
             foreach($this->cartItems as $item) { 
+                // instead of using the overall 10% tax from the last challenge, 
+                // this new taxAmount variable gets the indiviual tax amounts 
+                // from the children classes.
                 $calucateTax = $calucateTax + ($item->price * $item->taxAmount);
             } 
+            
             return $calucateTax;
             
         } 
@@ -69,28 +72,38 @@
             $this->price = $price;
         } 
     } 
+    
+    // the following classes are basically just different items that use the information
+    // from the parent Item class 
     class Book extends Item { 
+        // new tax amount
         public $taxAmount = 0;
     } 
     
     class DVD extends Item { 
+        // new tax amount
         public $taxAmount = .05;
     } 
     
     class VideoGame extends Item { 
+        // new tax amount
         public $taxAmount = .10;
     } 
 
+    // same information from the last challenge
     $cart = new ShoppingCart();
     $cart->addItem(new Book('Cheap Book', 2.99));
     $cart->addItem(new Book('Expensive Book', 24.99));
     $cart->addItem(new DVD('Movie', 12.99));
     $cart->addItem(new VideoGame('Video Game', 59.99));
 
+    // number_format sets up the numbers so it looks like an actual price 
+    // ex. 32.45 with the two decimal places
     $beforeTax = number_format($cart->getCostBeforeTax(), 2);
     $taxAmount = number_format($cart->getTaxAmount(), 2);
     $afterTax = number_format($cart->getCostAfterTax(), 2);
 
+    // output 
     echo "<p>Total cost before tax: $$beforeTax</p>";
     echo "<p>Tax amount: $$taxAmount</p>";
     echo "<p>Total cost after tax: $$afterTax</p>";
