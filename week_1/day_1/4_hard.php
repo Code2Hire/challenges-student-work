@@ -7,6 +7,8 @@
 		- April
 		- September
 		- December
+		
+		**Make two arrays.
  -->
 
 <!DOCTYPE html>
@@ -35,16 +37,20 @@
                 "December"
             ];
             
-            foreach($myMonthArray as $myMonth)
+            foreach($myMonthArray as $myMonth) { 
 
-          	// code goes here ...
-          	if (in_array($myMonth, $monthExcludeArray)) { 
-          	    echo "I don't want that month. <br/>";
-          	}
-          	
-          	else { 
-          	    echo $myMonth . "<br/>"; 
-          	} 
+            	// if the month is inside both arrays, it's to be excluded. At least, that's how I understood
+            	// the directions.
+            	// looks to see if any of the months overlap and then echos that statement.
+            	if (in_array($myMonth, $monthExcludeArray)) { 
+            	    echo "I don't want that month. <br/>";
+            	}
+            	
+            	// the average else statement :D
+            	else { 
+            	    echo $myMonth . "<br/>"; 
+            	} 
+            }
           	
           ?>
         </p>

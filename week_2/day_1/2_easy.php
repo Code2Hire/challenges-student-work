@@ -26,11 +26,13 @@
         <p>
             <?php
 
-          	    // code goes here ...
+          	    // generates a random number between 1 and 7
           	    do { 
           	        $number = rand(1, 7);
           	        echo $number . "\n"; 
           	    }
+          	    
+          	    // it will continue as long as the number is not 7
           	    while 
           	        ($number != 7); 
           	    

@@ -25,10 +25,11 @@
             ];
 
           // code goes here...
+          // sorts alphabetically 
           sort($unOrderedArray); 
           print_r($unOrderedArray);
           
-          
+          // sorts in reverse
           rsort($unOrderedArray);
           print_r($unOrderedArray);
           ?>

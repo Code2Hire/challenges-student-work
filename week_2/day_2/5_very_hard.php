@@ -29,30 +29,38 @@
 
         // Without writing a loop, use an array function to filter our list
         // of names down to only those who pass the score test.
-        function sort_then_print($names) { 
-            $passedNames = array_filter($names, function(&$name) { 
+        
+        // Multiply the position of the letter 'a' (case insensitive) in the name by the
+        // length of the last name divided by the number of words in the string
+        
+        // this function is going to find the total score of each name inside the
+        // $names array using a closure
+            $score = function (&$name) {
+                // cleans up the names given, trim, all lower case, first letter capitalized
                 $name = ucwords(strtolower(trim($name)));
-                // Multiply the position of the letter 'a' (case insensitive) in the name by the
-                // length of the last name divided by the number of words in the string
-                $posA = stripos($name, 'a'); 
-                $parts = explode(' ', $name); 
+                // finds the position of 'a' in the string
+                $posA = stripos($name, 'a');
+                // explodes the name into an array seperated by a space
+                $parts = explode(' ', $name);
+                // adds $parts in the end of the array
                 $last = array_pop($parts);
+                // finds the total lenght of the $last variable
                 $lenLast = strlen($last);
-                $numWords = str_word_count($name);
-                $score = $posA * $lenLast / $numWords; 
-                
-                return $score > 5; 
-                
-            } );
+                // counts the total number of words in the name
+                $numWords =  str_word_count($name);
+                // math to determine the score
+                $score = $posA * $lenLast / $numWords;
+                // returns any names with a score greater than 5
+                return $score > 5;
+            };
             
-            usort($passedNames, "sort_then_print");
-        }
-
-
-        // Without writing a loop, print out the winners separated by a comma and a space
-        print implode(', ', $passedNames); 
-
-
+            // filters the name with the use of the callback
+            $passedNames = array_filter($names, $score);
+             
+            // Without writing a loop, print out the winners separated by a comma and a space
+            print implode(', ', $passedNames);
+            
+            // HUZZAH
         ?>
 
     </p>

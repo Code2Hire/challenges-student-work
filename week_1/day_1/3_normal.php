@@ -28,9 +28,11 @@
 	          'Tru' => 'red',
 	         ];
 
-	         // code goes here
+	         // finds the specific $name we're looking for inside of the array
 	         if($nameToColorArray{$name}) { 
-	         	echo $nameToColorArray{$name}
+	         	echo $nameToColorArray{$name};
+	         }
+	         // if the name isn't found inside the array, this happens
 	         else { 
 	         	echo "Color is not found";
 	         } 

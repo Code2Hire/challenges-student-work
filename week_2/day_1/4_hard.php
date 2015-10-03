@@ -26,9 +26,10 @@
             <?php
 
 
-                // code goes here ...
+                // two empty arrays that we will need later
                 $divisbleByThree = array(); 
                 $alsoDivisibleBySix = array();
+                // this for loop goes from 1 to 100 so we can test each of the numbers
                 for($i = 1; $i <= 100; $i++) { 
                 	if($i%3 === 0) { 
                 		array_push($divisbleByThree, $i);
@@ -39,10 +40,14 @@
                 		} 
                 	} 
                 }
+                
+                //using implode breaks up the numbers and seperates them by commas
                 echo implode(', ', $divisbleByThree); 
                 echo '<br />'; 
                 echo implode(', ', $alsoDivisibleBySix);
                 echo '<br /><br />'; 
+                
+                // counts the total numbers in the two arrays and displays them
                 echo 'Divisible by 3: ' . count($divisbleByThree);
                 echo '<br />';
                 echo 'Divisible by 6: ' . count($alsoDivisibleBySix);

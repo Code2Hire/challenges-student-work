@@ -17,6 +17,7 @@
     array('name' => 'Package 7', 'price' => 11.00),
   );
 
+    // this code gets columns that array_multisort is actually able to sort.
     foreach ($packagesArray as $package => $row) {
       $name[$package]  = $row['name'];
       $price[$package] = $row['price'];

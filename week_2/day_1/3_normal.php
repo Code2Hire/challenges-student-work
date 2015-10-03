@@ -21,13 +21,18 @@
 <p>
 	<?php
 
-		// code goes here ...
+		// there are 12 months in a year so range = 12
 		$months = range(1,12); 
 		
+		// loops through each indiviual number (the months)
 		foreach($months as $month) { 
+			// Uses this fancy php date function to get a certain lay out 
+			// of the date we want.
 			$name = date('F', strtotime("$month/01/2015"));
-			if(strpos($name, 'J') === 0) { 
-			echo "$month - $name - " . strlen($name) .  "<br />"; 
+				// Checks to see the month name begins with J
+				if(strpos($name, 'J') === 0) { 
+					// echos the information in the layout that was asked for
+					echo "$month - $name - " . strlen($name) .  "<br />"; 
 		} 
 		} 
 
