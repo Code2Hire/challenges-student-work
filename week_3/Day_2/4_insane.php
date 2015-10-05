@@ -92,12 +92,14 @@
             $pcard2 = 0;
             $pcard3 = 0;
             $pcard4 = 0;
+            $pcard5 = 0;
             $ptotal = 0;
             
             $dcard1 = 0;
             $dcard2 = 0;
             $dcard3 = 0;
             $dcard4 = 0;
+            $dcard5 = 0;
             $dtotal = 0;
             
             $pmoney = $_POST['value'];
@@ -155,7 +157,6 @@
                 if($talley > 0){
                     return $card;
                 }
-                
             }
             
             //as if the dealer is a god and no mortal can ever beat him
@@ -220,16 +221,15 @@
                 
                 //the hits of the dealer and player 
                 if($pcard1 + $pcard2 < 16){
-                    if($round !== 1){
-                        $pcard3 = countCards($deck[4], $deck);
-                    }
-                    else{
-                        $pcard3 = $deck[4];
-                    }
+                    $pcard3 = countCards($deck[4], $deck);
                 }
                 
                 if($pcard3 !== 0 && $pcard1 + $pcard2 + $pcard3 < 16){
                     $pcard4 = countCards($deck[5], $deck);
+                }
+                
+                if($pcard4 !== 0 && $pcard1 + $pcard2 + $pcard3 + $pcard4< 16){
+                    $pcard5 = countCards($deck[6], $deck);
                 }
                 //echo "$pcard1     $pcard2     $pcard3   $pcard4 <br/>"; 
                 
@@ -245,6 +245,9 @@
                         $dcard3 = $deck[4];
                         if($dcard1 + $dcard2 + $dcard3 < 17){
                             $dcard4 = $deck[5];
+                            if($dcard1 + $dcard2 + $dcard3 + $dcard4 < 17){
+                                $dcard4 = $deck[6];
+                            }
                         }
                     }
                 }
@@ -253,14 +256,31 @@
                         $dcard3 = $deck[5];
                         if($dcard1 + $dcard2 + $dcard3 < 17){
                             $dcard4 = $deck[6];
+                            if($dcard1 + $dcard2 + $dcard3 + $dcard4 < 17){
+                                $dcard4 = $deck[7];
+                            }
                         }
                     }
                 }
-                if($pcard4 !== 0) {
+                if($pcard4 !== 0 && $pcard5 == 0) {
                     if($dcard1 + $dcard2 < 17){
                         $dcard3 = $deck[6];
                         if($dcard1 + $dcard2 + $dcard3 < 17){
                             $dcard4 = $deck[7];
+                            if($dcard1 + $dcard2 + $dcard3 + $dcard4 < 17){
+                                $dcard4 = $deck[8];
+                            }
+                        }
+                    }
+                }
+                if($pcard5 !== 0) {
+                    if($dcard1 + $dcard2 < 17){
+                        $dcard3 = $deck[7];
+                        if($dcard1 + $dcard2 + $dcard3 < 17){
+                            $dcard4 = $deck[8];
+                            if($dcard1 + $dcard2 + $dcard3 + $dcard4 < 17){
+                                $dcard4 = $deck[9];
+                            }
                         }
                     }
                 }
@@ -268,8 +288,8 @@
                 //echo "$dcard1     $dcard2     $dcard3    $dcard4<br/>";
                 
                 //figure it out
-                $ptotal = $pcard1 + $pcard2 + $pcard3 + $pcard4;
-                $dtotal = $dcard1 + $dcard2 + $dcard3 + $dcard4;
+                $ptotal = $pcard1 + $pcard2 + $pcard3 + $pcard4 + $pcard5;
+                $dtotal = $dcard1 + $dcard2 + $dcard3 + $dcard4 + $dcard5;
                 
                 //echo 'c-before' . count($deck);
                 //determining who wins by points and such
@@ -300,7 +320,7 @@
                                 }
                             }
                         else{
-                            if($ptotal = 21){
+                            if($ptotal == 21){
                                 $blackjack++;
                             }
                             $pmoney += $winround;

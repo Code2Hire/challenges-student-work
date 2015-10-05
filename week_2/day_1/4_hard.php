@@ -30,32 +30,33 @@
 
             //finding numbers divisible by 3 and 6 and putting them in the array accordingly
 			for($i = 1; $i <= 100; $i++){
-				$three = $i % 3;
-				$six = $i % 6;
-				if($three == 0){
+				if($i % 3 == 0){
 					array_push($threeArray, $i);
 				} 
-				if($six == 0){
+				if($i % 6 == 0){
 					array_push($sixArray, $i);
 				}			
 			}
+			
+			//making the different lists pretty with commas
+			$comma3 = implode(", ", $threeArray);
+			$comma6 = implode(", ", $sixArray);
+			
+            $amount3 = count($threeArray);
+            $amount6 = count($sixArray);
 			//printing the numbers
 			echo "<pre>";
-                $comma3 = implode(", ", $threeArray);
                 echo $comma3;
-                echo "</pre>";
-                echo "<pre>";
-                $comma6 = implode(", ", $sixArray);
+            echo "</pre>";
+            echo "<pre>";
                 echo $comma6;
-                echo "</pre>";
-                $amount3 = count($threeArray);
-                $amount6 = count($sixArray);
-                echo "<pre>";
-                echo "Divisible by 3: " . $amount3;
-                echo "</pre>";
-                echo "<pre>";
-                echo "Divisible by 6: " . $amount6;
-                echo "</pre>";
+            echo "</pre>";
+            echo "<pre>";
+                echo "Amount divisible by 3: " . $amount3;
+            echo "</pre>";
+            echo "<pre>";
+                echo "Amount divisible by 6: " . $amount6;
+            echo "</pre>";
 
             ?>
         </p>

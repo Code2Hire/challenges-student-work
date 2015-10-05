@@ -28,17 +28,16 @@
           //sorts and prints array in alphabetical order, maybe
           echo "<u>Alphabetical Order </u> <br/>";
           sort($unOrderedArray);
-          for($i = 0; $i < count($unOrderedArray); $i++){
-          echo $unOrderedArray[$i] . "<br/>";
+          foreach($unOrderedArray as $sort){
+            echo $sort . "</br>";
           }
           echo "<br/>";
           echo "<u>Reverse Alphabetical Order </u><br/>";
           //sorts array in reverse and prints
           rsort($unOrderedArray);
-          for($i = 0; $i < count($unOrderedArray); $i++){
-          echo $unOrderedArray[$i] . "<br/>";
+          foreach($unOrderedArray as $rsort){
+            echo $rsort . "</br>";
           }
-          // code goes here...
           ?>
         </p>
   </body>
