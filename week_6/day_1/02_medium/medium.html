@@ -11,95 +11,67 @@
 <!doctype html>
 <html>
     <head>
-        
-        
-        <style>
-             .pie {
-    position:absolute;
-	width:200px;
-	height:200px;
-	clip:rect(0px,100px,200px,0px);
-	-moz-border-radius:100px;
-	-webkit-border-radius:100px;
-	border-radius:100px;
-
-	}
-	
-	
-	.hold {
-	position:absolute;
-	width:200px;
-	height:200px;
-	clip:rect(0px,200px,200px,100px);
+       <style>
+       	
+       	.quarter-circle1 {
+    background-color:red;
+    height:150px;
+    width: 150px;
+    border-radius: 150px 0 0 0;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    padding:0;
+    margin-bottom:5px;
+}
+.quarter-circle2 {
+    background-color:yellow;
+    height:150px;
+    width: 150px;
+    border-radius: 0 150px 0 0;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    padding:0;
+    margin-bottom:5px;
 }
 
+.quarter-circle4 {
+    background-color:blue;
+    height:150px;
+    width: 150px;
+    border-radius: 0 0 150px 0;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    color:white;
+    padding:0;
+    margin:0;
+}
 
-	#piece1 {
-	    
-	}
-	#piece1 .pie {
-	   color:red;
-	   -moz-transform:rotate(120deg);
-	   -webkit-transform:rotate(120deg);
-	   -o-transform:rotate(120deg);
-	   transform:rotate(120deg);
-	}
-	#piece2 {
-	  -moz-transform:rotate(120deg);
-	   -webkit-transform:rotate(120deg);
-	   -o-transform:rotate(120deg);
-	   transform:rotate(120deg);
-	}
-	#piece2 .pie {
-	   color:green;
-	   -moz-transform:rotate(120deg);
-	   -webkit-transform:rotate(120deg);
-	   -o-transform:rotate(120deg);
-	   transform:rotate(120deg);
-	}
-	#piece3 {
-	  -moz-transform:rotate(240deg);
-	   -webkit-transform:rotate(240deg);
-	   -o-transform:rotate(240deg);
-	   transform:rotate(120deg);
-	}
-	#piece3 .pie {
-	   color:blue;
-	   -moz-transform:rotate(120deg);
-	   -webkit-transform:rotate(120deg);
-	   -o-transform:rotate(120deg);
-	   transform:rotate(120deg);
-	}
-	
-		.hold.gt50 {
-		clip:rect(auto, auto, auto, auto);
-	}
-	.pie.fill {
-		-moz-transform:rotate(180deg) !important;
-		-webkit-transform:rotate(180deg) !important;
-		transform:rotate(180deg) !important;
-	}
-		
-	
- /* if it's part of a big piece, bring it back into the square */
-	.pie.big:BEFORE {
-		left:0px;
-	}
-        </style>
+.quarter-circle3 {
+    background-color:green;
+    height:150px;
+    width: 150px;
+    border-radius: 0 0 0 150px;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    color:white;
+    padding:0;
+    margin:0;
+}
+       	
+       </style>
     </head>
 	    <body>
-	        <div class ="pie"></div>
-	        <div id="piece1" class="hold">
-	   
-	</div>
-	<div id="piece3" class="hold">
-	    <div class="pie"></div>
-	</div>
-	<div id="piece3" class="hold">
-	    <div class="pie"></div>
-	</div>
-
-
-        
+        <div class="upper-div">
+        <p class="quarter-circle1">Red</p>
+        <p class="quarter-circle2">Yellow</p>
+        </div>
+        <div class="lower-div">
+        <p class="quarter-circle3">Green</p>
+        <p class="quarter-circle4">Blue</p>
+        </div>
     </body>
 </html>

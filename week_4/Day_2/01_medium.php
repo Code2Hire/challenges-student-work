@@ -66,7 +66,6 @@
           
           public function addProduct(Product $product){
             
-             $item = $item;
                      // Throw an exception if its not an item
              if (!$item) throw new Exception('The cart requires items with unique ID values.');
                     // Add or update:

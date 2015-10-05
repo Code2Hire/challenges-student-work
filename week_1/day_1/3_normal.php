@@ -16,6 +16,7 @@
           	$name = 'Eric'; // this came from the previous page as a post variable
 
           	// this came from the db
+          	
 			$nameToColorArray = [
 	          'Alex' => 'blue',
 	          'Joseph' => 'green',
@@ -31,7 +32,7 @@
 	         // code goes here
 	         foreach($nameToColorArray as $names => $color){
 	         
-	         	echo $color;
+	         	echo $names . "  " . $color;
 	         }
 	           ?>
         </p>

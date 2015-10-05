@@ -61,13 +61,15 @@ S - R	=L
 S - P	=W
 S - S	=D
 */
+
+//git rid of else ifs and use just ifs under a switch
 if($Mark_Decision == $Eric_Decision){
     echo "Result: Draw";
 }
 
 
     
-    else if($Mark_Decision== "Rock" && $Eric_Decision == "Paper"){
+    else if($Mark_Decision== "Rock"  && $Eric_Decision == "Paper"){
         echo "Result: Lose -1";
         $MarkScore - 1;
         echo " Mark lost :( your score is " . $MarkScore;

@@ -20,21 +20,8 @@
         
             
            $mod_string =  ucwords(strtolower(trim($string)));
-         
-        
-        $mod_string;
-        dd($mod_string);
-        
-        
-        $parts = explode(" ", $mod_string);
-        echo "<br />";
-        $lastname = array_pop($parts);
-        $firstname = implode(" ", $parts);
-        echo "<br />";
-        echo $mod_string;
-        
-         
-         return $callback($string);
+           dd($mod_string);
+           return $callback($mod_string);
     }
 ?>
 <!DOCTYPE html>

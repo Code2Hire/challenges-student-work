@@ -11,14 +11,16 @@
   <body>
     <p>
         <?php
+        $array = [1,2,3,4,5];
+        
         function add($array){
           foreach($array as $val){
-              $total += $val;
+             return $total += $val;
           }
             
         }
         
-        
+       echo add($array);
             echo add(array(1,2,3,4,5));
         ?>
     </p>

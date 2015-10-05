@@ -34,18 +34,6 @@
         
          };
          
-         
-         
-         
-         
-         
-        
-    
-
-
-
-        
-
         // Add a couple extra names to the $names array
         array_push($names, "Derek Wall","Seth Handy", "Brian");
 

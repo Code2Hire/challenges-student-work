@@ -26,7 +26,7 @@
     // Put your code here!
     ///////////////////////////
     
-     class Book{
+     class Book extends Item{
         public $name;
         public $price;
         private $tax = 0;
@@ -41,7 +41,7 @@
          
      }
      
-     class DVD{
+     class DVD extends Item{
         public $name;
         public $price;
         private $tax = .05;
@@ -56,7 +56,7 @@
          
      }
      
-     class VideoGame{
+     class VideoGame extends Item{
         public $name;
         public $price;
         private $tax = .10;
@@ -100,7 +100,7 @@
         }
         
         public function removeItem($item){
-            unset($item[]);
+            unset($this->items[$item]);
         }
     }
     

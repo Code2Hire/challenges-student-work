@@ -13,7 +13,7 @@
 
         <?php
 
-            for($i = 1; $i < 20; $i++){
+            for($i = 1; $i <= 20; $i++){
                 $sum += $i;
             }
             echo $sum;

@@ -60,7 +60,7 @@ class CamcostPricing{
                             'Potato + Slownet'=>'104.99',
                             'Potato + FastNet'=>'134.99');
                     }
-                    elseif(stripos($zip, '29')===0 || stripos($zip, '28')===0){
+                    if(stripos($zip, '29')===0 || stripos($zip, '28')===0){
                         return array(
                             'Budget + Slownet'=>'49.98',
                             'Budget + FastNet'=>'79.98',
