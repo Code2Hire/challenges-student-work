@@ -12,33 +12,15 @@
 
 -->
 <script>
-    // Code here
-    window.onload = function() {    
-        var name = prompt("Please print first and last name.");
-        function reverse(s) {
-            var o = '';
-            for (var i = s.length - 1; i >= 0; i--)
-                o += s[i];
-                return o;
-        }
-        
-        var reverseName = reverse(name);
-        var id = document.getElementById("name-paragraph");
-        id.innerHTML = name + '<br>' + reverseName;
-    };
-</script>
+    var firstName = prompt("Give your first name.");
+    var lastName = prompt("Give you last name.")
+    function printName(firstName,lastName){
+        return (firstName + " " + lastName);
+    
+    }
+    var fullName = printName(firstName,lastName);
+    document.write(fullName);
+    var reverseFullName = fullName.split('').reverse().join('');
+    document.write(reverseFullName);
 
-<!DOCTYPE html>
-<html>
-    
-    <head>
-        
-    </head>
-    
-    <body>
-        <p id="name-paragraph">
-            
-        </p>
-    </body>
-    
-</html>
+</script>
