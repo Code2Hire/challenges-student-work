@@ -29,10 +29,12 @@ function setText(text) {
   return document.getElementById('save-me').value = text;
 }
 
+// adds a click event which uses the getText function
 saveButton.addEventListener('click', function() { 
   myStorage.setItem('text', getText());
 });
 
+// adds a click event which loads the saved text from local storage
 loadButton.addEventListener('click', function() { 
   setText(myStorage.getItem('text'));
 });

@@ -6,21 +6,27 @@
         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 -->
 <script>
-<<<<<<< HEAD
+// begins when the page loads
 window.onload = function() {
-   var numbers = [22, 55, 123, 2, 234, 32, 1.2, 23, 102, 92, 109];
+    
+    // an array of numbers
+    var numbers = [22, 55, 123, 2, 234, 32, 1.2, 23, 102, 92, 109];
    
-   function getMaxOfArray(numbers) {
+    // a function that finds the maximum number in the given array
+    function getMaxOfArray(numbers) {
     return Math.max.apply(null, numbers);
     }
     
+    // finds the minimum 
     function getMinOfArray(numbers) {
     return Math.min.apply(null, numbers);
     }
     
+    // finds the ID "maxandmin" in the HTML
     var id = document.getElementById("maxandmin");
+    // runs the function and gets the output
     id.innerHTML = getMaxOfArray(numbers) + " " + getMinOfArray(numbers);
-} 
+};
 </script>
 
 <!DOCTYPE html>
@@ -30,7 +36,4 @@ window.onload = function() {
             <p id = "maxandmin"></p>
         </body>
     </html>
-=======
-   var numbers = [22, 55, 123, 2, 234, 32, 1.2, 23, 102, 92, 109];
-</script>
->>>>>>> new-challenges/master
+

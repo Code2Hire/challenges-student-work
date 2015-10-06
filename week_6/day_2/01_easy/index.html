@@ -11,11 +11,14 @@
 
 
 -->
-<<<<<<< HEAD
    <script>
+                // this means it will load when the window opens
                 window.onload = function() { 
+                    // a promot box appears on the screen
                     var name = prompt("Enter your first and last name.");
                     
+                    // a function that was basically given to us that resverses 
+                    // the name that was entered in the prompt box
                     function reverse(s) {
                     var o = '';
                     for (var i = s.length - 1; i >= 0; i--)
@@ -23,10 +26,16 @@
                     return o;
                     }
                     
+                // a new variable that just calls the reverse function on the 
+                // name variable from the prompt box
                 var reversename = reverse(name);
+                
+                // finds the ID "paragraph" in the HTML 
                 var id = document.getElementById("paragraph");
+                
+                // uses the reversename variable on the ID bam success
                 id.innerHTML = reversename;
-                }
+                };
             </script>
             
 <!DOCTYPE html>
@@ -38,8 +47,7 @@
             <p id = "paragraph"></p>
         </body>
     </html>
-=======
+
 <script>
     // Code here
 </script>
->>>>>>> new-challenges/master

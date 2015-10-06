@@ -33,8 +33,11 @@
  * - ???
  * - Profit!
  */
+
+// determines a number chance of the shot hitting the other person
 function Chance() { 
     var num = Math.random() * 100;
+    // if the random number is greater than 50, it will return true
     if (num > 50) { 
         return true;
     } 
@@ -66,18 +69,23 @@ resetButton.onclick = function() {
     
 var resetButtonCount = document.getElementById('num-resets'); 
     resetButtonCount.innerHTML = parseInt(resetButtonCount.innerHTML, 10) + 1;
-    
 };
 
+// adds a click event to Jack's button
 jackButton.addEventListener('click', function() {
+    // adds one to Jack's shots
     jackShots.innerHTML = jackNum++;
+    // if chance is true, Jack gets hit
     if (Chance() === true) { 
         jackHits.innerHTML = jHitNum++;
     } 
 });
 
+// adds a click event to Charles' button
 charButton.addEventListener('click', function() { 
+    // adds one to Charles' shots
     charShots.innerHTML = charNum++;
+    // if Chance is true, Charles gets hit
     if  (Chance() === true) { 
         charHits.innerHTML = cHitNum++;
     } 

@@ -13,23 +13,33 @@
         Refer to Week 2 Day 1 Hard Challenge
 -->
 <script>
-<<<<<<< HEAD
+    // literally window on load 
     window.onload = function() { 
+        // finds the ID "RVNumbers" in the HTML
         var numbers = document.getElementById("RVNumbers");
+        
+        // a very basic for loop starting at 0 and ending at 100
         for(var i = 0; i <= 100; i++) { 
+            
+            // if the number is a multiple of 3, do this
             if (i % 3 == 0) { 
+                // prints "red"
                 numbers.innerHTML = numbers.innerHTML + "<br/>" + "Red";
             } 
             
+            // if the number is a multiple of 5, do this
             if (i % 5 == 0) { 
+                // prints "ventures"
                 numbers.innerHTML = numbers.innerHTML + "<br/>" + "Ventures";
             } 
             
+            // if the number is a multiple of both 3 and 5, do this
             if (i % 15 == 0) { 
+                // prints "Red Ventures"
                 numbers.innerHTML = numbers.innerHTML + "<br/>" + "RedVentures";
             } 
         } 
-    } 
+    };
 </script>
 
 <!DOCTYPE html>
@@ -39,7 +49,3 @@
             <p id = "RVNumbers"></p>
         </body>
     </html>
-=======
-    // Code here
-</script>
->>>>>>> new-challenges/master
