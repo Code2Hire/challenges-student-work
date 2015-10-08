@@ -28,24 +28,31 @@
 
                 
                 // code goes here ...
-              
-              
-              $number_list = range(1,100);
-              
-              foreach($number_list as $num){
-                  if($num % 3 === 0){
-                      $division3 = array($num);
-                  }
-                  
-                  if($num % 6 === 0){
-                      $division6 = array($num);
-                  }
+             // created 2 arrays to store divisible numbers and count them
+              $divby3 = array();
+              $divby6 = array();
+             
+             
+              // loop through 1 to 100, check for divisibility and store it to the according array
+              for($i = 1; $i <= 100; $i++){
+                 if($i % 3 == 0) {
+                     echo "\n" .  $i;
+                     echo ", ";
+                     array_push($divby3,$i);
+                 }
+                 // for multiples of 6, display them with a factorial(!)
+                 if($i % 6 == 0){
+                     echo "\n" . $i;
+                     echo "!";
+                     array_push($divby6,$i);
+                 }
+                 
               }
               
-              
-              
-                
-
+              echo "<br />";
+              echo "Divisible by 3:" . count($divby3);
+              echo "<br />";
+              echo "Divisible by 6:" . count($divby6);
             ?>
         </p>
 	</body>

@@ -22,10 +22,13 @@
 	<?php
 
 		// code goes here ...
+		// loops through the 12 months, parses datetime description into Unix stamp
 	for($i = 1; $i <= 12; $i++){
 			$monthName = date("F", strtotime("2015-$i-1"));
+			// if in the string monthname, the first character is J then
 			if(stripos($monthName, "J") === 0){
-				echo $i . ",  " . $monthName . ",  " . strlen($monthName). "<br/>";
+				// print out the month number, name and the length of the string
+				echo $i . " - " . $monthName . ",  " . strlen($monthName). "<br/>";
 			}
 			
 		}

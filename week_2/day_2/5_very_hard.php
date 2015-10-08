@@ -21,15 +21,17 @@
             ' eRic Schwartz',
             'mark zuckerburg '
         ];
+        
+         // score function that scores a persons first and last name by length, position and word count
           function score(&$name){
              
-            $name = ucwords(strtolower(trim($name)));
-            $parts = explode(" ", $name);
-            $lastname = array_pop($parts);
-            $firstname = implode(" ", $parts);
-            $score =  strlen($lastname) * stripos($name,'a') / str_word_count($name);
-        
-        return $score;
+                $name = ucwords(strtolower(trim($name)));
+                $parts = explode(" ", $name);
+                $lastname = array_pop($parts);
+                $firstname = implode(" ", $parts);
+                $score =  strlen($lastname) * stripos($name,'a') / str_word_count($name);
+            
+                return $score;
         
         
          };
@@ -39,12 +41,13 @@
 
         // Without writing a loop, use an array function to filter our list
         // of names down to only those who pass the score test.
+        // filters names by making sure their score is greater than 5
         $names = array_filter($names, function(&$name){
             $score = score($name); 
             return $score > 5;
         });
     
-             
+         // sorts through name scores and determines whether the score is higher than the other by checking if they're equal, if one is greater, and if neither of these pass then return -1 false    
          usort($names,function($a,$b){
                  $score_a =  score($a);
                  $score_b =  score($b);

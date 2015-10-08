@@ -12,15 +12,16 @@
     <p>
         <?php
         $array = [1,2,3,4,5];
+        $total = 0;
         
         function add($array){
           foreach($array as $val){
-             return $total += $val;
+             $total += $val; // adds all elements in $array
           }
-            
+            return $total; // returns the array total outside of loop 
         }
         
-       echo add($array);
+       
             echo add(array(1,2,3,4,5));
         ?>
     </p>

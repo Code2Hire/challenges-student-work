@@ -1,8 +1,6 @@
 <?php
 
-    function dd($arg) {
-        die(var_dump($arg));
-    }
+    
     /**
      * This function cleans a string, then calls a function with
      * the string as a parameter.
@@ -16,12 +14,10 @@
         // Use the string cleaning procedure we came up with in exercise 1 on $string
         
         // return the result of the $callback function with $string passed in as a parameter
-        $mod_string = "";
         
-            
-           $mod_string =  ucwords(strtolower(trim($string)));
-           dd($mod_string);
-           return $callback($mod_string);
+          
+           $string = ucwords(strtolower(trim($string)));
+           return ($callback($string));
     }
 ?>
 <!DOCTYPE html>
@@ -31,7 +27,7 @@
     <p>
         <?php
             // MD5 is a hashing algorithm that is commonly used to store passwords
-            echo clean_then_call(' jAsOn hUnTeR', 'md5');
+            echo clean_then_call('jAsOn hUnTeR', 'md5');
         ?>
     </p>
     <p>

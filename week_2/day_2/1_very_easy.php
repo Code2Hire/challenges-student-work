@@ -13,7 +13,7 @@
              return str_repeat($name, $number);
             }
             
-            echo my_function("Seth", 20)
+            echo my_function("Seth", 20);
 
         ?>
     </p>
