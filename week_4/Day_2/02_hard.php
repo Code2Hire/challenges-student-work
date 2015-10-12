@@ -42,450 +42,358 @@
         ///////////////////////////
 
         
-        
         interface Describable {
+          
           public function provideDescription();
+          
         }
-
-        class WishList extends ProductContainer{
-          abstract public function getDescriptionforProductType();
-           
-          protected $name;
-          protected $price;
-          protected $brand;
+        
+        
+        
+         abstract class ProductContainer implements Describable {
+          abstract function provideDescription();
+          abstract function addProduct($product);
+          abstract function deleteProduct($product);
+          abstract function deleteAllProducts($product);
+          abstract function getTotalPrice();
+          abstract function getAllProducts();
+          abstract function findProductByName($name);
           
-          
-          abstract function addProduct(Product $product){
+          public static function createCartFromContainer($productContainer) {
+            $ShoppingCart = new ShoppingCart();
             
-            
-                     // Throw an exception if its not an item
-
-             if (!$product) throw new Exception('The cart requires products with unique ID values.');
-=======
-             if (!$item) throw new Exception('The cart requires items with unique ID values.');
-
-                    // Add or update:
-             if (isset($this->items[$items])) {
-                $this->updateItem($item, $this->items[$item]['qty'] + 1);
-    } 
-          else {
-             $this->items[$id] = array('item' => $item, 'qty' => 1);
-    }
-          }
-          
-          
-        // if you are actually implementing a function, it should not have the
-        // keyword abstract in front of it...only unimplemented classes in
-        // the abstract class should have abstract there.  You will still need
-        // to have public there
-        // @advice
-          public function deleteProduct(Product $product){
-            if(isset($this->items[$items])){
-              unset($this->items[$items]);
+            if($productContainer instanceof ProductContainer) {
+              $products = $productContainer->getAllProducts();
+              
+              foreach($products as $product) {
+                $ShoppingCart->addProduct($product);
+              }
+              return $ShoppingCart;
+            } else {
+              throw new Exception("Unable to create cart from container.");
             }
           }
-          
-            public function deleteAll(Product $product){
-              if($product == null){
-              foreach($items as $product){
-                deleteProduct($product);
-              }
-              }
-              else
-              throw new Exception("No instances of product");
-              
         }
         
-        // if you are actually implementing a function, it should not have the
-        // keyword abstract in front of it...only unimplemented classes in
-        // the abstract class should have abstract there.  You will still need
-        // to have public there
-        // @advice
-           public function getTotalPrice($price){
-          foreach($items as $product){
-            $sum = getPrice($product);
-            print_r($sum);
-          }
-        }
-          
-          
-        }
+       
         
-        // END OF WISHLIST CLASS
-        
-        
-        // You should move all of the functionality that would be shared from the previous
-        // exercise in here.  For instance, you should have pretty much all of the 
-        // 7 methods from the medium exercise in this class instead of your
-        // shopping cart class.
-        // @advice
-        // This is the class
-
-        abstract class ProductContainer implements Describable {
+        abstract class Product implements Describable {
           
-           abstract function provideDescription();
-           abstract function addProduct($product);
-           abstract function countItems();
-           abstract function getTotalPrice();
-           abstract function deleteProduct($product);
-           abstract function deleteAll();
-           abstract function getAllProducts();
-           abstract function findProductByName($name);
-          static public function createCartFromContainer($productContainer){
-
-        abstract class ProductContainer {
+          protected $name,$price,$brand;
           
-          
-          static public function createCartFromContainer($productContainer){
-
+          public function __construct($name, $brand, $price) {
             
-            $shoppingCart_ins = new ShoppingCart();
-            // you're starting in the right spot.
-            // Now, take all the products from the product coantiner that you are passing
-            // in and add them to the shopping cart.  Then return the shopping cart
-            // @advice
-          }
-          
-          
-          
-          
-          
-          
-
-          public $products = array();
-
-
-         public function provideDescription(){
-            return "You have {$shoppingCart->getAllProducts()} in your shopping cart";
-          }
-          
-          public function addProduct(Product $product){
+            $this->name = $name;
+            $this->brand = $brand;
+            $this->price = $price;
             
-
-             $this->products[] = $product;
-                     
-             if (!$product) throw new Exception('The cart requires items with unique ID values.');
-                   
-             if (isset($this->products[$products])) {
-                $this->updateItem($product, $this->products[]['qty'] + 1);
-    } 
-          else {
-             $this->products[$] = array('product' => $product, 'qty' => 1);
-
-             public $items = array();
-                     // Throw an exception if its not an item
-             if (!$item) throw new Exception('The cart requires items with unique ID values.');
-                    // Add or update:
-             if (isset($this->items[$items])) {
-                $this->updateItem($item, $this->items[$item]['qty'] + 1);
-    } 
-          else {
-             $this->items[] = array('product' => $product, 'qty' => 1);
-    }
-          }
-          
             
-          public function addProduct(Product $product){
-              // where is item (or items) coming from?
-              // You are probably trying to reference them with $this, but
-              // you would still cause some issues, especially with $this->items[$items]
-             $item = $item;
-                     // Throw an exception if its not an item
-             if (!$item) throw new Exception('The cart requires items with unique ID values.');
-                    // Add or update:
-             if (isset($this->items[$items])) {
-                $this->updateItem($item, $this->items[$item]['qty'] + 1);
-    } 
-          else {
-            // where did $id come from?  It doesnt look initialized to me
-             $this->items[$id] = array('item' => $item, 'qty' => 1);
-
-    }
           }
           
+          abstract function provideDescriptionForProductType();
           
-          public function deleteProduct(Product $product){
-
-            // where did $items come from?  If it is not a number or a string, it doesn't
-            // make sense to reference an array key by anything else
-            if(isset($this->products[$products])){
-              unset($this->products[$products]);
-
-            // where is $items coming from here?
-            if(isset($this->items[$items])){
-              unset($this->items[$items]);
-            }
+          public function provideDescription() {
+            
+            return $this->provideDescriptionForProductType();
+            
           }
-          
-            public function deleteAll(Product $product){
-              
-              if($product == null){
-              foreach($items as $product){
-                // delete product is a method on this object...access it using $this->deleteProduct($product)
-                deleteProduct($product);
-              }
-              }
-              else
-              throw new Exception("No instances of product");
-              
-        }
-          
-          
-          public function deleteProduct(Product $product){
-            // where did $items come from?  If it is not a number or a string, it doesn't
-            // make sense to reference an array key by anything else
-            if(isset($this->items[$items])){
-              unset($this->items[$items]);
-
-            }
-          }
-          
-            public function deleteAll(Product $product){
-              if($product == null){
-              foreach($items as $product){
-                  // delete product is a method on this object...access it using $this->deleteProduct($product)
-                $this->deleteProduct($product);
-              }
-              }
-              else
-              throw new Exception("No instances of product");
-              
-        }
-        
-        
-        public function getTotalPrice($price){
-          // no reference to items, you are probably trying to reference $this->items
-          // Also, i don't see getPrice as a function...is that a method on the product.
-          // if so, it would be something like $product->getPrice()
-
-          $this->products;
-          foreach($products as $product){
-            $sum = $product->getPrice($product);
-
-          foreach($items as $product){
-            $sum = getPrice($product);
-
-            print_r($sum);
-          }
-        }
-        
-        
-        
-        }
-        
-        // Move all of the methods from this class to the product container.  You've started
-        // there, but havent quite finished
-        // @advice
-        class ShoppingCart extends ProductContainer {
-
-           
-          public function addProduct(Product $product){
-              // where is item (or items) coming from?
-              // You are probably trying to reference them with $this, but
-              // you would still cause some issues, especially with $this->items[$items]
-             
-                     // Throw an exception if its not an item
-             if (!$product) throw new Exception('The cart requires items with unique ID values.');
-                    // Add or update:
-             if (isset($this->products[$products])) {
-                $this->updateItem($item, $this->items[$item]['qty'] + 1);
-    } 
-          else {
-            // where did $id come from?  It doesnt look initialized to me
-             $this->items[$id] = array('item' => $item, 'qty' => 1);
-    }
-          }
-          
-          
-          public function deleteProduct(Product $product){
-            // where is $items coming from here?
-            if(isset($this->items[$items])){
-              unset($this->items[$items]);
-            }
-          }
-          
-            public function deleteAll(Product $product){
-              
-              if($product == null){
-              foreach($items as $product){
-                // delete product is a method on this object...access it using $this->deleteProduct($product)
-                deleteProduct($product);
-              }
-              }
-              else
-              throw new Exception("No instances of product");
-              
-        }
-
-        
-        
-        public function getTotalPrice($price){
-          // no reference to items, you are probably trying to reference $this->items
-          // Also, i don't see getPrice as a function...is that a method on the product.
-          // if so, it would be something like $product->getPrice()
-          foreach($items as $product){
-            $sum = getPrice($product);
-            print_r($sum);
-          }
-        }
-        }
-        
-        
-        
-          class Clothing extends Product  {
-          protected $size,$color,$type,$gender;
-          public $correct_Color = array("red, blue, green, black, white, yellow");
-          
-           public function getDescriptionforProductType(){
-           return "This is an article of 
-            clothing.  It is a {$this->getName()},  {$this->getColor()},  {$this->getGender()} , {$this->type},  of size {$this->getSize()}.  It costs {$this->price}";
+         
+         public function getName() {
+           if (empty($this->name)) {
+             throw new Exception("No name entered");
+           } else {
+             return $this->name;
+           }
+         } 
+         
+         public function getBrand() {
+           if(empty($this->brand)) {
+             throw new Exception("No brand entered");
+           } else {
+             return $this->brand;
+           }
          }
-           
-          public function __construct($name,$price,$brand,$size,$color,$type,$gender){
-            parent::__construct($name,$price, $brand);
+         
+         public function getPrice() {
+           if(is_numeric($this->price) == false) {
+             throw new Exception("Invalid price entered");
+           } else {
+             return $this->price;
+           }
+         }
+         
+        }
+        
+        class Clothing extends Product {
+          protected $size;
+          protected $color;
+          protected $type;
+          protected $gender;
+          public $correct_Color = array("red, blue, green, black, white, yellow");
+          public function __construct($name, $brand, $price, $size, $color, $type, $gender) {
+            parent::__construct($name, $brand, $price);
             
-            
-            $this->size = $this->setSize($size);
-            $this->color = $this->setColor($color);
-            $this->type = $this->setType;
-            $this->gender = $this->setGender;
+            $this->size = $size;
+            $this->color = $color;
+            $this->type = $type;
+            $this->gender = $gender;
           }
           
-          
-          
-          public function getSize($size){
-            return $this->size;
-          }
-          
-          public function setSize($size){
-            if(!empty($size)){
-              $this->size = $size;
+          public function getSize() {
+            if(empty($this->size)) {
+              throw new Exception("No size entered");
+            } else {
+              return $this->size;
             }
-            else {
-              throw new Exception("Not a valid size");
-            }
-          }
-          
-          
-      
-          public function getColor($color){
-            
-            return $this->color;
           }
           
           
           
-          public function setColor($color){
-           if(!empty($color)){
-             if(in_array($color,$this->correct_Color)){
-               $this->color = $color;
+          public function getColor() {
+             
+           if(!empty($this->color)){
+             if(in_array($this->color,$this->correct_Color)){
+              return $this->color = $color;
              }
            }
            else{
              throw new Exception("Not a valid color");
            }
-            }
-          
-          
-          
-          public function getType($type){
-            return $this->type;
           }
           
-          public function setType($type){
-            if(!empty($type)){
-              $this->type = $type;
-            }
-            else {
-              throw new Exception("Not a valid type");
+          public function getType() {
+            if(empty($this->type)) {
+              throw new Exception("No type entered");
+            } else {
+              return $this->type;
             }
           }
           
-          public function getGender($gender){
-            $this->gender = $gender;
+          public function getGender() {
+            if(empty($this->gender)) {
+              throw new Exception("No gender entered");
+              } else {
+                return $this->gender;
+              }
           }
           
-          public function setGender($gender){
-            if(!empty($gender)){
-              $this->gender = $gender;
+          public function provideDescriptionForProductType() {
+            try {
+            return " $ {$this->getPrice()} This is an article of 
+            clothing.  It is a {$this->getName()}  {$this->getColor()},  {$this->getGender()} , {$this->getType()},  of size {$this->getSize()}. ";
+            } catch(Exception $e) {
+                echo 'There was an error determining the description to this product <br />' . $e->getMessage() . '<br />';
             }
-            else 
-              throw new Exception("Not a valid gender");
           }
           
-        
-        
-        
-        public function getPrice($price){
-          $this->price = $price;
         }
         
-        public function setPrice($price){
-          if(!empty($price) && is_numeric($price)){
-            $this->price = $price;
-          }
-          else
-            throw new Exception("Not a valid price");
-        }
-        }
-        
-        
-         
-         class Television extends Product {
-          protected $name,$price,$brand,$displayType,$size;
-          
-           public function getDescriptionforProductType(){
+        class Television extends Product {
+            protected $displaytype,$size;
+            
+             public function getDisplayType() {
+              if(empty($this->displaytype)) {
+                throw new Exception("No display type entered");
+              } else {
+                return $this->displaytype;
+              }
+            }
+            
+            public function getSize() {
+              if(empty($this->size)) {
+                throw new Exception("No size entered");
+              } else {
+                return $this->size;
+              }
+            }
+            
+            public function __construct($name, $brand, $price, $displaytype, $size) {
+              parent::__construct($name, $brand, $price);
+              
+              $this->displaytype = $displaytype;
+              $this->size = $size;
+            }
+            
            
-           return "This is a {$this->size} {$this->brand}
-          {$this->displayType} Television";
-          
-         }
-         
-         
-         public function getSize($size){
-          $this->size = $size;
-         }
-         
-         public function setSize($size){
-           if(!empty($size)){
-             $this->size = $size;
-           }
-             else 
-              throw new Exception("Not a valid size");
-           }
-         
-         
-          
-          public function __construct($name,$price,$brand,$displayType,$size){
             
-            parent::__construct($name,$price,$brand);
+            public function provideDescriptionForProductType(){
+           
+              return "$ {$this->getPrice()}  This is a {$this->getSize()}in'  {$this->brand} {$this->getDisplayType()} Television.";
+            }
+          
+         
+        }
+        
+       
+          
+        class ShoppingCart extends ProductContainer {
+          public $products = array();
+          
+          public function provideDescription() {
+            echo 'Container Type: Shopping Cart <br />';
             
-            $this->displayType = $displayType;
-            $this->size = $size;
+            foreach($this->products as $product) {
+              echo  $product->provideDescription();
+            }
+          }
+          
+          public function addProduct($product) { 
+            if($product instanceof Product) {
+              $this->products[] = $product;
+            } else {
+              throw new Exception("Product not valid");
+            }
+        }
+        
+           public function deleteProduct($product){
+            if(in_array($product, $this->products)) {
+               $key = array_search($product, $this->products);
+              unset($this->products[$key]);
+         }   
+     }
+          
+            public function deleteAllProducts($product){
+               if(empty($this->products)) {
+                    throw new Exception("No products in Shopping Cart");
+              }
+              else {
+                    foreach($this->products as $product) {
+                        
+                       $this->deleteProduct($product);
+               
+                }
+                
+                return $this->products;
+              }
+              
+        }
+          
+           public function getTotalPrice(){
+            
+             foreach ($this->products as $product) {
+                    $total = $product->getPrice() + $total;
+                }
+                return $total;
+        }
+          
+          public function getAllProducts() {
+            return $this->products;
+          }
+          
+           public function findProductByName($name) {
+            
+             foreach($this->products as $key => $product) {
+                 $names[] = $this->productsArray[$key]->getName();
+                 if(in_array($name,$names)){
+                        return $this->productsArray[array_search($name, $names)];
+                 }
+                 else {
+                     throw new Exception("Can't find a product with that search :/ ");
+                 }
+              } // removes duplicate values http://us2.php.net/manual/en/function.array-unique.php
+                  array_unique($names);
+            
           }
         }
         
-          class ItemDescriber extends Product implements Describable {
-        public function outputDescription(Describable $shoppingCart){
-         return $shoppingCart->provideDescription();
-      }
-      
-      
-      $itemDescriber = new ItemDescriber();
-        $shoppingCart = new ShoppingCart();
-        $buttondownshirt = new Clothing("Button Down Shirt", 29.98, "J Peterman",29,"Eye piercingly bright red", "Shirt", "Male");
-        $shoppingCart->addProduct($buttondownshirt);
-        echo $buttondownshirt->provideDescription();
+        class WishList extends ProductContainer {
+          public $products = array();
+          
+          public function provideDescription() {
+            echo 'Container Type: Wish List <br />';
+            
+            foreach($this->products as $product) {
+              echo $product->provideDescription() . '<br />';
+            }
+          }
+          
+          public function addProduct($product) { 
+            if($product instanceof Product) {
+              if(!(in_array($product, $this->products))) {
+              $this->products[] = $product;
+              } else {
+                throw new Exception("Item already in Wish List");
+              }
+            } else {
+              throw new Exception("Product not valid");
+            }
+        }
         
-        $itemDescriber->provideDescription();
-        $giantTV = new Television("Giant TV",3900.90,"Kramerica","LED",100);
-        $shoppingCart->addProduct($giantTV);
-        echo "<br />";
-        echo $giantTV->provideDescription();
-       echo $shoppingCart->provideDescription();
-        $itemDescriber->provideDescription();
-        echo $shoppingCart->getTotalPrice($shoppingCart);
-        $shoppingCart->deleteProduct($buttondownshirt);
+          public function deleteProduct($product) {
+            if(in_array($product, $this->products)) {
+               $key = array_search($product, $this->products);
+              unset($this->products[$key]);
+            } else {
+              throw new Exception("Product not in Wish List");
+            }
+          }
+          
+          public function deleteAllProducts($product) {
+            if(empty($this->products)) {
+              throw new Exception("No products in Wish List");
+              } else {
+                foreach($this->products as $product) {
+                  
+                  $this->deleteProduct($product);
+                 
+                }
+                return $this->products;
+              }
+          }
+          
+          public function getTotalPrice() {
+            
+            
+            
+            foreach ($this->products as $product) {
+                $totalprice = $product->getPrice() + $totalprice;
+                
+            }
+            return "Total Price: " . $totalprice;
+          }
+          
+          public function getAllProducts() {
+            return $this->products;
+          }
+          
+          public function findProductByName($name) {
+            
+             foreach($this->products as $key => $product) {
+                 $names[] = $this->productsArray[$key]->getName();
+                 if(in_array($name,$names)){
+                        return $this->productsArray[array_search($name, $names)];
+                 }
+                 else {
+                     throw new Exception("Can't find a product with that search :/ ");
+                 }
+              } // removes duplicate values http://us2.php.net/manual/en/function.array-unique.php
+                  array_unique($names);
+            
+          }
+        }
+        
+        
+         class ItemDescriber {
+          public function outputDescription ($product) {
+            if ($product instanceof Describable) {
+                return $product->provideDescription();
+            } else {
+              throw new Exception ("Item not describable");
+            }
+          }
+        }
+         
+        $itemDescriber = new ItemDescriber();
+        $Cardigan = new Clothing("Cardigan", "ASOS", 39.99, "large", "gray", "shirt", "male");
+        $GiantTV = new Television("Giant TV","Visio",3900.90,"LED",100);
+        $wishList = new WishList();
+        $wishList->addProduct($Cardigan);
+        $wishList->addProduct($GiantTV);
+        $shoppingCart = $wishList->createCartFromContainer($wishList);
+       
+        $wishList->provideDescription();
+        
+        $shoppingCart->provideDescription();
         
         
         

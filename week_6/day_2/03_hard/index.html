@@ -13,5 +13,8 @@
         Refer to Week 2 Day 1 Hard Challenge
 -->
 <script>
-    for(var x = 1; x <=100; x++)document.write(((x%3?'':'Red'+(x%5?'':'Ventures'))||x)+'<br>');
+    //ternary operators to return an empty string or red/ventures, then doing an OR if the number isnt divisible by 3 and 5
+    // when boths cases are true the result is RedVentures
+    for(var x = 1; x <=100; x++)
+        document.write(((x%3 == 0?'':'Red'+(x%5 == 0?'':'Ventures'))||x)+'<br>');
 </script>
