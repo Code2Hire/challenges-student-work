@@ -45,7 +45,7 @@
         }
         public function getTaxAmount() { //method 'gets' how much tax is for each item added together
             foreach ($this->items as $item) {
-                $tax = ($item->price * .1) + $tax;
+                $tax = ($item->price * $item->tax) + $tax;
             }
             return $tax;
         }

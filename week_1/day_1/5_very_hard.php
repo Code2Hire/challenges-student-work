@@ -14,8 +14,9 @@
     array('name' => 'Package 4', 'price' => 11.00),
     array('name' => 'Package 5', 'price' => 25.95),
     array('name' => 'Package 6', 'price' => 10.99),
-    array('name' => 'Package 7', 'price' => 11.00),
+    array('name' => 'Package 7', 'price' => 11.00)
   );
+  
   function build_sorter($key) {  //build sorter creates function to sort array by specified key
     return function ($a, $b) use ($key) {
         return strnatcmp($a[$key], $b[$key]);

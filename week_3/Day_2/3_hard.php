@@ -33,7 +33,7 @@
                 return $deck;
               }
             
-            function dealCards(&$deck, $number_of_cards = 0) {
+            function dealCards(&$deck, $number_of_cards) {
                 
                 $playercards = array();
                 
@@ -48,7 +48,7 @@
                     $cardkey = array_rand($deck[$suit], 1);
                     
                     $playercards[$cardkey] = $deck[$suit][$cardkey];
-                    // $playercards['ace of me'] = 99;
+                    
                     
                     unset($deck[$suit][$cardkey]);
                     
@@ -80,7 +80,7 @@
                are in the deck. then dividing them so we know how many cards each player should get
              */
 
-               $num_players = 2; //already in code from the start
+               $num_players = 4; //already in code from the start
                $num_cards_in_deck = countCards($deck);
                //echo $num_cards_in_deck; //proves my countCards function works
                $num_cards_to_give_each_player = $num_cards_in_deck / $num_players;
@@ -96,7 +96,7 @@
                     
                   }
                  
-                var_dump($players);
+                //var_dump($players);
                /*
                lets create a simple game
                each player will play a card and whoever has the highest value wins. if there are 2 cards played
@@ -143,39 +143,40 @@
                       
                       $roundWinPlayer = 0;
                       
-                  foreach($players as &$player) {
-                      echo "Player $playerNum ";
-                      if(count($player) === 0) {
-                          return 'GAME OVER';
-                      }
-                      
-                      $face = pickCard($player);
-                      echo "played the $face <br />";
-                      
-                      $playedCards[$playerNum][$face] = $player[$face];
-                      
-                      
-                      
-                      if($player[$face] >= $roundWinCard){
-                          $tie = false;
-                          if($player[$face] == $roundWinCard){
-                              $tie = true;
-                          }else{
-                              $roundWinCard = $player[$face];
-                              $roundWinPlayer = $playerNum;
-                              $roundWinCardName = $face;
+                      foreach($players as &$player) {
+                          echo "Player $playerNum ";
+                          if(count($player) === 0) {
+                              return 'GAME OVER';
                           }
                           
-                      }    
-                      
-                      unset($player[$face]);
-                      
-                      $playerNum++;
-            
-                    }
+                          $face = pickCard($player);
+                          echo "played the $face <br />";
+                          
+                          $playedCards[$playerNum][$face] = $player[$face];
+                          
+                          
+                          
+                          if($player[$face] >= $roundWinCard){
+                              $tie = false;
+                              if($player[$face] == $roundWinCard){
+                                  $tie = true;
+                              }else{
+                                  $roundWinCard = $player[$face];
+                                  $roundWinPlayer = $playerNum;
+                                  $roundWinCardName = $face;
+                              }
+                              
+                          }    
+                          
+                          unset($player[$face]);
+                          
+                          $playerNum++;
+                
+                        }
                     
                     if($tie){
-                        echo "Tie";
+                        echo "Tie <br />";
+                        echo "<br />";
                     }else{
                         // round is over -- find winner
                         echo 'Player ' . $roundWinPlayer . ' won with the ' . $roundWinCardName . '<br /><br />';          
