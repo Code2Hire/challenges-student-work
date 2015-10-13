@@ -7,10 +7,7 @@
  -->
 
 <?php
-function cmp($packagesArray, $packageArray)
-{
-    return strcmp($packagesArray["name"], $packageArray["price"]);
-}
+
 
   $packagesArray = array(
     array('name' => 'Package 1', 'price' => 5.99),
@@ -36,7 +33,17 @@ function cmp($packagesArray, $packageArray)
           set $package as the inner array so we can have access to it directly
           this is appose to accessing them like so $packagesArray[0]['name'];
          -->
-        <?php foreach ($packagesArray as $packageArray): usort($packagesArray, "cmp"); ?>
+        <?php
+        
+        // loops through package array and changes $price[$key] = the value's price $row["price"]
+        foreach ($packagesArray as $key => $row) {
+          
+          $price[$key]  = $row["price"];
+}
+        //multisort function that takes the column to sort, what order youd like to sort, and out of what array/table
+        array_multisort($price, SORT_ASC, $packagesArray);
+        
+          foreach ($packagesArray as $packageArray): ?>
           <tr><td><?=$packageArray['name']?></td><td><?=$packageArray['price']?></td></tr>
         <?php endforeach ?>
       </ul>
