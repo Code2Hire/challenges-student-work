@@ -13,6 +13,19 @@
  * this function adds an image to the page
  * @param {String} name an image filename
  */
+var imag = ['2lnw.jpg', 'CKfEUPBUwAAVLLk.jpg', 'clipboard013.jpg', 'jackson.jpg', 'washington.jpg'];
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+function delayedPIcture() {
+  window.setTimeout(function() {
+    var int = getRandomInt(0, imag.length);
+    addImage(imag[int]);
+    delayedPIcture();
+  }, 2500);
+}
+ 
 function addImage(name) {
   var img = document.createElement('img');
   img.src = name;

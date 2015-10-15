@@ -6,7 +6,7 @@
  * Here's the documentation you need:
  * https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
  */
-
+var myStorage = localStorage;
 var saveButton = document.getElementById('save-button');
 var loadButton = document.getElementById('load-button');
 
@@ -14,6 +14,9 @@ var loadButton = document.getElementById('load-button');
  * Gets the text from the element for you
  * @return {String}
  */
+
+ 
+ 
 function getText() {
   return document.getElementById('save-me').value;
 }
@@ -25,3 +28,13 @@ function getText() {
 function setText(text) {
   return document.getElementById('save-me').value = text;
 }
+
+
+saveButton.addEventListener("click", function() {
+  myStorage.setItem('text', getText());
+});
+
+loadButton.addEventListener("click", function() {
+  setText(myStorage.getItem('text'));
+  
+})

@@ -33,3 +33,56 @@
  * - ???
  * - Profit!
  */
+ //random number, giving a 50% chance for hit, used later in shot chance function
+ var chance = function (){
+     var num = Math.random()*100;
+     if (num < 50){
+         return true;
+     }
+ }
+ 
+ //buttons
+ var ashoot = document.getElementById('andrew-shoot');
+ var cshoot = document.getElementById('charles-shoot');
+ //hits
+ var ashots = document.getElementById('andrew-numhits');
+ var cshots = document.getElementById('charles-numhits');
+ //total shots
+ var atotal = document.getElementById('andrew-numshots');
+ var ctotal = document.getElementById('charles-numshots');
+ 
+ var reset = document.getElementById('reset');
+ var resetnum = document.getElementById('num-resets');
+ ashoot.addEventListener('click',function(){
+    var totalshots = parseInt(atotal.innerHTML, 10);  
+    atotal.innerHTML = totalshots+1;
+    
+    if(chance()){
+       var totalhits = parseInt(ashots.innerHTML, 10);
+       ashots.innerHTML =totalhits+1;
+    }
+ });
+ 
+  cshoot.addEventListener('click',function(){
+    var totalshots = parseInt(ctotal.innerHTML, 10);  
+    ctotal.innerHTML = totalshots+1;
+    
+    if(chance()){
+       var totalhits = parseInt(cshots.innerHTML, 10);
+       cshots.innerHTML =totalhits+1;
+    }
+ });
+ 
+ reset.addEventListener('click',function(){
+    atotal.innerHTML = 0;
+    ashots.innerHTML = 0;
+    ctotal.innerHTML = 0;
+    cshots.innerHTML = 0;
+    
+    var resetnums = parseInt(resetnum.innerHTML, 10);
+    resetnum.innerHTML = resetnums+1;
+    
+ });
+ 
+ 
+ 
