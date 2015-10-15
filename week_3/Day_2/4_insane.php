@@ -84,22 +84,15 @@
             }
             
             $deck = rearrange($deck);
+            
+            
+            
             // v Checking stuff
             //var_dump($deck);
             
             //cards totals and money and sorts
-            $pcard1 = 0;
-            $pcard2 = 0;
-            $pcard3 = 0;
-            $pcard4 = 0;
-            $pcard5 = 0;
             $ptotal = 0;
-            
-            $dcard1 = 0;
-            $dcard2 = 0;
-            $dcard3 = 0;
-            $dcard4 = 0;
-            $dcard5 = 0;
+
             $dtotal = 0;
             
             $pmoney = $_POST['value'];
@@ -147,235 +140,128 @@
                 return $array;
             }
             //like that movie 21 or rain man or almost every gambling movie that is centered arround a genius
-            function countCards($card, $deck){
+            function countCards(&$deck){
                 $countCardsArray = replaceValue($deck);
                 $talley = array_sum($countCardsArray);
                 
                 //var_dump($countCardsArray);
                 //echo $talley . "</br>";
                 
-                if($talley > 0){
-                    return $card;
-                }
+                return $talley;
             }
             
             //as if the dealer is a god and no mortal can ever beat him
-            function dealerCountCards($card, $deck){
+            function dealerCountCards(&$deck){
                 $countDealerArray = replaceValue($deck);
                 $talley = array_sum($countDealerArray);
                 
                 //var_dump($countDealerArray);
                 //echo $talley . "</br>";
                 
-                if($talley > 0){
-                    return $card;
-                }
+                return $talley;
                 
             }
             
-            //removes # cards from deck
-            function remove($deck, $number){
-                $newDeck = $deck;
-                
-                for($j = 0; $j < $number; $j++){
-                    array_shift($newDeck);
-                }
-               
-                return $newDeck;
-               
-            }
             
+            function assignCards($type, &$deck){
+                $playersCardsArray=[];
+                $dealersCardsArray=[];
+                
+                if($type == 'player'){
+                    $playersCardsArray[] = array_shift($deck);
+                    $playersCardsArray[] = array_shift($deck);
+                    
+                    //var_dump($playersCardsArray);
+                    //exit;
+                    
+                    foreach($playersCardsArray as $c){
+                        foreach($playersCardsArray as $key => $card){
+                            if($card == 1 && array_sum($playersCardsArray) - 1 <= 10){
+                                $playersCardsArray[$key] = 11; 
+                            }
+                        }
+                        $talley = countCards($deck);
+                        //echo $talley . "<br>";
+                        if(array_sum($playersCardsArray) <= 16 && $talley > 0 || array_sum($playersCardsArray) <= 12){
+                            $playersCardsArray[] = array_shift($deck);
+                        }
+                    }
+                        
+                    return array_sum($playersCardsArray);
+                    //var_dump($deck);
+                    //echo array_sum($playersCardsArray);
+                    //var_dump($playersCardsArray);
+                    
+                }
+                if($type == 'dealer'){
+                    $dealersCardsArray[] = array_shift($deck);
+                    $dealersCardsArray[] = array_shift($deck);
+                    
+                    //var_dump($playersCardsArray);
+                    //exit;
+                    foreach($dealersCardsArray as $d){
+                        foreach($dealersCardsArray as $key => $card){
+                            if($card == 1 && array_sum($dealersCardsArray) - 1 <= 10){
+                                $dealersCardsArray[$key] = 11; 
+                            }
+                        }
+                        if(array_sum($dealersCardsArray) <= 17){
+                            $dealersCardsArray[] = array_shift($deck);
+                        }
+                    }
+                    return array_sum($dealersCardsArray);
+
+                    //var_dump($deck);
+                    //echo array_sum($dealersCardsArray);
+                    //var_dump($dealersCardsArray);
+                }
+            }
+
             
             //blackjack yo
-            while(count($deck) > 4 && $pmoney > 0){
-                $pcard1 = $deck[0];
-                $dcard1 = $deck[1];
-                $pcard2 = $deck[2];
-                $dcard2 = $deck[3];
-                $pcard3 = 0;
-                $dcard3 = 0;
-                $pcard4 = 0;
-                $dcard4 = 0;
-                
-                // v Just checking stuff 
-                // $pcard3 = $deck[4];
-                // $pcard4 = $deck[5];
+            while(count($deck) > 3 && $pmoney > 0){
+                $ptotal = assignCards('player', $deck);
+                $dtotal = assignCards('dealer', $deck);
+                //echo $ptotal . "<br>";
+                //echo $dtotal . "<br>";
                
                 $round++;
                 
-                 //determines whether to change an ace
-                if($pcard1 == 1 && $pcard2 <= 10){
-                  $pcard1 == 11; 
-                }
-                elseif($pcard2 == 1 && $pcard1 <= 10){
-                    $pcard2 == 11;
-                }
-                if($dcard1 == 1 && $dcard2 <= 10){
-                  $dcard1 == 11; 
-                }
-                elseif($dcard2 == 1 && $dcard1 <= 10){
-                    $dcard2 == 11;
-                }
-                // v Still checking stuff
-                //echo "$pcard1 $pcard2 ... $dcard1 $dcard2 <br/>";
-                
-                //the hits of the dealer and player 
-                if($pcard1 + $pcard2 < 16){
-                    $pcard3 = countCards($deck[4], $deck);
-                }
-                
-                if($pcard3 !== 0 && $pcard1 + $pcard2 + $pcard3 < 16){
-                    $pcard4 = countCards($deck[5], $deck);
-                }
-                
-                if($pcard4 !== 0 && $pcard1 + $pcard2 + $pcard3 + $pcard4< 16){
-                    $pcard5 = countCards($deck[6], $deck);
-                }
-                //echo "$pcard1     $pcard2     $pcard3   $pcard4 <br/>"; 
-                
-                //$ptotal = $pcard1 + $pcard2 + $pcard3 + $pcard4;
-                //if($ptotal <= $dcard1 + $dcard2 && $ptotal < 22){
-                  //  $pcard3 = $deck[4];
-                //}
-                
-                
- 
-                if($pcard3 == 0){
-                    if($dcard1 + $dcard2 < 17){
-                        $dcard3 = $deck[4];
-                        if($dcard1 + $dcard2 + $dcard3 < 17){
-                            $dcard4 = $deck[5];
-                            if($dcard1 + $dcard2 + $dcard3 + $dcard4 < 17){
-                                $dcard4 = $deck[6];
-                            }
-                        }
-                    }
-                }
-                if($pcard3 !== 0 && $pcard4 == 0) {
-                    if($dcard1 + $dcard2 < 17){
-                        $dcard3 = $deck[5];
-                        if($dcard1 + $dcard2 + $dcard3 < 17){
-                            $dcard4 = $deck[6];
-                            if($dcard1 + $dcard2 + $dcard3 + $dcard4 < 17){
-                                $dcard4 = $deck[7];
-                            }
-                        }
-                    }
-                }
-                if($pcard4 !== 0 && $pcard5 == 0) {
-                    if($dcard1 + $dcard2 < 17){
-                        $dcard3 = $deck[6];
-                        if($dcard1 + $dcard2 + $dcard3 < 17){
-                            $dcard4 = $deck[7];
-                            if($dcard1 + $dcard2 + $dcard3 + $dcard4 < 17){
-                                $dcard4 = $deck[8];
-                            }
-                        }
-                    }
-                }
-                if($pcard5 !== 0) {
-                    if($dcard1 + $dcard2 < 17){
-                        $dcard3 = $deck[7];
-                        if($dcard1 + $dcard2 + $dcard3 < 17){
-                            $dcard4 = $deck[8];
-                            if($dcard1 + $dcard2 + $dcard3 + $dcard4 < 17){
-                                $dcard4 = $deck[9];
-                            }
-                        }
-                    }
-                }
-                //var_dump($deck);
-                //echo "$dcard1     $dcard2     $dcard3    $dcard4<br/>";
-                
-                //figure it out
-                $ptotal = $pcard1 + $pcard2 + $pcard3 + $pcard4 + $pcard5;
-                $dtotal = $dcard1 + $dcard2 + $dcard3 + $dcard4 + $dcard5;
-                
+               
                 //echo 'c-before' . count($deck);
+                
                 //determining who wins by points and such
-                    if($ptotal == $dtotal || $ptotal > 21 && $dtotal > 21){
-                        $roundwinner = "No One";
-                        $deck = rearrange($deck);
+                if($ptotal == $dtotal || $ptotal > 21 && $dtotal > 21){
+                    $roundwinner = "No One";
+                }
+                if($ptotal == 21 && $dtotal == 21){
+                    $roundwinner = "Natural";
+                }
+                elseif($ptotal > $dtotal){
+                    $pmoney -= $bet;
+                    
+                    if($ptotal > 21){
+                        $roundwinner = "Dealer";
                     }
-                    if($ptotal == 21 && $dtotal == 21){
-                        $roundwinner = "Natural";
-                        $deck = rearrange($deck);
+                    else{
+                        if($ptotal == 21){
+                            $blackjack++;
+                        }
+                        $pmoney += $winround;
+                        $roundwinner = "Player";
                     }
-                    elseif($ptotal > $dtotal){
-                        $pmoney -= $bet;
-                        if($ptotal > 21){
-                            $roundwinner = "Dealer";
-                            $deck = remove($deck, 4);
-                            if($pcard3 !== 0){
-                                $deck = remove($deck, 1);
-                                if($pcard4 !== 0){
-                                    $deck = remove($deck, 1);
-                                }
-                            }
-                            if($dcard3 !== 0){
-                                $deck = remove($deck, 1);
-                                if($dcard4 !== 0){
-                                    $deck = remove($deck, 1);
-                                    }
-                                }
-                            }
-                        else{
-                            if($ptotal == 21){
-                                $blackjack++;
-                            }
-                            $pmoney += $winround;
-                            $roundwinner = "Player";
-                            $deck = remove($deck, 4);
-                            if($pcard3 !== 0){
-                                $deck = remove($deck, 1);
-                                if($pcard4 !== 0){
-                                    $deck = remove($deck, 1);
-                                }
-                            }
-                            if($dcard3 !== 0){
-                                $deck = remove($deck, 1);
-                                if($dcard4 !== 0){
-                                    $deck = remove($deck, 1);
-                                }
-                            }
-                        }
-                    }   
-                    elseif($dtotal > $ptotal){
-                        $pmoney -= $bet;
-                        if($dtotal > 21){
-                            $pmoney += $winround;
-                            $roundwinner = "Player";
-                            $deck = remove($deck, 4);
-                            if($pcard3 !== 0){
-                                $deck = remove($deck, 1);
-                                if($pcard4 !== 0){
-                                    $deck = remove($deck, 1);
-                                }
-                            }
-                            if($dcard3 !== 0){
-                                $deck = remove($deck, 1);
-                                if($dcard4 !== 0){
-                                    $deck = remove($deck, 1);
-                                }
-                            }
-                        }
-                        else{
-                            $roundwinner = "Dealer";
-                            $deck = remove($deck, 4);
-                            if($pcard3 !== 0){
-                                $deck = remove($deck, 1);
-                                if($pcard4 !== 0){
-                                        $deck = remove($deck, 1);
-                                }
-                            }
-                            if($dcard3 !== 0){
-                                $deck = remove($deck, 1);
-                                if($dcard4 !== 0){
-                                    $deck = remove($deck, 1);
-                                }
-                            }
-                        }
+                }   
+                elseif($dtotal > $ptotal){
+                    $pmoney -= $bet;
+                    
+                    if($dtotal > 21){
+                        $pmoney += $winround;
+                        $roundwinner = "Player";
                     }
+                    else{
+                        $roundwinner = "Dealer";
+                    }
+                }
                         
                // echo 'c-after' . count($deck);
             
