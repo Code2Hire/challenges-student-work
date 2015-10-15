@@ -1,0 +1,63 @@
+<!-- Build Out A Real Masthead -->
+
+<!-- Instructions:
+
+    - build out the masthead seen in the image masthead.png
+
+    - use the 'cart-icon.png' and 'search-icon.png' images; everything else should just be html and css
+
+-->
+
+<!-- ** Extra Credit ** -->
+
+<!-- Instructions:
+
+    - build out the sub-navigation seen in the 'extra-credit-masthead.png' image, and make it show when you hover on the "Products" link in the nav
+
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Masthead
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+
+    <body>
+      <div class="masthead">
+        
+        <div class="logo">Logo</div>
+        
+        <div class="dropdown">
+          <button>PRODUCTS</button>
+          <ul class="dropdown-menu">
+              <li><a href="#">Instruments</a></li>
+              <li><a href="#">Cables</a></li>
+              <li><a href="#">Books</a></li>
+              <li><a href="#">Accesories</a></li>
+          </ul>
+        </div>
+        <div class="otherList">
+          <ul>
+            <li>MUSIC</li>
+            <li>PLAY</li>
+            <li>CONNECT</li>
+          </ul>
+        </div>
+      
+        <form method="get" action="https://challenges-willjourn.c9.io/week_6/day_1/03_hard/hard.html">
+          <input type='text' name='s' value="">
+          <input type='image' src='search-icon.png'>
+        </form>
+        
+        <div class="rightList">
+          <ul>
+            <li><a href="#">SIGN IN</a>  / <a href="#">DEALER LOCATOR</a></li>
+            <li><a href="#">VIEW CART</a><a href="#"><img src="cart-icon.png" alt="cart"></a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </body>
+</html>

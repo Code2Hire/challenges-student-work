@@ -12,7 +12,7 @@
                We will do this by counting out how many players there are, counting how many cards
                are in the deck. then dividing them so we know how many cards each player should get
              */
-
+            
                $deck = 
                $num_players = 4;
                $num_cards_in_deck = //find a function to count the # of elements in an array

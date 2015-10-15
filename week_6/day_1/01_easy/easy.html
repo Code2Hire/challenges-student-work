@@ -1,0 +1,88 @@
+<!-- Create a Web Page --> 
+
+<!-- Instructions:
+
+    - build out the web page seen in the image 'full-page.png' (*you can start with the html from exercise 5 and build off of there)
+
+    - the background grey color is #777
+
+    - add whatever text you want in place of what's there
+
+    - add a few paragraphs of text to the "paragraphs" box
+
+    - add an image of your choosing to the "large box"
+
+    - make the masthead stick to the top of the screen when you scroll down
+
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Gray Page
+        </title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        
+    </head>
+
+    <body>
+        <div class="masthead">
+            <ul>
+                <li class="logo">Logo</li>
+                <li class="link">Link-5</li>
+                <li class="link">Link-4</li>
+                <li class="link">Link-3</li>
+                <li class="link">Link-2</li>
+                <li class="link">Link-1</li>
+            </ul>
+        </div>
+        <div class="largeBox">
+            <h1 style="text-align:center">Title</h1>
+            <p style="margin-left: 20px; margin-right:20px;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare, dui at fermentum viverra, lacus tortor eleifend justo, non dignissim tortor ex at quam. Vestibulum et facilisis sem. Aliquam elementum, enim non lacinia tempus, augue libero pharetra sem, quis aliquam ipsum mauris sed augue. Proin placerat facilisis tortor id congue. Nullam bibendum semper nisl, at convallis risus rutrum eget. Maecenas commodo nisi at condimentum placerat. Donec feugiat libero tempor lorem imperdiet egestas. Phasellus pharetra nibh a odio condimentum, eget placerat turpis tincidunt. Fusce sit amet auctor justo, id lacinia metus. Aenean sem dolor, consequat quis fermentum in, convallis id mauris.
+            </p>
+        </div>
+        
+        <div class="smallBox">
+            <h2 class="smallTitle">Secondary Title</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare, dui at fermentum viverra, lacus tortor eleifend justo, non dignissim tortor ex at quam. Vestibulum et facilisis sem. Aliquam elementum, enim non lacinia tempus, augue libero pharetra sem, quis aliquam ipsum mauris sed augue. Proin placerat facilisis tortor id congue. 
+            </p>
+        </div>
+        
+        <div class="smallBox" style="margin-top:380px">
+            <h2 class="smallTitle">Secondary Title</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare, dui at fermentum viverra, lacus tortor eleifend justo, non dignissim tortor ex at quam. Vestibulum et facilisis sem. Aliquam elementum, enim non lacinia tempus, augue libero pharetra sem, quis aliquam ipsum mauris sed augue. Proin placerat facilisis tortor id congue. 
+            </p>
+        </div>        
+        
+        <div class="header">
+            <h>Gallery</h>
+        </div>
+        <div>
+            <img  class="gallery1" src="http://placehold.it/350x150">
+            <img  class="gallery2" src="http://placehold.it/350x150">
+            <img  class="gallery3" src="http://placehold.it/350x150">
+        </div>
+        
+        <div class="tabWhole">
+            <ul id="tabs">
+                <li><a href="#tab1">Tab 1</a></li>
+                <li><a href="#tab2">Tab 2</a></li>
+                <li><a href="#tab3">Tab 3</a></li>
+            </ul>
+            
+            <div class="tabContent" id="tab">
+                <h1>Tab 1</h1>
+                <p style="font-size=1.5em">Lorem Ipsum</p>
+            </div>
+            
+        <div class="footer">
+            <ul>
+                <li>&copy; 2015</li>
+                <li class="links">Links</li>
+            </ul>
+        </div>
+    </body>
+</html>

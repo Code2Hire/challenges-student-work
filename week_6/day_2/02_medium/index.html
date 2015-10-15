@@ -1,0 +1,16 @@
+<!-- 
+    Task: 
+        Take the array below and print out the min and max values.
+
+    Useful Links:
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+-->
+<script>
+  var numbers = [22, 55, 123, 2, 234, 32, 1.2, 23, 102, 92, 109];
+  var numCount = numbers.length;
+  
+  numbers.sort(function(a, b){return a-b});
+  console.log(numbers[0]);
+  console.log(numbers[numCount - 1]);
+  
+</script>

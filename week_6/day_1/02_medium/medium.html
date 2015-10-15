@@ -1,0 +1,65 @@
+<!-- Pie Chart -->
+
+<!-- Instructions:
+
+    - build out the pie chart seen in the image using only html and css (no images!)
+
+    - set the background color of each section to the color it is labeled
+
+-->
+<style>
+     .pieContainer {
+          height: 100px;
+     }
+     .pieBackground {
+          background-color: gray;
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          border-radius: 100px;
+          
+     } 
+</style>
+<div id="pieContainer">
+     <div class="pieBackground"></div>
+</div>
+
+<style>
+     .pie {
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          border-radius: 200px;
+          clip: rect(0px, 100px, 100px, 0px);
+     }
+     .hold {
+          position: absolute;
+          width: 200px;
+          height: 200px;
+          border-radius: 200px;
+     }
+     #pieSlice1 .pie {
+          background-color: red;
+          transform:rotate(0deg);
+     }
+     #pieSlice2 .pie {
+          background-color: blue;
+          transform:rotate(270deg);
+     }
+     #pieSlice3 .pie {
+          background-color: green;
+          transform:rotate(180deg);
+     }
+     #pieSlice4 .pie {
+          background-color: yellow;
+          transform:rotate(90deg);
+     }
+</style>
+
+<div class="pieContainer">
+     <div class="pieBackground"></div>
+     <div id="pieSlice1" class="hold"><div class="pie"></div></div>
+     <div id="pieSlice2" class="hold"><div class="pie"></div></div>
+     <div id="pieSlice3" class="hold"><div class="pie"></div></div>
+     <div id="pieSlice4" class="hold"><div class="pie"></div></div>
+</div>

@@ -1,0 +1,166 @@
+body {
+  font-family: Sans-Serif;
+  margin: 0px;
+}
+
+.masthead {
+    background-color: #777; 
+    color: white;
+    min-height:70px;
+    font-size:2em;
+    position: fixed;
+    width: 100%;
+    z-index:1;
+}
+
+.masthead ul {
+    list-style-type: none;
+    margin:0px;
+    padding-top:15px;
+}
+
+.masthead ul li {
+    display: inline-block;
+
+}
+.masthead .link {
+    float: right;
+    padding-right:20px;
+}
+
+.header {
+    position:relative;
+    margin-top:750px;
+    width:75%;
+    height:50px;
+    background-color:#777;
+    height:50px;
+}
+
+.largeBox {
+    background-color: #777;
+    width:600px;
+    height: 480px;
+    position:absolute;
+    margin-top:120px;
+    margin-left:50px;
+    font-size: 1.25em;
+    color:white;
+    text-align:justify;
+}
+
+.smallBox {
+    background-color: #777;
+    width:550px;
+    height: 200px;
+    position:absolute;
+    margin-top:120px;
+    margin-left:695px;
+    font-size: 1.25em;
+    color:white;
+    padding: 10px;
+    text-align:justify;
+}
+.smallBox p {
+    margin:10px;
+}
+
+.smallTitle {
+    text-align:center;
+    margin: 0px; 
+    padding-top:5px; 
+    padding-bottom:5px
+}
+
+.header {
+    margin-top:650px;
+    width:85%;
+    margin-left:85px;
+    background-color: #777;
+    height: 75px;
+    position:absolute;
+    font-size: 2.5em;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.gallery1 {
+    margin-top: 800px;
+    margin-left:100px;
+    position: absolute;
+}
+
+.gallery2 {
+    margin-top: 800px;
+    margin-left:502px;
+    position: absolute;
+}
+.gallery3 {
+    margin-top: 800px;
+    margin-left:905px;
+    position: absolute;
+}
+
+.tabWhole {
+    position:absolute;
+    margin:1000px 0 0 200px;
+}
+
+ul#tabs {
+    list-style-type: none;
+    margin: 30px 0 0 0;
+    padding: 0 0 0.3em 0;
+
+    
+}
+ul#tabs li {
+    display: inline;
+}
+
+ul#tabs li a {
+    color: #fff; 
+    background-color: #777; 
+    padding: 0.3em; 
+    text-decoration: none;
+}
+
+ul#tabs li a:hover {
+    background-color: #777;
+}
+
+ul#tabs li a.selected {
+    color: #fff; 
+    background-color: #777;
+    font-weight: bold;
+    padding: 0.7em 0.3em 0.38em 0.3em;
+}
+
+div.tabContent {
+    padding: 0.5em;
+    background-color: #777; 
+    color:#fff;
+    min-width:950px;
+}
+
+div.tabContent.hide {
+    display: none;
+}
+
+.footer {
+    position:absolute;
+    margin: 130px 0 0 -200px;
+    width: 1351px;
+    background-color:#777;
+}
+
+.footer li {
+    list-style-type:none;
+    display:inline-block;
+    color: #fff;
+}
+
+.footer .links {
+    float:right;
+    padding-right:30px;
+}
