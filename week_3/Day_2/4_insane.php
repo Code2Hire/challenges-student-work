@@ -162,7 +162,7 @@
                 
             }
             
-            
+            //gives all the cards to the players
             function assignCards($type, &$deck){
                 $playersCardsArray=[];
                 $dealersCardsArray=[];
@@ -219,7 +219,7 @@
 
             
             //blackjack yo
-            while(count($deck) > 3 && $pmoney > 0){
+            while(count($deck) > 4 && $pmoney > 0){
                 $ptotal = assignCards('player', $deck);
                 $dtotal = assignCards('dealer', $deck);
                 //echo $ptotal . "<br>";
