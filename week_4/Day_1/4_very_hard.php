@@ -79,6 +79,37 @@
         }
     }
     ///////////////////////////
+class CamcostPricing{
+        public $Bundledef = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + Fastnet" => 74.98,
+            "Regular + Slownet" => 64.98,
+            "Regular + Fastnet" => 94.98,);
+        public $BundleOR = array(
+            "Budget + SlowNet" => 44.98,
+            "Budget + Fastnet" => 74.98,
+            "Regular + Slownet" => 64.98,
+            "Regular + Fastnet" => 94.98,
+            "Couch Potato + Slownet" =>104.98,
+            "Couch Potato + Fastnet" => 134.98);
+        public $BundleNC = array(
+            "Budget + SlowNet" => 49.98,
+            "Budget + Fastnet" => 79.98,
+            "Regular + Slownet" => 69.98,
+            "Regular + Fastnet" => 99.98,);
+        public function getBundlesByZip($zip){
+           if (strpos($zip, 27) === 0 || strpos($zip, 28) === 0 || strpos($zip, 29)){
+               return $this->BundleNC;
+           } 
+            elseif(strpos($zip, 84) === 0 || strpos($zip, 97)){
+                return $this->BundleOR;
+            }
+            else{
+                return $this->Bundledef;
+            }
+        }
+    }
+    ///////////////////////////
 
 
     $pricing = new CamcostPricing;
@@ -100,6 +131,7 @@
     showBundles($bundles);
 
     
+
 
     ?>
 

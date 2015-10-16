@@ -13,21 +13,21 @@
     array('name' => 'Package 3', 'price' => 100.01),
     array('name' => 'Package 4', 'price' => 11.00),
     array('name' => 'Package 5', 'price' => 25.95),
-    array('name' => 'Package 6', 'price' => 10.00),
     array('name' => 'Package 7', 'price' => 11.00),
+    array('name' => 'Package 6', 'price' => 10.99),
   );
   
   usort($packagesArray, function($a, $b) {
     return $a['price'] - $b['price'];
 });
-  var_dump($packagesArray);
+
 ?>
 <!DOCTYPE html>
 <html>
   <head></head>
 	<body>
       <h1>Packages</h1>
-      <p>Here are all the packages we offer and there price:</p>
+      <p>Here are all the packages we offer and their price:</p>
       <table>
         <th><td>Name</td><td>Price</td></th>
         <!-- 

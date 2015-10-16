@@ -43,7 +43,122 @@
          */
 
         ///////////////////////////
-        // Put your code here!
+        interface Describable {
+          public function provideDescription();
+        }
+        
+        class ShoppingCart {
+            public $cartItems = array();
+            
+            public function provideDescription($product) {
+                return $this->description;
+            }
+            
+            public function addItem($item) {
+                $this->cartItems[] = $item;
+            }
+            
+            public function removeOne($item) {
+                foreach($this->cartItems as $value) {
+                    if($this->name == $value) {
+                        unset($value);
+                    }
+                }
+            }
+            
+            public function removeAll($item) {
+                for($i=0; $i < count($cartItems); $i++) {
+                    foreach($this->cartItems as $value) {
+                        if($this->name == $value) {
+                            unset($value);
+                        }   
+                    }
+                }
+            }
+            
+            public function getTotalPrice() {
+                foreach($this->cartItems as $value) {
+                    $totalPrice += $value->price;
+                }
+                return $totalPrice;
+            }
+            
+            public function getAllProducts() {
+                return $this->cartItems;
+            }
+            
+            public function findProductByName($name) {
+                foreach($this->cartItems as $value) {
+                    if($name == $value->name) {
+                        return $this->product;
+                    }
+                }
+            }
+            
+        }
+        
+        abstract class Product implements Describable{
+            protected $name;
+            protected $brand;
+            protected $price;
+          
+            public function __construct($name, $brand, $price) {
+          
+            $this->name = $name;
+            $this->brand = $brand;
+            $this->price = $price;
+            
+            }
+          
+            abstract function provideDescriptionForProductType();
+          
+            public function provideDescription(){
+                return $this->provideDescriptionForProductType();
+            }
+          
+            public function getName(){
+                if($this->name){
+                  return $this->name;
+                } else{
+                  throw new Exception("Empty value found for name");
+                }
+            }
+  
+            public function getPrice(){
+                if($this->price){
+                  
+                      if(is_numeric($this->price)){
+                        return $this->price;
+                      } else {
+                      throw new Exception("Invalid Price"); 
+                      }
+                
+                } else {
+                  throw new Exception ("Empty value found for price");
+                }
+            }
+            
+          public function getBrand(){
+                if($this->brand){
+                    return $this->brand;
+                } else {
+                    throw Exception("Empty value found for brand");
+                }
+          }
+          
+        }
+    ///////////////////////////
+    
+    $cart = new ShoppingCart();
+    $cart->addItem(new Item('Cheap Book', 2.99));
+    $cart->addItem(new Item('Expensive Book', 24.99));
+    $cart->addItem(new Item('Movie', 12.99));
+    $cart->addItem(new Item('Video Game', 59.99));
+    
+    echo "<p>Total cost before tax: \${$cart->getCostBeforeTax()}</p>";
+    echo "<p>Tax amount: \${$cart->getTaxAmount()}</p>";
+    echo "<p>Total cost after tax: \${$cart->getCostAfterTax()}</p>";
+    
         ///////////////////////////
         ?>
     </p>

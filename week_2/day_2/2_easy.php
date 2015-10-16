@@ -7,7 +7,15 @@
 ?>
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <?php function add($array) {
+      for($i = 0; $i < count($array); $i++) {
+        $answer += $array[$i];
+      }
+      echo $answer;
+    }
+      ?>
+  </head>
   <body>
     <p>
         <?php
