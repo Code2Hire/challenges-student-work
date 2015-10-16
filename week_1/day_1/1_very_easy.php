@@ -28,6 +28,8 @@
 
           sort($unOrderedArray);
           var_dump($unOrderedArray);
+          rsort($unOrderedArray);
+          var_dump($unOrderedArray);
           ?>
         </p>
   </body>

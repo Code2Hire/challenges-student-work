@@ -28,11 +28,12 @@
     <p>
         <?php
             // Write your own using clean_then_call and a closure to manipulate the string further
-            clean_then_call2($string, function ($string) {
+            function clean_then_call2($string, callable $stringman) {
                 strrev($string);
-                
-            });
-            echo clean_then_call2 ('Conner')
+            
+            return $stringman($string);
+            };
+            echo clean_then_call2 ('Conner','md5');
         ?>
     </p>
   </body>

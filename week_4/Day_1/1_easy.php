@@ -18,14 +18,15 @@
      */
 
     ///////////////////////////
-        $width = 160;
-        $height = 75;
-
+        
     class Rectangle{
         public function __construct($width,$height){
             $this->width=$width;
             $this->height=$height;
         } 
+        public $width = 160;
+        public $height = 75;
+            
         public function getArea(){
             return $this->width * $this->height;
         }

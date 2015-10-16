@@ -33,7 +33,7 @@
             return $price;
         }
         public function getTaxAmount() {
-            $price = $this->getCostBeforeTax;
+            $price = $this->getCostBeforeTax();
             return $price * .1;
         }
         public function getCostAfterTax(){

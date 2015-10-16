@@ -44,8 +44,10 @@
         });
             
         //Without writing a loop, print out the winners seperated by a comma and a space
+        
+        
         print implode(', ',$passedNames);
-            
+        
             
         ?>
 

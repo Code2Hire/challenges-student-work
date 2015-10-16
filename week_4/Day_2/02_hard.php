@@ -5,6 +5,9 @@
   <body>
     <p>
         <?
+        ////////////////////////////////////
+        //INCOMPLETE
+        ////////////////////////////////////
         /**
          * OVERVIEW:
          * We've decided we want to add "wishlist" functionality to our site.  If you think about it,

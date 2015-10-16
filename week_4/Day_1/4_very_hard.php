@@ -42,6 +42,8 @@
      * This site will help you to know which zip codes belong to which states:
      * @see https://smartystreets.com/articles/zip-codes-101
      */
+     
+    
 
 
     ///////////////////////////
@@ -64,16 +66,16 @@
             "Regular + SlowNet" => 69.98,
             "Regular + FastNet" => 99.98,);
             public function getBundlesByZip($zip){
-                if (strpos($zip, 27) === 0 || strpos($zip, 28) === 0 || strpos($zip, 29)){
+                if (strpos($zip, '27') === 0 || strpos($zip, '28') === 0 || strpos($zip, '29') === 0){
                     return $this->BundleNC;
                 }
-                elseif(strpos($zip,84) === 0 || strpos($zip, 97)){
+                elseif(strpos($zip,'84') === 0 || strpos($zip, '97') === 0){
                     return $this->BundleOR;
                 }
                 else{
                     return $this->Bundledef;
                 }
-        }
+            }
     }
     ///////////////////////////
 

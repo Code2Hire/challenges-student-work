@@ -1,34 +1,69 @@
 <!-- 
-  Using everything you have learned and some googling
+	Using everything you have learned and some googling
 
-  I have an array of names below but they are all out of order 
-  figure out the code needed to put them in order
+  Imagine this is a post page and they have sent you a number
+  you want to return them the number it text format. For instance:
+    
+    - 1 -> one
+    - 2 -> two
 
-  Bonus: render all of the names in reverse order
+  but anything that is above 10 we want to return "Nothing is greater than 10"
  -->
+
 <!DOCTYPE html>
 <html>
   <head></head>
-  <body>
+	<body>
         <p>
           <?php
-          
-          
-            $unOrderedArray = [
-              'Joseph',
-              'Lauren',
-              'Eric',
-              'James',
-              'Derek',
-              'Mark',
-              'Alex',
-              'Tru',
-              'Michael'
-            ];
-
-          sort($unOrderedArray);
-          var_dump($unOrderedArray);
+            $n = 3;
+            // this came from the previous page as a post variable
+            switch ($n) {
+              case 1:
+                echo "one";
+              break;
+              
+              case 2:
+                echo "two";
+              break;
+              
+              case 3:
+                echo "three";
+              break;
+              
+              case 4:
+                echo "four";
+              break;
+              
+              case 5:
+                echo "five";
+                break;
+                
+              case 6:
+                echo "six";
+              break;
+              
+              case 7:
+                echo "seven";
+              break;
+              
+              case 8:
+                echo "eight";
+              break;
+              
+              case 9: 
+                echo "nine";
+              break;
+              
+              case 10:
+                echo "ten";
+              break;
+              
+              case ($n >10):
+                echo "there is nothing greater than 10";
+            }
+          	// code goes here ...
           ?>
         </p>
-  </body>
+	</body>
 </html>

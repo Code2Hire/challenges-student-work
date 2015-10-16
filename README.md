@@ -4,7 +4,7 @@ These are the weekly challenges expected to be completed by each student.
 ##How to use this repo
 The following instructions cover how to work with this repo in Cloud 9.
 
-###Setup project in Cloud 9 (only needs to be done once)
+###Setup project in Cloud 9 (only needs to be done once)g
 1. Fork this repo by clicking fork on the top right hand corner of this page.
 2. Open [Cloud 9](https://www.c9.io) and login with your GitHub account by clicking the icon that looks like a cat in the top right hand corner of the page
 3. Select repository from the left side navigation

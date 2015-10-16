@@ -6,6 +6,10 @@
     <p>
 
         <?php
+        
+        ////////////////////////////////////////
+        //INCOMPLETE
+        ////////////////////////////////////////
             /* 
               Using your advanced knowledge of cards and arrays, Create a game of Blackjack
               Rules:

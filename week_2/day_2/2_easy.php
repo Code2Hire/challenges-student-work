@@ -3,7 +3,12 @@
      * Write a function called "add" that adds all the numbers in an array and
      * returns the result.
      */
-    
+    function add($array){
+        for($i=0; $i<count($array);$i++){
+            $answer += $array[$i];
+        }
+        echo $answer;
+    }
 ?>
 <!DOCTYPE html>
 <html>

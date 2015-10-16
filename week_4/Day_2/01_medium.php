@@ -5,6 +5,9 @@
   <body>
     <p>
         <?
+        //////////////////////////////////////
+        //INCOMPLETE
+        //////////////////////////////////////
         /**
          * So we have our products, but what are we going to do with them.
          *
@@ -43,8 +46,19 @@
          */
 
         ///////////////////////////
-        // Put your code here!
-        ///////////////////////////
+        class ShoppingCart {
+          public $cartItems = array();
+          public function addItem($item){
+              $this->cartItems[] = $item;
+          }
+          public function getCostBeforeTax(){
+            $price = 0;
+            foreach($this->cartItems as $item) {
+              $price += $items->price;
+            }
+          }
+          
+        }
         ?>
     </p>
   </body>

@@ -28,7 +28,7 @@
           	 'September',
           	 'November'
           	];
-
+            //removes september from the $monthsexcludeArray, as per the instructions
           	unset ($monthExcludeArray[7]);
           	
           	$newArray = [

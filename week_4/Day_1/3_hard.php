@@ -38,7 +38,7 @@
         }
         //uses prices to find tax
         public function getTaxAmount() {
-            $price = $this->getCostBeforeTax;
+            $price = $this->getCostBeforeTax();
             return $price * .1;
         }
         //adds cost and tax
